@@ -19,7 +19,7 @@
 							<!--<div class="sec-title_title">About us</div>-->
 							<h2 class="sec-title_heading" style="color:white">Start Your digital Skills Career Today</h2>
 						</div>
-						<div class="about-one_text"> Ready to break into the world of tech? Eldohub Tech Academy offers intensive bootcamps designed to equip you with the skills needed to land a fulfilling </div>
+						<div class="about-one_text"> Ready to break into the world of tech? Techsphere Training Institute offers intensive bootcamps designed to equip you with the skills needed to land a fulfilling </div>
 						<div class="about-one_text">Our programs cover everything from foundational concepts to industry best practices, preparing you to confidently tackle real-world challenges. </div>
 					</div>
 				</div>

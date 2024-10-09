@@ -42,6 +42,11 @@
 		  border-radius:50px;
 		  background-color:#3ccccc !important;
 	}
+
+	.formLabel{
+		font-size:15px;
+		color:#000033;
+	}
 </style>
 </head>
 
@@ -127,28 +132,7 @@
 									<li><a href="{{url('/')}}" class="navLink">Home</a></li>
 									<li><a href="{{route('about_us')}}" class="navLink">About Us</a></li>
 									<li><a href="{{route('all_courses')}}" class="navLink">Courses</a></li>
-									<li class="dropdown"><a href="#" class="navLink">Courses</a>
-										<ul class="dropdownItem">
-											<li><a href="" class="dropdownLink">All Courses</a></li>
-											<li><a href="" class="dropdownLink">Full stack software development</a></li>
-											<li><a href="" class="dropdownLink">Android Application development</a></li>
-											<li><a href="" class="dropdownLink">Web Application development</a></li>
-											<li><a href="" class="dropdownLink">Data Analysis</a></li>
-											<li><a href="" class="dropdownLink">Python programming</a></li>
-											<li><a href="" class="dropdownLink">Cyber security</a></li>
-											<li><a href="" class="dropdownLink">Graphic design</a></li>
-										</ul>
-									</li>
-									<li><a href="projects.html" class="navLink">Intake</a></li>
-                                    <li class="dropdown"><a href="#" class="navLink">Program</a>
-										<ul>
-											<li><a href="services.html">High School Ict Club</a></li>
-											<li><a href="service-detail.html">Online Industrial Attachment</a></li>
-                                            <li><a href="service-detail.html">Colleges And Universities Coding Bootcamp</a></li>
-										</ul>
-									</li>
-									
-									<li><a href="#" class="navLink">Contact</a></li>
+									<li><a href="{{route('apply')}}" class="navLink">Enrol</a></li>
 									<li><a href="{{route('login')}}" class="navLink">Login</a></li>
 								</ul>
 							</div>
@@ -280,7 +264,7 @@
 			</div>
 
 			<div class="footer-bottom">
-				<div class="copyright" style="color:white;">2024 &copy; Copyright 2024 Eldohub Academy. All Rights Reserved.</div>
+				<div class="copyright" style="color:white;">2024 &copy; Copyright 2024 Techsphere Training Institute. All Rights Reserved.</div>
 			</div>
 
 		</div>
