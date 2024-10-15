@@ -75,6 +75,8 @@ Route::post('/adminUpdateAssignmentQuestions',[App\Http\Controllers\StudentAssig
 Route::post('/adminArchivedAssignmentQuestions',[App\Http\Controllers\StudentAssignmentQuestionController::class,'adminArchivedAssignmentQuestions'])->name('adminArchivedAssignmentQuestions');
 Route::post('/adminRecoverAssignmentQuestions',[App\Http\Controllers\StudentAssignmentQuestionController::class,'adminRecoverAssignmentQuestions'])->name('adminRecoverAssignmentQuestions');
 Route::post('/adminExportAssignmentQuestionsAsPdf',[App\Http\Controllers\StudentAssignmentQuestionController::class,'adminExportAssignmentQuestionsAsPdf'])->name('adminExportAssignmentQuestionsAsPdf');
+Route::get('/adminViewAssignmentAttemps/{id}',[App\Http\Controllers\StudentAssignmentController::class,'adminViewAssignmentAttempts'])->name('adminViewAssignmentAttempts');
+Route::get('/adminViewStudentAnswers/{id}',[App\Http\Controllers\StudentAssignmentController::class,'adminViewStudentAnswers'])->name('adminViewStudentAnswers');
 
 //TRAINEE VIEWING THEIR EXAM
 

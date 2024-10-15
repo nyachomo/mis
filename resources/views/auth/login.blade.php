@@ -32,16 +32,32 @@
 
       <form action="{{route('login')}}" method="post">
         @csrf
+        <label>Email Address</label>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="email">
+         
+          <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+              @error('email')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+        <label>Password</label>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="password">
+          <!--<input type="password" class="form-control" placeholder="Password" name="password">-->
+         
+          <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus>
+             @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -67,12 +83,14 @@
 
       
 
-      <p class="mb-1">
+      <!--<p class="mb-1">
         <a href="forgot-password.html">I forgot my password</a>
       </p>
+
       <p class="mb-0">
         <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
+      </p>-->
+
     </div>
     <!-- /.login-card-body -->
   </div>

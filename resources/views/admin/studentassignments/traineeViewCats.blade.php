@@ -20,6 +20,7 @@
 <!-- /.container-fluid -->
 
 <!--header section-->
+<!--
 <section class="content">
     <div class="container-fliud">
         <div class="card">
@@ -38,30 +39,25 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!--end of header section-->
 
 
 @if(!empty($exams))
 <section class="content">
-    <div class="containerfliud" style="padding-left:px">
+    <div class="containerfliud" style="padding-left:13px;padding-right:13px">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="alert alert-success">
                     <h5> Total Assesment</h5>
-                   35
+                   0
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="alert alert-info">
-                    <h5> Completed Assesment</h5>
-                   23
-                </div>
-            </div>
-            <div class="col-sm-4">
+           
+            <div class="col-sm-6">
                 <div class="alert alert-danger">
                     <h5> A varage Score</h5>
-                   89
+                  0
                 </div>
             </div>
            
@@ -135,9 +131,8 @@
                                                         <li><center><a href="#" class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                         <li>
                                                             <a href="{{url('/traineeViewQuestions/'.$exam->id)}}" class="dropdown-item" >
-                                                                <i class="las la-trash las3"></i> Attempt Exam
+                                                                <i class="las la-trash las3"></i> Attempt Question
                                                             </a>
-
                                                         </li>
                                                     
                                                     </ul>

@@ -18,6 +18,10 @@ class StudentAnswer extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class,'user_id','id');
+        return $this->belongsTo(User::class);
+    }
+
+    public function studentassignmentquestion(){
+        return $this->belongsTo(StudentAssignmentQuestion::class,'student_assignment_question_id','id');
     }
 }

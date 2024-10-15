@@ -100,7 +100,7 @@
 						</div>
                         <div class="team-two_block-image" style="background-color:#000033;padding-top:10px;padding-bottom:10px">
                             <center>
-                                  <a href="#" class="btn btn-success courseApplyBtn">Apply Now</a>
+                                  <a href="#" class="btn btn-success courseApplyBtn" style="font-size:10px">Apply Now</a>
                             </center>
                         </div>
 					</div>
@@ -113,14 +113,22 @@
             <!-- Content Column -->
             <div class="about-one_content-column col-lg-6 col-md-12 col-sm-12" style="background-color:#000033;border-radius:20px;">
                 <div class="about-one_content-inner" style="padding-top:10px">
-                    <h2 class="sec-title_heading" style="color:white">How to pay</h2>
+                    <center><h4 class="sec-title_heading" style="color:white">How to pay</h4></center>
                     <!-- Sec Title -->
                     <div class="about-one_text">
-                         <b><h6>Bank Details</h6></b>
+                         <b><h6>Bank</h6></b>
                          <br>
-                         Bank: Kenya Comercial bank<br>
+                         Bank: Kenya Comercial Bank<br>
                          Acc Name: Techsphere Institute<br>
-                         Acc No:
+                         Acc No: 1327338564
+                    </div>
+
+                    <div class="about-one_text">
+                         <b><h6>Mpesa</h6></b>
+                         <br>
+                         Business Name: Techsphere Training Institute<br>
+                         Paybill: 522533<br>
+                         Acc No: 7855887
                     </div>
                    
                 </div>

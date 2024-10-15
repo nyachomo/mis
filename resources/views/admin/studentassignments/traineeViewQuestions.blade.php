@@ -55,6 +55,7 @@
                   <textarea name="student_answer" class="question"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                     <?php
                         $question_id=$question->id;
+                       
                         $student_answer=StudentAnswer::where('student_assignment_question_id',$question_id)->where('user_id',$user_id)->first();
                         if(!empty($student_answer)){
                             echo$student_answer->student_answer;
@@ -68,7 +69,7 @@
 
                     <?php
                         $question_id=$question->id;
-                        $student_answer=StudentAnswer::where('student_assignment_question_id',$question_id)->first();
+                        $student_answer=StudentAnswer::where('student_assignment_question_id',$question_id)->where('user_id',$user_id)->first();
                         if(!empty($student_answer)){
                             ?>
                                    
@@ -109,11 +110,11 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 
-                               <!-- <label>Question id</label>-->
+                               <!-- <label>Question id</label> -->
                                 <input type="text" name="student_assignment_question_id" value="{{$question->id}}" hidden="true">
                                <!-- <lable>User id</label>-->
                                 <input type="text" name="user_id" value="{{$user_id}}" hidden="true">
-                                <input type="text" name="student_assignment_id" value="{{$studentAssignment->id}}">
+                                <input type="text" name="student_assignment_id" value="{{$studentAssignment->id}}" hidden="true">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">

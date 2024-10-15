@@ -187,7 +187,7 @@ class StudentAssignmentController extends Controller
             return view('admin.studentassignments.traineeViewFinalExam',compact(['exams','clas','department']));
         }
         //$totalexams=StudentAssignment::with(['course','department','clas'])->get();
-       // $publishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Published')->where('is_assignment','Yes')->get();
+        // $publishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Published')->where('is_assignment','Yes')->get();
         //$notpublishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Not Published')->where('is_assignment','Yes')->get();
         //$archivedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Archived')->where('is_assignment','Yes')->get();
        
@@ -235,6 +235,31 @@ class StudentAssignmentController extends Controller
                 alert()->error('Failed','Could not Update');
                 return redirect()->back();
             }
+
+    }
+
+    public function adminViewAssignmentAttempts($id){
+        $exam_id=$id;
+        $studentAttempts = StudentAnswer::with('user')
+       ->where('student_assignment_id', $exam_id)
+       ->select('user_id','student_answer') // Only select the fields you need
+       ->distinct() // This ensures you're only getting unique combinations of the selected fields
+       ->get();
+        return view('admin.studentassignments.adminViewAssignmentAttempts',compact('studentAttempts'));
+
+    }
+
+    public function adminViewStudentAnswers($id){
+        $studentAnswers=StudentAnswer::with(['user','studentassignmentquestion'])->where('user_id',$id)->get();
+
+        /*
+        $studentAnswers = StudentAnswer::with(['user','studentassignmentquestion'])
+       ->where('user_id', $id)
+       ->select('student_assignment_id','student_answer') // Only select the fields you need
+       ->get();
+       */
+        return view('admin.studentassignments.adminViewStudentAnswers',compact('studentAnswers'));
+
 
     }
 

@@ -19,7 +19,7 @@
 </section>
 
 <!--header section-->
-<section class="content">
+<!--<section class="content">
     <div class="container-fliud">
         <div class="card">
             <div class="card-body">
@@ -37,31 +37,26 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!--end of header section-->
 
 @if(!empty($exams))
 <section class="content">
-    <div class="containerfliud" style="padding-left:px">
+    <div class="containerfliud" style="padding-left:13px;padding-right:13px">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="alert alert-success">
                     <h5> Total Assesment</h5>
-                   35
+                     0
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="alert alert-info">
-                    <h5> Completed Assesment</h5>
-                   23
+                    <h5>Avarage Score</h5>
+                  0
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="alert alert-danger">
-                    <h5> A varage Score</h5>
-                   89
-                </div>
-            </div>
+            
            
         </div>
     </div>
@@ -92,10 +87,11 @@
                                <th>#</th>
                               <!--  <th>Class</th>-->
                                <!--<th>Exam Type</th>-->
-                                <th>Exam Name</th>
+                                <th>Name</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
                                 <th>Duration</th>
+                                <th>Score</th>
                                <!-- <th>Total Score</th>-->
                                 <!--<th>Exam Status</th>-->
                                 <th>Action</th>
@@ -112,7 +108,8 @@
                                             <td>{{$exam->exam_name}}</td>  
                                             <td>{{$exam->exam_start_date}}</td>  
                                             <td>{{$exam->exam_end_date}}</td>  
-                                            <td>{{$exam->exam_duration}}</td>  
+                                            <td>{{$exam->exam_duration}}</td> 
+                                            <td>-</td> 
                                             <!--<td>{{$exam->exam_total_score}}</td>--> 
 
                                             <!--<td>
@@ -139,11 +136,10 @@
                                                         <li><center><a href="#" class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                         <li>
                                                             <a href="{{url('/traineeViewQuestions/'.$exam->id)}}" class="dropdown-item" >
-                                                                <i class="fa fa-edit las2"></i> Attempt Exam
+                                                                <i class="fa fa-edit las2"></i> Attempt Questions
                                                             </a>
-
                                                         </li>
-                                                    
+
                                                     </ul>
                                                 </div>
 

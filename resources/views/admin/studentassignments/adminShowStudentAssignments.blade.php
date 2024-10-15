@@ -99,12 +99,15 @@ use App\Models\StudentAnswer;
                                             </td>  
                                             <td>
                                                 <?php
-                                                   $exam_id=$exam->id;
-                                                   $studentAttempts=StudentAnswer::with('user')->where('student_assignment_id',$exam_id)->get();
-                                                   ?>
-                                                      <a href="#" data-toggle="modal" data-target="#view_attempts">{{$studentAttempts->count()}} view</a>
-
-                                                         <!--add student modal-->
+                                                     $exam_id=$exam->id;
+                                                     $studentAttempts = StudentAnswer::with('user')
+                                                    ->where('student_assignment_id', $exam_id)
+                                                    ->select('user_id','student_answer') // Only select the fields you need
+                                                    ->distinct() // This ensures you're only getting unique combinations of the selected fields
+                                                    ->get();
+                                                    ?>
+                                                    
+                                                      <!--add student modal-->
                                                         <div class="modal  fade " id="view_attempts">
                                                             <div class="modal-dialog modal-lg">
                                                                 <div class="modal-content">
@@ -122,23 +125,16 @@ use App\Models\StudentAnswer;
                                                                                 <th>Phonenumber</th>
                                                                             </thead>
                                                                             <body>
-                                                                                @if(!empty($studentAttempts))
-                                                                                   @foreach($studentAttempts as $key=>$studentAttempt)
-                                                                                     <tr>
-                                                                                        <td>{{$key+1}}</td>
-                                                                                        <td>{{$studentAttempt->user->user_firstname}} {{$studentAttempt->user->user_secondname}} {{$studentAttempt->user->user_surname}}</td>
-                                                                                        <td>{{$studentAttempt->user->email}}</td>
-                                                                                        <td>{{$studentAttempt->user->user_phonenumber}}</td>
-                                                                                     </tr>
-                                                                                   @endforeach
-                                                                                @endif
+                                                                                @foreach( $studentAttempts as $attemp)
+                                                                                  <li>gggg</li>
+                                                                                @endforeach
                                                                             </body>
                                                                         </table>
                                                                     </div>
                                                                        
                                                                     <div class="modal-footer justify-content-between">
                                                                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>CLOSE</button>
-                                                                        <button type="submit" class="btn btn-success"><i class="las la-edit"></i>ARCHIVED</button>
+                                                                       
                                                                     </div>
                                                                    
                                                                 </div>
@@ -147,6 +143,13 @@ use App\Models\StudentAnswer;
                                                         </div>
                                                         <!--end add student modal-->
 
+                                                    
+                                                    <?php
+
+
+                          
+                                                   ?>
+                                                      <a href="{{url('/adminViewAssignmentAttemps/'.$exam->id)}}">{{$studentAttempts->count()}} view</a>
 
                                                    <?php
                                                 ?>

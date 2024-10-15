@@ -19,4 +19,8 @@ class StudentAssignmentQuestion extends Model
         'clas_id',
         'student_assignment_id',
     ];
+
+    public function studentaswers(){
+        return $this->hasMany(StudentAnswer::class,'student_assignment_question_id','id');
+    }
 }
