@@ -1,17 +1,21 @@
 @extends('layouts.master')
 @section('content')
+<?php
+use App\Models\StudentAnswer;
+use App\Models\StudentAssignmentQuestion;
+?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Final Exam</h1>
+            <h5>Assigments</h5>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Manage Final Exam</li>
+              <!--<li class="breadcrumb-item"><a href="{{route('returnBackUrl')}}"><span class="right badge badge-secondary">Go Back</span></a></li>-->
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+              <li class="breadcrumb-item active">Manage Assignments</li>
             </ol>
           </div>
         </div>
@@ -59,31 +63,38 @@
                             <thead>
                                 <!--<th>Department</th>-->
                                <!--<th>Course</th>-->
-                                <th>#</th>
+                               <th>#</th>
                                 <th>Class</th>
-                                <!--<th>Exam Type</th>-->
+                               <!--<th>Exam Type</th>-->
                                 <th>Exam Name</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
-                                <th>Duration</th>
-                                <th>Total Score</th>
+                               <!-- <th>Duration</th>-->
+                               <th>Total Score</th>
                                 <th>Exam Status</th>
+                                <th>Attempts</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
                                 @if(!empty($exams))
                                     @foreach($exams as $key=>$exam)
                                     <tr> 
-                                           <td>{{$key+1}}</td> 
                                            <!-- <td>{{$exam->department->department_name}}</td>-->
                                             <!--<td>{{$exam->course->course_name}}</td>-->
+                                            <td>{{$key+1}}</td>
                                             <td>{{$exam->clas->clas_name}}</td>
-                                            <!--<td>{{$exam->exam_type}}</td>-->
+                                           <!-- <td>{{$exam->exam_type}}</td>-->
                                             <td>{{$exam->exam_name}}</td>  
                                             <td>{{$exam->exam_start_date}}</td>  
                                             <td>{{$exam->exam_end_date}}</td>  
-                                            <td>{{$exam->exam_duration}}</td>  
-                                            <td>{{$exam->exam_total_score}}</td>  
+                                            <!--<td>{{$exam->exam_duration}}</td>-->
+                                            <td>
+                                             <?php
+                                               $exam_id=$exam->id;
+                                               $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam_id)->sum('question_mark');
+                                               echo$totalMarks;
+                                             ?>
+                                             </td>
                                             <td>
                                                 @if($exam->exam_status=="Published")
                                                     <span class="right badge badge-success">{{$exam->exam_status}}</span>
@@ -93,6 +104,63 @@
                                                 @endif
                                                 
                                             </td>  
+                                            <td>
+                                                <?php
+                                                     $exam_id=$exam->id;
+                                                     $studentAttempts = StudentAnswer::with('user')
+                                                    ->where('student_assignment_id', $exam_id)
+                                                    ->select('user_id') // Only select the fields you need
+                                                    ->distinct() // This ensures you're only getting unique combinations of the selected fields
+                                                    ->get();
+                                                    ?>
+                                                    
+                                                      <!--add student modal-->
+                                                        <div class="modal  fade " id="view_attempts">
+                                                            <div class="modal-dialog modal-lg">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title"></h6>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                    </div>
+                                                                   
+                                                                    <div class="modal-body">
+                                                                        <table class="table table-sm">
+                                                                            <thead>
+                                                                                <th>#</th>
+                                                                                <th>Name</th>
+                                                                                <th>Email</th>
+                                                                                <th>Phonenumber</th>
+                                                                            </thead>
+                                                                            <body>
+                                                                                @foreach( $studentAttempts as $attemp)
+                                                                                  <li>gggg</li>
+                                                                                @endforeach
+                                                                            </body>
+                                                                        </table>
+                                                                    </div>
+                                                                       
+                                                                    <div class="modal-footer justify-content-between">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>CLOSE</button>
+                                                                       
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                                <!-- /.modal-content -->
+                                                            </div>
+                                                        </div>
+                                                        <!--end add student modal-->
+
+                                                    
+                                                    <?php
+
+
+                          
+                                                   ?>
+                                                      <a href="{{url('/adminViewAssignmentAttemps/'.$exam->id)}}">{{$studentAttempts->count()}} view</a>
+
+                                                   <?php
+                                                ?>
+                                            </td>
                                         
                                             <!--<td>
                                                 <a href="{{url('/admin/ShowQuestions/'.$exam->id)}}" type="button" class="btn btn-xs btn-block btn-outline-primary"> 0 View</a>
@@ -508,7 +576,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                
-                                <input type="text" name="is_final_exam" class="form-control" value="Yes" hidden="true">
+                                <input type="text" name="is_assignment" class="form-control" value="Yes" hidden="true">
 
                             </div>
                         </div>
