@@ -9,6 +9,7 @@ use App\Models\StudentCat;
 use App\Models\Exam;
 use App\Models\Department;
 use App\Models\Clas;
+use App\Models\User;
 use App\Models\Course;
 use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Support\Facades\Auth;
@@ -139,61 +140,74 @@ class StudentAssignmentController extends Controller
 
     public function traineeViewAssignments(){
         if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+            $studentId=Auth::user()->id;
             $clas_id=Auth::user()->clas_id;
             $department_id=Auth::user()->department_id;
             $clas=Clas::where('id',$clas_id)->first();
             $department=Department::where('id', $department_id)->first();
             $exams=StudentAssignment::with(['course','department','clas'])->where('exam_status','!=','Archived')->where('is_assignment','Yes')->where('clas_id',$clas_id)->orderBy('id','DESC')->get();
-            return view('admin.studentassignments.traineeViewAssignments',compact(['exams','clas','department']));
-        }
-        //$totalexams=StudentAssignment::with(['course','department','clas'])->get();
-       // $publishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Published')->where('is_assignment','Yes')->get();
-        //$notpublishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Not Published')->where('is_assignment','Yes')->get();
-        //$archivedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Archived')->where('is_assignment','Yes')->get();
+
+            $cumulativeMarks =StudentAnswer::where('user_id', Auth::user()->id)->sum('student_score');
+            $questionIds = StudentAnswer::where('user_id', Auth::user()->id) // Ensure you filter by student ID
+            ->pluck('student_assignment_question_id'); // Get the question_id column
+
+            $totalMarks = StudentAssignmentQuestion::whereIn('id', $questionIds) // Filter by question IDs
+            ->sum('question_mark');
+
+            $avgScore=($cumulativeMarks/ $totalMarks)*30;
+
        
-        //$departments=Department::where('department_status','Active')->get();
-        //$courses=Course::where('course_status','Active')->get();
-        //$clases=Clas::where('clas_status','Active')->get();
+            return view('admin.studentassignments.traineeViewAssignments',compact(['exams','clas','department','avgScore']));
+        }
+       
        
     }
 
     public function traineeViewCats(){
+
         if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+            $studentId=Auth::user()->id;
             $clas_id=Auth::user()->clas_id;
             $department_id=Auth::user()->department_id;
             $clas=Clas::where('id',$clas_id)->first();
             $department=Department::where('id', $department_id)->first();
             $exams=StudentAssignment::with(['course','department','clas'])->where('exam_status','!=','Archived')->where('is_cat','Yes')->where('clas_id',$clas_id)->orderBy('id','DESC')->get();
-            return view('admin.studentassignments.traineeViewCats',compact(['exams','clas','department']));
+
+            $cumulativeMarks =StudentAnswer::where('user_id', Auth::user()->id)->sum('student_score');
+            $questionIds = StudentAnswer::where('user_id', Auth::user()->id) // Ensure you filter by student ID
+            ->pluck('student_assignment_question_id'); // Get the question_id column
+
+            $totalMarks = StudentAssignmentQuestion::whereIn('id', $questionIds) // Filter by question IDs
+            ->sum('question_mark');
+
+            $avgScore=($cumulativeMarks/ $totalMarks)*30;
+            return view('admin.studentassignments.traineeViewCats',compact(['exams','clas','department','avgScore']));
         }
-        //$totalexams=StudentAssignment::with(['course','department','clas'])->get();
-       // $publishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Published')->where('is_assignment','Yes')->get();
-        //$notpublishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Not Published')->where('is_assignment','Yes')->get();
-        //$archivedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Archived')->where('is_assignment','Yes')->get();
-       
-        //$departments=Department::where('department_status','Active')->get();
-        //$courses=Course::where('course_status','Active')->get();
-        //$clases=Clas::where('clas_status','Active')->get();
+
+
        
     }
 
     public function traineeViewFinalExam(){
+       
         if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+            $studentId=Auth::user()->id;
             $clas_id=Auth::user()->clas_id;
             $department_id=Auth::user()->department_id;
             $clas=Clas::where('id',$clas_id)->first();
             $department=Department::where('id', $department_id)->first();
             $exams=StudentAssignment::with(['course','department','clas'])->where('exam_status','!=','Archived')->where('is_final_exam','Yes')->where('clas_id',$clas_id)->orderBy('id','DESC')->get();
-            return view('admin.studentassignments.traineeViewFinalExam',compact(['exams','clas','department']));
+
+            $cumulativeMarks =StudentAnswer::where('user_id', Auth::user()->id)->sum('student_score');
+            $questionIds = StudentAnswer::where('user_id', Auth::user()->id) // Ensure you filter by student ID
+            ->pluck('student_assignment_question_id'); // Get the question_id column
+
+            $totalMarks = StudentAssignmentQuestion::whereIn('id', $questionIds) // Filter by question IDs
+            ->sum('question_mark');
+
+            $avgScore=($cumulativeMarks/ $totalMarks)*30;
+            return view('admin.studentassignments.traineeViewFinalExam',compact(['exams','clas','department','avgScore']));
         }
-        //$totalexams=StudentAssignment::with(['course','department','clas'])->get();
-        // $publishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Published')->where('is_assignment','Yes')->get();
-        //$notpublishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Not Published')->where('is_assignment','Yes')->get();
-        //$archivedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Archived')->where('is_assignment','Yes')->get();
-       
-        //$departments=Department::where('department_status','Active')->get();
-        //$courses=Course::where('course_status','Active')->get();
-        //$clases=Clas::where('clas_status','Active')->get();
        
     }
 
@@ -238,11 +252,29 @@ class StudentAssignmentController extends Controller
 
     }
 
+
+    public function adminAwardTraineeMark(Request $request){
+       $id=$request->id;
+   
+       $update=StudentAnswer::where('id',$id)->update(['student_score'=>$request->student_score]);
+            if($update){
+                 alert()->success('success','Marks saved successfully');
+                 return redirect()->back();
+             }else{
+                 alert()->error('Failed','Could not save');
+                 return redirect()->back();
+             }
+
+        
+ 
+     }
+
+
     public function adminViewAssignmentAttempts($id){
         $exam_id=$id;
         $studentAttempts = StudentAnswer::with('user')
        ->where('student_assignment_id', $exam_id)
-       ->select('user_id','student_answer') // Only select the fields you need
+       ->select('user_id','student_assignment_id') // Only select the fields you need
        ->distinct() // This ensures you're only getting unique combinations of the selected fields
        ->get();
         return view('admin.studentassignments.adminViewAssignmentAttempts',compact('studentAttempts'));
@@ -250,15 +282,25 @@ class StudentAssignmentController extends Controller
     }
 
     public function adminViewStudentAnswers($id){
-        $studentAnswers=StudentAnswer::with(['user','studentassignmentquestion'])->where('user_id',$id)->get();
+      
+        $user=User::with('department','clas')->where('id',$id)->select('user_firstname','user_secondname','user_surname','department_id','clas_id')->first();
+        $studentAnswers=StudentAnswer::with(['studentassignmentquestion'])->where('user_id',$id)->get();
+        $totalScore=StudentAnswer::where('user_id',$id)->sum('student_score');
+        $assignment=StudentAnswer::where('user_id',$id)->first();
+        $student_assignment_id=$assignment->student_assignment_id;
+        $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$student_assignment_id)->sum('question_mark');
 
+       
+      
         /*
         $studentAnswers = StudentAnswer::with(['user','studentassignmentquestion'])
        ->where('user_id', $id)
        ->select('student_assignment_id','student_answer') // Only select the fields you need
        ->get();
+
        */
-        return view('admin.studentassignments.adminViewStudentAnswers',compact('studentAnswers'));
+       
+        return view('admin.studentassignments.adminViewStudentAnswers',compact('studentAnswers','user','totalScore','totalMarks'));
 
 
     }

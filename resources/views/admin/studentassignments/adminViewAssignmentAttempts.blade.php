@@ -1,16 +1,22 @@
 @extends('layouts.master')
 @section('content')
 
+<?php
+use App\Models\StudentAnswer;
+use App\Models\StudentAssignmentQuestion;
+
+?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h6>Exam Attempts</h6>
+            <h5>Exam Attempts</h5>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <!--<li class="breadcrumb-item"><a href="#"><span class="right badge badge-secondary">Go Back</span></a></li>-->
+               <li class="breadcrumb-item"><a href="{{route('adminShowStudentAssignments')}}">Go Back</a></li>
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
               <li class="breadcrumb-item active">Manage Attempts</li>
             </ol>
@@ -32,6 +38,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phonenumber</th>
+                            <th>Score</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -43,6 +50,18 @@
                                       <td>{{$attempt->user->user_firstname}} {{$attempt->user->user_secondname}} {{$attempt->user->user_surname}}</td>
                                       <td>{{$attempt->user->email}}</td>
                                       <td>{{$attempt->user->user_phonenumber}}</td>
+                                      <td>
+                                         <?php
+                                             $user_id=$attempt->user_id;
+                                             $student_assignment_id=$attempt->student_assignment_id;
+                                             $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$student_assignment_id)->sum('question_mark');
+                                             $studentMarks=StudentAnswer::where('student_assignment_id',$student_assignment_id)->where('user_id',$user_id)->sum('student_score');
+                                            ?>
+                                              {{$studentMarks}}/{{$totalMarks}}
+                                            <?php
+                                         ?>
+                                        
+                                      </td>
                                       <td>
                                         <a href="{{url('/adminViewStudentAnswers/'.$attempt->user_id)}}"class="btn btn-sm btn-success"><i class="fa fa-eye"></i>View Answers</a>
                                       </td>

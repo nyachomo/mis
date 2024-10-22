@@ -38,4 +38,8 @@ class StudentAssignment extends Model
         return $this->belongsTo(Clas::class,'clas_id');
     }
 
+    public function studentanswer(){
+        return $this->hasMany(StudentAnswer::class,'student_assignment_id','id');
+    }
+
 }

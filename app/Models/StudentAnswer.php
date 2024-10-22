@@ -24,4 +24,8 @@ class StudentAnswer extends Model
     public function studentassignmentquestion(){
         return $this->belongsTo(StudentAssignmentQuestion::class,'student_assignment_question_id','id');
     }
+
+    public function studentassignment(){
+        return $this->belongsTo(StudentAssignment::class,'student_assignment_id','id');
+    }
 }

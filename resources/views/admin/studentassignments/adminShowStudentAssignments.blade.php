@@ -2,18 +2,19 @@
 @section('content')
 <?php
 use App\Models\StudentAnswer;
+use App\Models\StudentAssignmentQuestion;
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Assigments</h1>
+            <h5>Assigments</h5>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <!--<li class="breadcrumb-item"><a href="#"><span class="right badge badge-secondary">Go Back</span></a></li>-->
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <!--<li class="breadcrumb-item"><a href="{{route('returnBackUrl')}}"><span class="right badge badge-secondary">Go Back</span></a></li>-->
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
               <li class="breadcrumb-item active">Manage Assignments</li>
             </ol>
           </div>
@@ -69,7 +70,7 @@ use App\Models\StudentAnswer;
                                 <th>Start Date</th>
                                 <th>End Date</th>
                                <!-- <th>Duration</th>-->
-                                <th>Total Score</th>
+                               <th>Total Score</th>
                                 <th>Exam Status</th>
                                 <th>Attempts</th>
                                 <th>Action</th>
@@ -87,7 +88,13 @@ use App\Models\StudentAnswer;
                                             <td>{{$exam->exam_start_date}}</td>  
                                             <td>{{$exam->exam_end_date}}</td>  
                                             <!--<td>{{$exam->exam_duration}}</td>-->
-                                            <td>{{$exam->exam_total_score}}</td>  
+                                            <td>
+                                             <?php
+                                               $exam_id=$exam->id;
+                                               $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam_id)->sum('question_mark');
+                                               echo$totalMarks;
+                                             ?>
+                                             </td>
                                             <td>
                                                 @if($exam->exam_status=="Published")
                                                     <span class="right badge badge-success">{{$exam->exam_status}}</span>
@@ -102,7 +109,7 @@ use App\Models\StudentAnswer;
                                                      $exam_id=$exam->id;
                                                      $studentAttempts = StudentAnswer::with('user')
                                                     ->where('student_assignment_id', $exam_id)
-                                                    ->select('user_id','student_answer') // Only select the fields you need
+                                                    ->select('user_id') // Only select the fields you need
                                                     ->distinct() // This ensures you're only getting unique combinations of the selected fields
                                                     ->get();
                                                     ?>

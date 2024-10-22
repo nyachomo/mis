@@ -1,11 +1,15 @@
 @extends('layouts.master')
 @section('content')
+<?php
+use App\Models\StudentAnswer;
+use App\Models\StudentAssignmentQuestion;
+?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Final Exam</h1>
+            <h5>Final Exam</h5>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -17,10 +21,9 @@
         </div>
       </div>
 </section>
-<!-- /.container-fluid -->
 
 <!--header section-->
-<section class="content">
+<!--<section class="content">
     <div class="container-fliud">
         <div class="card">
             <div class="card-body">
@@ -38,8 +41,39 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!--end of header section-->
+
+@if(!empty($exams))
+<section class="content">
+    <div class="containerfliud" style="padding-left:13px;padding-right:13px">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="alert alert-success">
+                    <h5> Total Assesment</h5>
+                     {{$exams->count()}}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="alert alert-info">
+                    <h5>Avarage Score</h5>
+                     {{$avgScore}}
+                </div>
+            </div>
+            
+           
+        </div>
+    </div>
+                
+             
+
+</section>
+@endif
+
+       
+
+
+    
 
 <!-- Content Header (Page header) -->
 <section class="content">
@@ -55,12 +89,13 @@
                                <!--<th>Department</th>-->
                                <!--<th>Course</th>-->
                                <th>#</th>
-                                <th>Class</th>
+                              <!--  <th>Class</th>-->
                                <!--<th>Exam Type</th>-->
-                                <th>Exam Name</th>
+                                <th>Name</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
-                                <th>Duration</th>
+                               <!-- <th>Duration</th>-->
+                                <th>Score</th>
                                <!-- <th>Total Score</th>-->
                                 <!--<th>Exam Status</th>-->
                                 <th>Action</th>
@@ -72,12 +107,21 @@
                                            <!-- <td>{{$exam->department->department_name}}</td>-->
                                             <!--<td>{{$exam->course->course_name}}</td>-->
                                             <td>{{$key+1}}</td>
-                                            <td>{{$exam->clas->clas_name}}</td>
+                                           <!-- <td>{{$exam->clas->clas_name}}</td>-->
                                            <!-- <td>{{$exam->exam_type}}</td>-->
                                             <td>{{$exam->exam_name}}</td>  
                                             <td>{{$exam->exam_start_date}}</td>  
                                             <td>{{$exam->exam_end_date}}</td>  
-                                            <td>{{$exam->exam_duration}}</td>  
+                                            <!--<td>{{$exam->exam_duration}}</td>-->
+                                            <td>
+                                                <?php
+                                                   $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam->id)->sum('question_mark');
+                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->sum('student_score');
+                                                  ?>
+                                                     <p><b style="color:red">{{$studentScore}}/{{$totalMarks}}</b></p>
+                                                  <?php
+                                                ?>
+                                            </td> 
                                             <!--<td>{{$exam->exam_total_score}}</td>--> 
 
                                             <!--<td>
@@ -104,11 +148,10 @@
                                                         <li><center><a href="#" class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                         <li>
                                                             <a href="{{url('/traineeViewQuestions/'.$exam->id)}}" class="dropdown-item" >
-                                                                <i class="las la-trash las3"></i> Attempt Exam
+                                                                <i class="fa fa-edit las2"></i> Attempt Questions
                                                             </a>
-
                                                         </li>
-                                                    
+
                                                     </ul>
                                                 </div>
 

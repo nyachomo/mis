@@ -1,11 +1,15 @@
 @extends('layouts.master')
 @section('content')
+<?php
+use App\Models\StudentAnswer;
+use App\Models\StudentAssignmentQuestion;
+?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>My Assigments</h1>
+            <h5>My Assigments</h5>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -47,13 +51,13 @@
             <div class="col-sm-6">
                 <div class="alert alert-success">
                     <h5> Total Assesment</h5>
-                     0
+                     {{$exams->count()}}
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="alert alert-info">
                     <h5>Avarage Score</h5>
-                  0
+                     {{$avgScore}}
                 </div>
             </div>
             
@@ -90,7 +94,7 @@
                                 <th>Name</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
-                                <th>Duration</th>
+                               <!-- <th>Duration</th>-->
                                 <th>Score</th>
                                <!-- <th>Total Score</th>-->
                                 <!--<th>Exam Status</th>-->
@@ -108,8 +112,16 @@
                                             <td>{{$exam->exam_name}}</td>  
                                             <td>{{$exam->exam_start_date}}</td>  
                                             <td>{{$exam->exam_end_date}}</td>  
-                                            <td>{{$exam->exam_duration}}</td> 
-                                            <td>-</td> 
+                                            <!--<td>{{$exam->exam_duration}}</td>-->
+                                            <td>
+                                                <?php
+                                                   $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam->id)->sum('question_mark');
+                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->sum('student_score');
+                                                  ?>
+                                                     <p><b style="color:red">{{$studentScore}}/{{$totalMarks}}</b></p>
+                                                  <?php
+                                                ?>
+                                            </td> 
                                             <!--<td>{{$exam->exam_total_score}}</td>--> 
 
                                             <!--<td>

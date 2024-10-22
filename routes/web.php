@@ -14,6 +14,7 @@ use App\Http\Controllers;
 |
 */
 
+Route::get('/returnBackUrl',function (){return redirect()->back();})->name('returnBackUrl');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -67,6 +68,10 @@ Route::get('/traineeViewQuestions/{id}',[App\Http\Controllers\StudentAssignmentC
 
 Route::post('/traineeAnswerQuestions',[App\Http\Controllers\StudentAssignmentController::class,'traineeAnserQuestions'])->name('traineeAnswerQuestions');
 Route::post('/traineeUpdateAnswer',[App\Http\Controllers\StudentAssignmentController::class,'traineeUpdateAnswer'])->name('traineeUpdateAnswer');
+
+//AWARD TRAINEE MARKS
+Route::post('/adminAwardTraineeMark',[App\Http\Controllers\StudentAssignmentController::class,'adminAwardTraineeMark'])->name('adminAwardTraineeMark');
+
 
 //STUDENT CAT QUESTIONS
 Route::get('/adminShowAssignmentQuestions/{id}',[App\Http\Controllers\StudentAssignmentQuestionController::class,'adminShowAssignmentQuestions'])->name('adminShowAssignmentQuestions');

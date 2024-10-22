@@ -5,18 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            @if(!empty($studentAssignment))
-             <h4>Questions for: {{$studentAssignment->exam_name}}</h4>
-            @else
-            <h4>Continuous Assesment Test (Cats)</h4>
-            @endif
-           
+             <h5>Questions</h5>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('adminShowStudentAssignments')}}"><span class="right badge badge-secondary">Go Back</span></a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Manage Student Cat Questions</li>
+              <li class="breadcrumb-item"><a href="{{route('adminShowStudentAssignments')}}"><i class="fa fa-chevron-left" aria-hidden="true"></i>Go Back</a></li>
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+              <li class="breadcrumb-item active">Manage Questions</li>
             </ol>
           </div>
         </div>
