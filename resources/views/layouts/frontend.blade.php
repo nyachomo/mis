@@ -32,12 +32,19 @@ body,p,h1,h2,h3,h4,h5,h6{
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
+
+
     font-variation-settings:
       "slnt" 0;
   }
 
+    body{
+		font-size:18px !important
+	}
+ 
 	.navLink{
 		color:#000033 !important;
+		font-size:21px !important;
 	}
 	.dropdownItem{
 		background-color:#000033 !important;
