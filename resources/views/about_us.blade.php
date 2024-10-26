@@ -1,17 +1,17 @@
 @extends('layouts.frontend')
 @section('content')
 
-    <!-- Page Title -->
-    <section class="page-title" style="height:200px">
-        <div class="auto-container">
-			<h2>About Us</h2>
-			<ul class="bread-crumb clearfix">
-				<li><a href="index.html">Home</a></li>
-				<li>About Us</li>
-			</ul>
-        </div>
-    </section>
-    <!-- End Page Title -->
+<!-- Page Title -->
+<section class="page-title" style="height:30px;background-color:#000033;padding-top:15px">
+    <div class="auto-container">
+        <h4 style="color:white">About Us</h4>
+        <ul class="bread-crumb clearfix">
+            <li><a href="index.html">Home</a></li>
+            <li>About Us</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title -->
 
     <br>
 
@@ -26,9 +26,9 @@
                     <!-- Sec Title -->
                     <div class="sec-title">
                         <!--<div class="sec-title_title">About us</div>-->
-                        <h2 class="sec-title_heading" style="color:white">Welcome to Techsphere Training Institute</h2>
+                        <h4 class="sec-title_heading" style="color:white">Welcome to Techsphere Training Institute</h4>
                     </div>
-                    <div class="about-one_text">
+                    <div class="about-one_text" style="text-align:justify">
                          We offer comprehensive programs in Full Stack Web Development, Data Science, Cyber Security, Graphic Design, and Mobile Web Development. Our high-quality, accessible training is designed to meet the needs of learners at any level, regardless of their background or personal circumstances. With expert instructors and a hands-on approach, we equip emerging tech professionals with the practical skills needed to succeed in the tech industry and adapt as their careers evolve. At Techsphere Training Institute, we are committed to fostering innovation, inclusivity, and excellence, building a community of future tech leaders who will drive Africa's digital transformation.
                     </div>
                    

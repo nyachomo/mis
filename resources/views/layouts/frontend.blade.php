@@ -18,7 +18,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
+  <!--Google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+
+  <!--Google fonts-->
+
 <style>
+
+body,p,h1,h2,h3,h4,h5,h6{
+    font-family: "Afacad Flux", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+  }
+
 	.navLink{
 		color:#000033 !important;
 	}
@@ -58,53 +75,15 @@
     <div class="preloader"></div>
 	<!-- End Preloader -->
 
+
+
+
+
+
  	<!-- Main Header -->
     <header class="main-header">
 
-		<!-- Header Upper -->
-        <div class="header-upper" style="background-color:#000033">
-            <div class="auto-container">
-				<div class="inner-container d-flex justify-content-between align-items-center flex-wrap">
-					<!-- Logo Box 
-					<div class="logo"><a href="#"><img src="{{asset('logo/logo1.jpeg')}}" style="width:200px"></a></div>-->
-
-					<!-- Upper Right -->
-					<div class="upper-right d-flex align-items-center flex-wrap">
-                        <!-- Info Box -->
-						<div class="upper-column info-box">
-							<div class="icon-box flaticon-pin" style="color:white"></div>
-							<strong style="color:#3ccccc">Address</strong>
-                            <span style="color:white">PO BOX 610,NAIROBI</span>
-						</div>
-
-						<!-- Info Box -->
-						<div class="upper-column info-box">
-							<div class="icon-box flaticon-mail" style="color:white"></div>
-							<strong style="color:#3ccccc">Mail Us</strong>
-							<span style="color:white">info@techsphereinstitute.co.ke</span>
-						</div>
-                        <!-- Info Box -->
-						<div class="upper-column info-box">
-							<div class="icon-box flaticon-phone-call" style="color:white"></div>
-							<strong style="color:#3ccccc">Call Us</strong>
-                            <span style="color:white">+254768919307</span>
-						</div>
-						<!-- Info Box -->
-						<div class="upper-column info-box">
-							<div class="icon-box flaticon-clock" style="color:white"></div>
-							<strong style="color:#3ccccc">Open</strong>
-                            <span style="color:white">Monday-Friday (8:00am - 5:00pm)</span>
-						</div>
-						
-						<!-- Info Box -->
-						<div class="upper-column info-box">
-							
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
+		
 
         <!-- Header Lower -->
         <div class="header-lower">
@@ -114,7 +93,7 @@
 
 					<div class="nav-outer d-flex justify-content-between align-items-center flex-wrap">
                         
-					   <!-- <div class="logo"><a href="#"><img src="{{asset('logo/logo1.jpeg')}}" style="width:200px"></a></div>-->
+					   <div class="logo"><a href="#"><img src="{{asset('logo/logo1.jpeg')}}" style="width:200px"></a></div>
 
 
 						<!-- Main Menu -->
@@ -166,6 +145,70 @@
 			</div>
         </div>
         <!-- End Header Lower -->
+
+		<!-- Sticky Header  -->
+        <div class="sticky-header">
+            <div class="auto-container">
+				<div class="d-flex justify-content-between align-items-center">
+					<!-- Logo -->
+					<div class="logo">
+						<a href="{{route('welcome')}}" title=""><img src="{{asset('logo/logo1.jpeg')}}" style="width:200px"></a>
+					</div>
+
+					<!-- Right Col -->
+					<div class="right-box d-flex align-items-center flex-wrap">
+						<!-- Main Menu -->
+						<nav class="main-menu d-flex align-items-center">
+							<!--Keep This Empty / Menu will come through Javascript-->
+						</nav>
+						<!-- Main Menu End-->
+
+						<div class="outer-box d-flex align-items-center">
+
+							<!-- Button 
+							<div class="button-box">
+								<a class="btn-style-eight theme-btn btn-item" href="contact.html">
+									<div class="btn-wrap">
+										<span class="text-one">Get A Quote</span>
+										<span class="text-two">Get A Quote</span>
+									</div>
+								</a>
+							</div>
+							Box -->
+
+							<!-- Mobile Navigation Toggler -->
+							<div class="mobile-nav-toggler"><span class="icon fa-solid fa-bars fa-fw"></span></div>
+
+						</div>
+
+					</div>
+
+				</div>
+            </div>
+        </div>
+		<!-- End Sticky Menu -->
+
+		<!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon fas fa-window-close fa-fw"></span></div>
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+				<!-- Search 
+				<div class="search-box">
+					<form method="post" action="contact.html">
+						<div class="form-group">
+							<input type="search" name="search-field" value="" placeholder="SEARCH HERE" required>
+							<button type="submit"><span class="icon flaticon-001-loupe"></span></button>
+						</div>
+					</form>
+				</div>
+				 -->
+                <div class="menu-outer"></div>
+            </nav>
+        </div>
+		<!-- End Mobile Menu -->
+
     </header>
     <!-- End Main Header -->
  @yield('content')

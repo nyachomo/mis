@@ -1,14 +1,14 @@
 @extends('layouts.frontend')
 @section('content')
-<!-- Main Slider -->
+<!-- Main Slider 
 <section class="slider-four" style="padding-bottom:40px">
 	<img src="{{asset('frontend/images/main-slider/advert1.jpg')}}">
 </section>
-<!-- End Main Slider -->
+ -->
 
 
 <!-- About One / Style Two -->
-<section class="slider-four" style="padding-left:20px;padding-right:20px">
+<section class="slider-four" style="padding-left:10px;padding-right:10px;padding-top:-50px">
 			<div class="row clearfix">
 
 				<!-- Content Column -->
@@ -17,10 +17,10 @@
 						<!-- Sec Title -->
 						<div class="sec-title">
 							<!--<div class="sec-title_title">About us</div>-->
-							<h2 class="sec-title_heading" style="color:white">Start Your digital Skills Career Today</h2>
+							<h6 class="sec-title_heading" style="color:white">Start Your digital Skills Career Today</h6>
 						</div>
-						<div class="about-one_text"> Ready to break into the world of tech? Techsphere Training Institute offers intensive bootcamps designed to equip you with the skills needed to land a fulfilling </div>
-						<div class="about-one_text">Our programs cover everything from foundational concepts to industry best practices, preparing you to confidently tackle real-world challenges. </div>
+						<div class="about-one_text" style="text-align:justify"> Ready to break into the world of tech? Techsphere Training Institute offers intensive bootcamps designed to equip you with the skills needed to land a fulfilling </div>
+						<div class="about-one_text" style="text-align:justify">Our programs cover everything from foundational concepts to industry best practices, preparing you to confidently tackle real-world challenges. </div>
 					</div>
 				</div>
 

@@ -4,7 +4,7 @@
 <!-- Page Title -->
 <section class="page-title" style="height:30px;background-color:#000033;padding-top:15px">
     <div class="auto-container">
-        <h2>Courses</h2>
+    <h4 style="color:white">Courses</h4>
         <ul class="bread-crumb clearfix">
             <li><a href="index.html">Home</a></li>
             <li>Courses</li>

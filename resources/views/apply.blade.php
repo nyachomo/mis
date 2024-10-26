@@ -4,10 +4,10 @@
 <!-- Page Title -->
 <section class="page-title" style="height:30px;background-color:#000033;padding-top:15px">
     <div class="auto-container">
-        <h2>Apply</h2>
+    <h4 style="color:white">Enrol</h4>
         <ul class="bread-crumb clearfix">
             <li><a href="index.html">Home</a></li>
-            <li>Apply</li>
+            <li>Enrol</li>
         </ul>
     </div>
 </section>
@@ -100,7 +100,7 @@
 						</div>
                         <div class="team-two_block-image" style="background-color:#000033;padding-top:10px;padding-bottom:10px">
                             <center>
-                                  <a href="#" class="btn btn-success courseApplyBtn" style="font-size:10px">Apply Now</a>
+                                  <button class="btn btn-success courseApplyBtn" >Enrol Now</button>
                             </center>
                         </div>
 					</div>
