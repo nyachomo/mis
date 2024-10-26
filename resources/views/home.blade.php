@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+
+   
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
@@ -17,6 +19,38 @@
       </div>
 </section>
 <!-- /.container-fluid -->
+
+
+
+    @if(session('success'))
+        <section class="content">
+            <div class="container-fliud">
+
+                <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h5><i class="icon fas fa-info"></i> Success!</h5>
+                   {{ session('success') }}
+                </div>
+
+            </div>
+        </section>
+       
+    @endif
+
+    @if(session('error'))
+        <section class="content">
+            <div class="container-fliud">
+
+                <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h5><i class="icon fas fa-info"></i> Failed!</h5>
+                   {{ session('error') }}
+                </div>
+
+            </div>
+        </section>
+       
+    @endif
 
 <!-- Content Header (Page header) -->
 @if(Auth::check()&&Auth::user()->is_admin=='Yes')
@@ -114,7 +148,7 @@
 @endif
 <!-- /.container-fluid -->
 
-@if(Auth::check()&&Auth::user()->is_trainee=='Yes')
+@if(Auth::check()&&Auth::user()->is_trainee=='Yes' &&Auth::user()->has_paid_reg_fee=='Yes')
 <section class="content">
       <div class="container-fliud">
         
@@ -324,25 +358,99 @@
 @endif
 
 
-@if(Auth::check()&&Auth::user()->is_high_school_teacher=='Yes')
+@if(Auth::check()&&Auth::user()->is_trainee=='Yes' &&Auth::user()->has_paid_reg_fee!='Yes')
 <section class="content">
       <div class="container-fliud">
         
     
           <div class="alert alert-success alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h6> <i class="icon fas fa-info"></i> <b>Hello {{Auth::user()->user_firstname}} {{Auth::user()->user_secondname}} {{Auth::user()->user_surname}}</b> Please make sure the following student information are captured correctly</h6>
-              <ol>
-                  <li> 1. Fullname</li>
-                  <li> 2. Email</li>
-                  <li> 3. Phonenumber</li>
-                  <li> 4. Gender</li>
-                  <li> 4. School</li>
-              </ol>
-              <a href="{{route('showLeeds')}}" class="btn btn-success"  style="border-radius:50px;text-decoration: none;">Register Student</a>
+              
+              <h6><i class="icon fas fa-info"></i> <b>Congratulation {{Auth::user()->user_firstname}} {{Auth::user()->user_secondname}} {{Auth::user()->user_surname}}</b> ! For showing interest to learn with us.To complete your registration, kindly pay a registrtion fee of <span style="color:red">Ksh 1000</span> to :</h6>
+              <div class="row">
+                  <div class="col-sm-4">
+                      <p>MPESA:</p>
+                      <ol>
+                        <li> 1. Bs Name: <b>Techsphere Institute</b></li>
+                        <li> 2. Paybill No: <b>522533</b></li>
+                        <li> 3. Account No: <b>7855887</b></li>
+                      </ol>
+
+                  </div>
+
+                  <div class="col-sm-1">
+                    <p>Or</p>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <p>BANK</p>
+                     <ol>
+                        <li> 1. Bank: <b>Kenya Comercial Bank</b></li>
+                        <li> 2. Acc Name: <b>Techsphere Institute</b></li>
+                        <li> 3. Account No: <b>1327338564</b></li>
+                      </ol>
+
+                  </div>
+
+                  <div class="col-sm-3">
+                        <p>CALL</p>
+                        <ol>
+                          <li> <b>+254768919307</b></li>
+                          <li><b>info@techsphereinstitute.co.ke</b></li>
+                        </ol>
+                  </div>
+              </div>
+             
+
+              <div class="row">
+                 <div class="col-sm-4">
+                  <form method="post" action="{{route('updateRegRefNo')}}">
+                    @csrf
+                    <div class="form-group">
+                        <label>Enter Mpesa Reference Code</label>
+                        <input type="text" class="form-control" name="reg_fee_reference_no" required>
+                        <br>
+                        <button type="submit" class="btn btn-success"  style="border-radius:30px;text-decoration: none;">Send</button>
+                    </div>
+                  </form>
+                 </div>
+              </div>
+              
+             
+
           </div>
 
+
+    
+      </div>
+     
+
+
+
+
 </section>
+
+@endif
+
+
+@if(Auth::check()&&Auth::user()->is_high_school_teacher=='Yes')
+  <section class="content">
+        <div class="container-fliud">
+          
+      
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h6> <i class="icon fas fa-info"></i> <b>Hello {{Auth::user()->user_firstname}} {{Auth::user()->user_secondname}} {{Auth::user()->user_surname}}</b> Please make sure the following student information are captured correctly</h6>
+                <ol>
+                    <li> 1. Fullname</li>
+                    <li> 2. Email</li>
+                    <li> 3. Phonenumber</li>
+                    <li> 4. Gender</li>
+                    <li> 4. School</li>
+                </ol>
+                <a href="{{route('showLeeds')}}" class="btn btn-success"  style="border-radius:50px;text-decoration: none;">Register Student</a>
+            </div>
+
+  </section>
 
 
 @endif

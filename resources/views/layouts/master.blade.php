@@ -448,7 +448,7 @@
         </ul>
         @endif
 
-        @if(Auth::check()&&Auth::user()->is_trainee=='Yes')
+        @if(Auth::check()&&Auth::user()->is_trainee=='Yes' &&Auth::user()->has_paid_reg_fee=='Yes')
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-header">HOME</li>
             <li class="nav-item">
@@ -590,6 +590,38 @@
                 <p>Documentation<i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
+        
+
+        </ul>
+        @endif
+
+
+        @if(Auth::check()&&Auth::user()->is_trainee=='Yes' &&Auth::user()->has_paid_reg_fee!='Yes')
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-header">HOME</li>
+
+           <li class="nav-item">
+              <a href="{{route('home')}}" class="nav-link">
+                <i class="fa fa-tachometer text-danger" aria-hidden="true"></i>
+                <p>Dashboard <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+
+              <a href="{{ route('logout') }}" class="nav-link"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa fa-map-o text-success" aria-hidden="true"></i>
+                <p>LogOut<i class="right fas fa-angle-right"></i></p>
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+            </li>
+
+           
+
+
         
 
         </ul>

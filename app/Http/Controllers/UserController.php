@@ -320,6 +320,19 @@ class UserController extends Controller
 
 
 
+   public function updateRegRefNo(Request $request){
+    $update=User::where('id',Auth::user()->id)->update(['reg_fee_reference_no'=>$request->reg_fee_reference_no]);
+    if($update){
+      
+     return redirect()->back()->with('success','Code send successfully. You account will be ativated shortly');
+    }else{
+        
+     return redirect()->back()->with('error','Could not send code');
+    }
+ }
+
+
+
     public function index(){
         return view('admin.users.index');
     }

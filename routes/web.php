@@ -23,6 +23,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/userLogin',[App\Http\Controllers\CompanySettingController::class, 'login2'])->name('login2');
 
+//REGISTERING NEW STUDENT FROM THE WEBSITE
+Route::post('/updateRegRefNo',[App\Http\Controllers\UserController::class,'updateRegRefNo'])->name('updateRegRefNo');
+
 //COMPANY SETTINGS
 Route::get('/settings',[App\Http\Controllers\CompanySettingController::class,'showcompanySettings'])->name('showcompanySettings');
 Route::post('/add/settings',[App\Http\Controllers\CompanySettingController::class,'addcompanySettings'])->name('addcompanySettings');
