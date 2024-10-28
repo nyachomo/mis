@@ -186,6 +186,9 @@ Route::post('/adminAddUsersRoles',[App\Http\Controllers\UserController::class, '
 Route::post('/adminSuspendUser',[App\Http\Controllers\UserController::class, 'adminSuspendUser'])->name('adminSuspendUser');
 Route::get('/showUserProfile',[App\Http\Controllers\UserController::class, 'showUserProfile'])->name('showUserProfile');
 
+//STUDENT SEND ENROLMENT REQUEST
+Route::post('/sendEnrollmentRequest',[App\Http\Controllers\UserController::class, 'sendEnrollmentRequest'])->name('sendEnrollmentRequest');
+
 //TRAINEE VIEW ALL COURSES
 
 Route::get('/traineeViewAllCourses',[App\Http\Controllers\CourseController::class, 'traineeViewAllCourses'])->name('traineeViewAllCourses');

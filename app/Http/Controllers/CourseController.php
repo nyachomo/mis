@@ -156,8 +156,18 @@ class CourseController extends Controller
     }
 
     public function traineeViewMoreCourseInfo($id){
-      $course=Course::where('id',$id)->first();
-      return view('admin.courses.traineeViewMoreCourseInfo',compact('course'));
+      if(Auth::check()){
+        if (Auth::user()->is_trainee == 'Yes' || Auth::user()->is_admin == 'Yes') {
+            $user_id=Auth::user()->id;
+            $course=Course::where('id',$id)->first();
+            return view('admin.courses.traineeViewMoreCourseInfo',compact(['course','user_id']));
+          }else{
+            return redirect()->back()->with('Failed','Failed');
+          }
+      }else{
+           return redirect()->route('login');
+      }
+      
     }
 
 

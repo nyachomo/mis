@@ -19,6 +19,19 @@
       </div>
 </section>
 <!-- /.container-fluid -->
+       @if (session('success'))
+            <section class="content">
+                <div class="container-fliud">
+
+
+                <div class="alert alert-success alert-dismissible">
+                    <h6> <i class="icon fas fa-info"></i> <b>Success</b></h6>
+                         {{ session('success') }}
+                </div>
+
+                </div>
+            </section>
+        @endif
 
 <!--second section-->
 <section class="content">
@@ -102,13 +115,15 @@
                                 <h6 class="modal-title">Course Enrollment Request</h6>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
-                            <form role="form" method="POST" action="">
+                            <form role="form" method="POST" action="{{route('sendEnrollmentRequest')}}">
                                 @csrf
                                 <!-- /.card-header -->
                                 <div class="card-body">
+                                    <input type="text" name="course_id" class="form-control" value="{{$course->id}}" hidden="true">
+                                    <input type="text" name="student_id" class="form-control" value="{{$user_id}}" hidden="true">
                                     <div class="alert alert-success alert-dismissible">
                                     
-                                        <h5> <b>Payment Guideline</b></h5>
+                                        <h5> <b>Alert !</b></h5>
                                         <p>You are about to enroll for {{$course->course_name}} course which takes a learning period of {{$course->course_duration}} (Months). If your request is approved, a debit of Ksh {{$course->course_price}} will be added to your fee structure</p>
                                     
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\StudentCourse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Exports\UsersDataExport;
@@ -347,6 +348,17 @@ class UserController extends Controller
  }
 
  
+ public function sendEnrollmentRequest(Request $request){
+   return redirect()->back()->with('success','Request sent successfully');
+  /*
+   $add=StudentCourse::create($request->all());
+   if($add){
+        return redirect()->back()->with('success','Suceess');
+   }else{
+       return redirect()->back()->with('error','Failed');
+   }
+   */
+ }
 
 
 
