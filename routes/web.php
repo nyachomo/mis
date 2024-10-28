@@ -98,6 +98,7 @@ Route::post('/adminRecoverArchiveCourses',[App\Http\Controllers\CourseController
 Route::post('/adminImportCourses',[App\Http\Controllers\CourseController::class, 'adminImportCourses'])->name('adminImportCourses');
 Route::get('/adminExportCoursesAsPdf',[App\Http\Controllers\CourseController::class, 'adminExportCoursesAsPdf'])->name('adminExportCoursesAsPdf');
 Route::get('/adminExportCoursesAsExcel',[App\Http\Controllers\CourseController::class, 'adminExportCoursesAsExcel'])->name('adminExportCoursesAsExcel');
+Route::post('/updateCourseImage',[App\Http\Controllers\CourseController::class, 'updateCourseImage'])->name('updateCourseImage');
 
 
 /*
@@ -185,6 +186,15 @@ Route::post('/adminAddUsersRoles',[App\Http\Controllers\UserController::class, '
 Route::post('/adminSuspendUser',[App\Http\Controllers\UserController::class, 'adminSuspendUser'])->name('adminSuspendUser');
 Route::get('/showUserProfile',[App\Http\Controllers\UserController::class, 'showUserProfile'])->name('showUserProfile');
 
+//TRAINEE VIEW ALL COURSES
+
+Route::get('/traineeViewAllCourses',[App\Http\Controllers\CourseController::class, 'traineeViewAllCourses'])->name('traineeViewAllCourses');
+Route::get('/traineeViewMoreCourseInfo/{id}',[App\Http\Controllers\CourseController::class, 'traineeViewMoreCourseInfo'])->name('traineeViewMoreCourseInfo');
+Route::get('/trainee_View_his_her_course',[App\Http\Controllers\CourseController::class, 'trainee_View_his_her_course'])->name('trainee_View_his_her_course');
+//SHOW APPLICANTS
+Route::get('/showApplicants',[App\Http\Controllers\UserController::class, 'showApplicants'])->name('showApplicants');
+Route::post('/deleteApplicant',[App\Http\Controllers\UserController::class, 'deleteApplicant'])->name('deleteApplicant');
+
 
 //MANAGEMENT
 Route::get('/adminShowManagement',[App\Http\Controllers\UserController::class, 'adminShowManagement'])->name('adminShowManagement');
@@ -195,6 +205,7 @@ Route::get('/download-trainer', function () {
     $filePath = public_path('imports/trainer.xlsx'); // Path to the file
     return Response::download($filePath);
 })->name('downloadTrainerImportFile');
+
 
 //HIGH SCHOOL TEACHERS
 Route::get('/adminShowHighSchoolTeachers',[App\Http\Controllers\UserController::class, 'adminShowHighSchoolTeachers'])->name('adminShowHighSchoolTeachers');

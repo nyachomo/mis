@@ -30,11 +30,13 @@ class User extends Authenticatable
         'is_registrar',
         'is_trainer',
         'is_trainee',
+        'is_applicant',
         'has_paid_reg_fee',
         'reg_fee_reference_no',
         'department_id',
         'clas_id',
         'is_alumni',
+        'course_id',
         'is_data_clerk',
         'is_exam_officer',
         'is_hod',
@@ -79,6 +81,10 @@ class User extends Authenticatable
 
     public function school(){
         return $this->belongsTo(School::class,'school_id','id');
+    }
+
+    public function course(){
+        return $this->belongsTo(Course::class,'course_id','id');
     }
 
 }

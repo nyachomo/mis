@@ -1,6 +1,10 @@
 @extends('layouts.frontend')
 @section('content')
 
+<?php
+use App\Models\Course;
+$courses=Course::where('course_status','Active')->get();
+?>
 <!-- Page Title -->
 <section class="page-title" style="height:30px;background-color:#000033;padding-top:15px">
     <div class="auto-container">
@@ -89,14 +93,14 @@
 
                                 <div class="col-lg-12 form-group">
                                         <label class="formLabel"><b>Which course are you applying for</b></label>
-                                        <select class="form-control" name="gender">
+                                        <select class="form-control" name="course_id">
                                             <option value="">Select ..</option>
-                                            <option value="Fullstack Web Development">Fulstack Web Developemt</option>
-                                            <option value="Android App Development">Android App Development</option>
-                                            <option value="Cyber Security">Cyber Security</option>
-                                            <option value="Digital Marketing">Digital Marketing</option>
-                                            <option value="Data Analysis">Data Analysis</option>
-                                            <option value="Python Programing">Python Programming</option>
+                                            @if(!empty($courses))
+                                               @foreach($courses as $course)
+                                                     <option value="{{$course->id}}">{{$course->course_name}}</option>
+                                               @endforeach
+                                            @endif
+                                           
                                         </select>
                                     </div>
 

@@ -151,88 +151,96 @@
 @if(Auth::check()&&Auth::user()->is_trainee=='Yes' &&Auth::user()->has_paid_reg_fee=='Yes')
 <section class="content">
       <div class="container-fliud">
-        
-    
-          <div class="alert alert-success alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h6><i class="icon fas fa-info"></i> <b>Alert!</b> Please make sure the following information are upto date.</h6>
-              <ol>
-                  <li> 1. Gender</li>
-                  <li> 2. Date of birth</li>
-                  <li> 3. Religion</li>
-                  <li> 4. Academic documents</li>
-                  <li> 4. Religion</li>
-              </ol>
-              <a href="{{route('showUserProfile')}}" class="btn btn-success"  style="border-radius:50px;text-decoration: none;">Update data</a>
-          </div>
 
-
-      
-     
-        <div class="alert alert-danger alert-dismissible">
-          <h6> <i class="icon fas fa-info"></i> <b>Hello {{Auth::user()->user_firstname}} {{Auth::user()->user_secondname}} {{Auth::user()->user_surname}}</b></h6>
-           You have fee balance of Ksh 23,000
-           Pay 16 
-            <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#payfee" style="width:100px;border-radius:50px">Pay</button>
-        </div>
-
-     
-
-     
-        <div class="alert alert-success alert-dismissible">
-          <i class="icon fas fa-info"></i>
-           You have 4 assesment that requires your action
-        </div>
-    
-      </div>
-      <div class="container-fluid">
        
-        <div class="row">
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-success">
-              <div class="info-box-content">
-                <span class="info-box-text">Total Debit</span>
-                
-                <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">56000</span></a>
+       <div class="row">
+         <div class="col-md-3 col-sm-6 col-12">
+           <div class="info-box bg-success">
+             <div class="info-box-content">
+               <span class="info-box-text">Total Fee (Debit)</span>
+               
+               <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">56000</span></a>
+             </div>
+           </div>
+         </div>
+
+
+         <div class="col-md-3 col-sm-6 col-12">
+           <div class="info-box bg-info">
+             <div class="info-box-content">
+               <span class="info-box-text">Fee Paid (Credit)</span>
+               
+               <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">33000</span></a>
+             </div>
+           </div>
+         </div>
+
+
+         <div class="col-md-3 col-sm-6 col-12">
+           <div class="info-box bg-danger">
+             <div class="info-box-content">
+               <span class="info-box-text">Fee Balance</span>
+               
+               <a href="{{route('adminShowTrainers')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+             </div>
+           </div>
+         </div>
+
+         <div class="col-md-3 col-sm-6 col-12">
+           <div class="info-box bg-warning">
+             <div class="info-box-content">
+               <span class="info-box-text" style="color:white">My Course</span>
+               
+               <a href="{{route('adminShowDepartments')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+             </div>
+           </div>
+         </div>
+
+       </div>
+
+        
+       <div class="row">
+          <div class="col-sm-6">
+
+              <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h6><i class="icon fas fa-info"></i> <b>Alert!</b> Please make sure the following information are upto date.</h6>
+                  <ol>
+                      <li> 1. Name</li>
+                      <li> 2. Email</li>
+                      <li> 3. Phonenumber</li>
+                      <li> 4. Gender</li>
+                      <li> 4. Profile Image</li>
+                  </ol>
+                  <a href="{{route('showUserProfile')}}" class="btn btn-success"  style="border-radius:50px;text-decoration: none;">Update data</a>
               </div>
-            </div>
+
+
           </div>
+          <div class="col-sm-6">
 
-
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-info">
-              <div class="info-box-content">
-                <span class="info-box-text">Amount Paid</span>
-                
-                <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">33000</span></a>
-              </div>
+            <div class="alert alert-danger alert-dismissible">
+              <h6> <i class="icon fas fa-info"></i> <b>Hello {{Auth::user()->user_firstname}} {{Auth::user()->user_secondname}} {{Auth::user()->user_surname}}</b></h6>
+              You have fee balance of Ksh 23,000
+               <br>
+                <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#payfee" style="width:100px;border-radius:50px">Pay</button>
             </div>
-          </div>
 
-
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-danger">
-              <div class="info-box-content">
-                <span class="info-box-text">Enrol Program</span>
-                
-                <a href="{{route('adminShowTrainers')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
-              </div>
+            <div class="alert alert-success alert-dismissible">
+              <i class="icon fas fa-info"></i>
+              You have enrolled for 1 Course
+              <br>
+              <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#payfee" style="width:100px;border-radius:50px">View</button>
             </div>
+
+
           </div>
-
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-warning">
-              <div class="info-box-content">
-                <span class="info-box-text" style="color:white">Department</span>
-                
-                <a href="{{route('adminShowDepartments')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
+       </div>
+    
+      
+    
       </div>
+      
 
 
       <!--add student modal-->
@@ -309,7 +317,7 @@
 
 </section>
 
-<section class="content">
+<!--<section class="content">
    <div class="container-fliud">
          <div class="card">
             <div class="card-header p-2">
@@ -317,7 +325,7 @@
                 <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">News</a></li>
                 <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Events</a></li>
               </ul>
-            </div><!-- /.card-header -->
+            </div>
             <div class="card-body">
               <div class="tab-content">
                 <div class="active tab-pane" id="activity">
@@ -330,7 +338,7 @@
                     </table>
                     
                 </div>
-                <!-- /.tab-pane -->
+              
                 <div class="tab-pane" id="timeline">
 
                     <table class="table">
@@ -342,19 +350,19 @@
                     </table>
                   
                 </div>
-                <!-- /.tab-pane -->
+              
 
                 <div class="tab-pane" id="settings">
 
                 
                 </div>
-                <!-- /.tab-pane -->
+              
               </div>
-              <!-- /.tab-content -->
-            </div><!-- /.card-body -->
+             
+            </div>
           </div>
    </div>
-</section>
+</section>-->
 @endif
 
 
@@ -414,19 +422,10 @@
                   </form>
                  </div>
               </div>
-              
-             
-
           </div>
 
-
-    
       </div>
      
-
-
-
-
 </section>
 
 @endif

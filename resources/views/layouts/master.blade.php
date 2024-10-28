@@ -290,162 +290,172 @@
       
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-       @if(Auth::check()&&Auth::user()->is_admin=='Yes')
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-           <!-- <input type="text" id="search" placeholder="Search...">-->
-          <li class="nav-header">HOME</li>
-          <li class="nav-item">
-            <a href="{{route('home')}}" class="nav-link">
-              <i class="nav-icon fas fa-tree text-warning"></i>
-              <p>Dashboard <i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('showUserProfile')}}" class="nav-link">
-              <i class="nav-icon fas fa-tree text-warning"></i>
-              <p>My Account<i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
-         
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users text-info"></i>
-              <p>
-                 Institutional Data
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview" style="padding-left:30px">
-              
+        @if(Auth::check()&&Auth::user()->is_admin=='Yes')
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- <input type="text" id="search" placeholder="Search...">-->
+            <li class="nav-header">HOME</li>
+          
 
-              <li class="nav-item has-treeview">
-                <a href="{{route('adminShowManagement')}}" class="nav-link"> <p> Management</p> </a>
-              </li>
+            <li class="nav-item">
+              <a href="{{route('showApplicants')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>Applicants <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
 
-              <li class="nav-item" >
-                <a href="{{route('adminShowUsers')}}" class="nav-link">
-                 
-                  <p>Users</p>
-                </a>
-              </li>
+            <li class="nav-item">
+              <a href="{{route('home')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>Dashboard <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
 
-              <li class="nav-item has-treeview">
-                <a href="{{route('adminShowTrainers')}}" class="nav-link"> <p> Trainers</p> </a>
-              </li>
+            <li class="nav-item">
+              <a href="{{route('showUserProfile')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>My Account<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+          
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users text-info"></i>
+                <p>
+                  Institutional Data
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" style="padding-left:30px">
+                
 
-              <li class="nav-item has-treeview">
-                <a href="{{route('adminShowTrainees')}}" class="nav-link"> <p> Trainees</p> </a>
-              </li>
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowManagement')}}" class="nav-link"> <p> Management</p> </a>
+                </li>
 
-            </ul>
-          </li>
+                <li class="nav-item" >
+                  <a href="{{route('adminShowUsers')}}" class="nav-link">
+                  
+                    <p>Users</p>
+                  </a>
+                </li>
 
-          <li class="nav-item">
-            <a href="{{route('adminShowDepartments')}}" class="nav-link">
-              <i class="nav-icon fas fa-tree text-warning"></i>
-              <p>Department <i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowTrainers')}}" class="nav-link"> <p> Trainers</p> </a>
+                </li>
 
-          <li class="nav-item">
-            <a href="{{route('adminShowCourses')}}" class="nav-link">
-              <i class="nav-icon fas fa-copy text-success"></i>
-              <p>Training Programs <i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowTrainees')}}" class="nav-link"> <p> Trainees</p> </a>
+                </li>
 
-          <li class="nav-item">
-            <a href="{{route('adminShowClas')}}" class="nav-link">
-              <i class="fas fa-home nav-icon text-danger"></i>
-              <p>Training Clases <i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
+              </ul>
+            </li>
 
-         
+            <li class="nav-item">
+              <a href="{{route('adminShowDepartments')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>Department <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
 
-        
-         
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-edit text-warning"></i>
-              <p>
-                Training Management
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('adminShowSubjects')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Units</p>
-                </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="{{route('adminShowTopics')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Manage Topics
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-               
-              </li>
-            </ul>
-          </li>
+            <li class="nav-item">
+              <a href="{{route('adminShowCourses')}}" class="nav-link">
+                <i class="nav-icon fas fa-copy text-success"></i>
+                <p>Training Programs <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-edit text-warning"></i>
-              <p>
-                Student Assesment
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('adminShowStudentAssignments')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Assignment</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('adminShowStudentCats')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cats</p>
-                </a>
-              </li>
-
-              <li class="nav-item has-treeview">
-                <a href="{{route('adminShowStudentFinalExam')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Final Exam
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-               
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{route('adminShowSchools')}}" class="nav-link">
-              <i class="fas fa-home nav-icon text-danger"></i>
-              <p>Schools<i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{route('adminShowHighSchoolTeachers')}}" class="nav-link">
-              <i class="fas fa-home nav-icon text-danger"></i>
-              <p>High School Teachers<i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
+            <li class="nav-item">
+              <a href="{{route('adminShowClas')}}" class="nav-link">
+                <i class="fas fa-home nav-icon text-danger"></i>
+                <p>Training Clases <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
 
           
 
-        </ul>
+          
+          
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit text-warning"></i>
+                <p>
+                  Training Management
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('adminShowSubjects')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Manage Units</p>
+                  </a>
+                </li>
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowTopics')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Manage Topics
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit text-warning"></i>
+                <p>
+                  Student Assesment
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('adminShowStudentAssignments')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assignment</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{route('adminShowStudentCats')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Cats</p>
+                  </a>
+                </li>
+
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowStudentFinalExam')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Final Exam
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('adminShowSchools')}}" class="nav-link">
+                <i class="fas fa-home nav-icon text-danger"></i>
+                <p>Schools<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('adminShowHighSchoolTeachers')}}" class="nav-link">
+                <i class="fas fa-home nav-icon text-danger"></i>
+                <p>High School Teachers<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            
+
+          </ul>
         @endif
 
         @if(Auth::check()&&Auth::user()->is_trainee=='Yes' &&Auth::user()->has_paid_reg_fee=='Yes')
@@ -476,35 +486,18 @@
               </a>
               <ul class="nav nav-treeview" style="padding-left:25px">
               <li class="nav-item">
-                  <a href="{{route('adminShowCourses')}}" class="nav-link">
+                  <a href="{{route('traineeViewAllCourses')}}" class="nav-link">
                   
                     <p>All Courses</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a href="{{route('traineeViewAssignments')}}" class="nav-link">
+                  <a href="{{route('trainee_View_his_her_course')}}" class="nav-link">
                    
                     <p>My Courses</p>
                   </a>
                 </li>
-
-                <li class="nav-item">
-                  <a href="{{route('traineeViewCats')}}" class="nav-link">
-                    
-                    <p>Course Outline</p>
-                  </a>
-                </li>
-                <li class="nav-item has-treeview">
-                  <a href="{{route('traineeViewFinalExam')}}" class="nav-link">
-                  
-                    <p>
-                      Notes
-                    </p>
-                  </a>
-                </li>
-
-               
 
               </ul>
             </li>

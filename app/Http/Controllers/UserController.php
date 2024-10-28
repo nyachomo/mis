@@ -332,6 +332,23 @@ class UserController extends Controller
  }
 
 
+ public function showApplicants(){
+    $applicants=User::with('course')->where('is_applicant','Yes')->get();
+    return view('admin.applicants.adminShowApplicants',compact('applicants'));
+ }
+
+ public function deleteApplicant(Request $request){
+    $delete=User::where('id',$request->id)->delete();
+    if($delete){
+        return redirect()->back()->with('success','Suceess');
+    }else{
+      return redirect()->back()->with('error','Failed');
+    }
+ }
+
+ 
+
+
 
     public function index(){
         return view('admin.users.index');

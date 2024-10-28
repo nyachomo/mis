@@ -74,6 +74,8 @@ class RegisterController extends Controller
             'gender'=> $data['gender'],
            // 'trainee_number'=> $data['trainee_number'],
             'is_trainee'=>'Yes',
+            'is_applicant'=>'Yes',
+            'course_id'=> $data[ 'course_id'],
             'email'=> $data[ 'email'],
             'password'=>$data['password'],
             'has_paid_reg_fee'=>'No',

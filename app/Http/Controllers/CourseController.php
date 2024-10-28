@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use App\Imports\CoursesImport;
@@ -11,6 +12,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Barryvdh\DomPDF\Facade\PDF;
 use App\Exports\CoursesExport;
 use App\Models\Department;
+use Illuminate\Support\Facades\Auth;
 class CourseController extends Controller
 {
     //
@@ -47,6 +49,36 @@ class CourseController extends Controller
            alert()->error('Failed','Could not saved');
            return redirect()->back();
        }
+    }
+
+    public function updateCourseImage(Request $request){
+
+      if($request->hasfile('course_image')){
+        $file=$request->file('course_image');
+        $extension=$file->getClientOriginalExtension();
+        $fileName=time().'.'.$extension;
+        $file->move('uploads/course_images/',$fileName);
+        $id=$request->id;
+        $course=Course::find($id);
+        $course->course_image=$fileName;
+        $course->update();
+        return redirect()->back()->with('success', 'Success');
+
+
+    }else{
+       echo"Image id Blank";
+    }
+
+
+    }
+
+
+    public function trainee_View_his_her_course(){
+      if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+        $user=User::with('course')->where('id',Auth::user()->id)->first();
+        return view('admin.courses.trainee_View_his_her_course',compact('user'));
+      }
+     
     }
 
 
@@ -118,6 +150,15 @@ class CourseController extends Controller
     return redirect()->back()->with('success', 'Departments imported successfully!');
     }
 
+
+    public function traineeViewAllCourses(Request $request){
+      return view('admin.courses.traineeViewAllCourses');
+    }
+
+    public function traineeViewMoreCourseInfo($id){
+      $course=Course::where('id',$id)->first();
+      return view('admin.courses.traineeViewMoreCourseInfo',compact('course'));
+    }
 
 
     public function index()

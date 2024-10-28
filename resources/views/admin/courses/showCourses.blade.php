@@ -75,6 +75,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Name</th>
                             <th scope="col">Level</th>
                             <th scope="col">Duration</th>
@@ -89,6 +90,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                             @foreach($courses as $key=>$course)
                             <tr>
                                 <td>{{$key+1}}</td>  
+                                <td><img src="uploads/course_images/{{$course->course_image}}" style="width:50%"></td>  
                                 <td>{{$course->course_name}}</td>
                                 <td>{{$course->course_level}}</td>
                                 <td>{{$course->course_duration}}</td>
@@ -104,6 +106,10 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                                             @if(Auth::user()->is_admin=='Yes')
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#update_course{{$course->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit</a></li>
                                             <div class="dropdown-divider"></div>
+
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#update_course_image{{$course->id}}" href="#"> <i class="fa fa-edit las1"></i> Update Course Image</a></li>
+                                            <div class="dropdown-divider"></div>
+
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_course{{$course->id}}" href="#"> <i class="fa fa-edit las2"></i> Archive</a></li>
                                             <div class="dropdown-divider"></div>
                                             @endif
@@ -116,24 +122,26 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
 
                             </tr>
 
-                            <!--add student modal-->
-                                <div class="modal  fade " id="update_course{{$course->id}}">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h6 class="modal-title">Update Course</h6>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            </div>
-                                            <form role="form" method="POST" action="{{route('adminUpdateCourses')}}">
-                                                @csrf
-                                                <!-- /.card-header -->
-                                                <div class="card-body">
-                                                    
-                                                        <input type="text" name="id" value="{{$course->id}}" hidden="true"> 
+                           
 
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <div class="form-group">
+
+
+                            <!--add student modal-->
+                            <div class="modal  fade " id="update_course{{$course->id}}">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title">Update Course</h6>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <form role="form" method="POST" action="{{route('adminUpdateCourses')}}">
+                                            @csrf
+                                            <!-- /.card-header -->
+                                            <div class="card-body">
+                                              <input type="text" name="id" value="{{$course->id}}" class="form-control">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                               <div class="form-group">
                                                                     <label>Department</label>
                                                                     <select class="form-control" required name="department_id">
                                                                         <option value="{{$course->department_id}}">{{$course->department->department_name}}</option>
@@ -145,80 +153,192 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                                                                         @endif
                                                                     </select>
                                                                 </div>
+
+                                                    </div>
+
+                                                    <div class="col-sm-6">
+                                                            <!-- text input -->
+                                                            <div class="form-group">
+                                                                <label>Course Name<sup>*</sup></label>
+                                                                <input type="text" class="form-control" name="course_name" value="{{$course->course_name}}" required>
                                                             </div>
                                                         </div>
-                   
-
-                                                        <div class="row">
-
-                                                            <div class="col-sm-6">
-                                                                <!-- text input -->
-                                                                <div class="form-group">
-                                                                    <label>Course Name<sup>*</sup></label>
-                                                                    <input type="text" class="form-control" name="course_name" value="{{$course->course_name}}" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-sm-6">
-                                                                <!-- text input -->
-                                                                <div class="form-group">
-                                                                    <label>Level<sup>*</sup></label>
-                                                                    <select name="course_level" class="form-control" required>
-                                                                        <option value="{{$course->course_level}}">{{$course->course_level}}</option>
-                                                                        <option value="Basic Level">Basic Level</option>
-                                                                        <option value="Intermediary Level">Intermediary Level</option>
-                                                                        <option value="Advance Level">Advance Level</option>
-                                                                    </select>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                        </div>  
-
-
-                                                        <div class="row">
-
-                                                            <div class="col-sm-6">
-                                                                <!-- text input -->
-                                                                <div class="form-group">
-                                                                    <label>Course Duration (In Months)<sup>*</sup></label>
-                                                                    <input type="number" value="{{$course->course_duration}}" class="form-control" name="course_duration" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-sm-6">
-                                                                <!-- text input -->
-                                                                <div class="form-group">
-                                                                    <label>Course Price (Ksh)<sup>*</sup></label>
-                                                                    <input type="number" value="{{$course->course_price}}" class="form-control" name="course_price" required min="1">
-                                                                </div>
-
-                                                            </div>
-
-
-                                                        </div>  
 
                                                         
+
+                                                </div>
+
+                                                <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label>Course Introductory Text</label>
+                                                                <input type="text" name="course_intoduction_text" value="{{$course->course_intoduction_text}}" class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <label>Course Description</label>
+                                                            <textarea class="form-control" name="course_description"  col="6">{{$course->course_description}}</textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <label>What to learn</label>
+                                                            <textarea name="what_to_learn" class="addTopic"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                                           <?php echo$course->what_to_learn;?>
+                                                           </textarea> 
+                                                        </div>
+                                                    </div>
+                    
                                                     
+
+                                                    <div class="row">
+
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Level<sup>*</sup></label>
+                                                                <select name="course_level" class="form-control" required>
+                                                                    <option value="{{$course->course_level}}">{{$course->course_level}}</option>
+                                                                    <option value="Basic Level">Basic Level</option>
+                                                                    <option value="Intermediary Level">Intermediary Level</option>
+                                                                    <option value="Advance Level">Advance Level</option>
+                                                                </select>
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                        <div class="col-sm-4">
+                                                            <!-- text input -->
+                                                            <div class="form-group">
+                                                                <label>Course Duration (In Months)<sup>*</sup></label>
+                                                                <input type="number" class="form-control" name="course_duration" value="{{$course->course_duration}}" required>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-4">
+                                                            <!-- text input -->
+                                                            <div class="form-group">
+                                                                <label>Course Price (Ksh)<sup>*</sup></label>
+                                                                <input type="number" class="form-control" name="course_price" value="{{$course->course_price}}" required min="1">
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div> 
+
+                                                
+
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Course Two likes</label>
+                                                                <input type="number" name="course_two_like" value="{{$course->course_two_like}}" class="form-control" min="1" required>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Course one likes</label>
+                                                                <input type="number" name="course_one_like" value="{{$course->course_one_like}}" class="form-control" min="1" required>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Course Dislike</label>
+                                                                <input type="number" name="course_not_interested" value="{{$course->course_not_interested}}" class="form-control" min="1" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                                <label>How Many Leaners already enrolled for this course</label>
+                                                                <input type="number" name="course_leaners_already_enrolled" value="{{$course->course_leaners_already_enrolled}}" class="form-control" min="1" required>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                                <label>Course Publisher Name</label>
+                                                                <input type="text" name="course_publisher_name" value="{{$course->course_publisher_name}}" class="form-control" >
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class="row">
+
+                                                        <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                                <label>Course Publisher Description</label>
+                                                                <textarea name="course_publisher_description" class="form-control" row="6">{{$course->course_publisher_description}} </textarea>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                            </div>
+                                            <!-- /.card-body -->
+
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>Close</button>
+                                                <button type="submit" class="btn btn-success"><i class="las la-plus"></i>Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                            <!-- /.modal-dialog -->
+                            </div>
+                            <!--end add student modal-->
+
+
+
+
+
+
+
+                            <!--add student modal-->
+                                <div class="modal  fade " id="update_course_image{{$course->id}}">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title">Update Image</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <form role="form" method="POST" action="{{route('updateCourseImage')}}" enctype="multipart/form-data">
+                                                @csrf
+                                                <!-- /.card-header -->
+                                                <div class="card-body">
+                                                       <input type="text" name="id" value="{{$course->id}}" hidden="true"> 
+                                                       <input type="file" name="course_image" class="form-control">
                                                 </div>
                                                 <!-- /.card-body -->
 
                                                 <div class="modal-footer justify-content-between">
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>Close</button>
-                                                    <button type="submit" class="btn btn-success"><i class="las la-edit"></i>Update</button>
+                                                    <button type="submit" class="btn btn-success"><i class="las la-trash"></i>Send</button>
                                                 </div>
                                             </form>
                                         </div>
                                         <!-- /.modal-content -->
                                     </div>
-                                <!-- /.modal-dialog -->
                                 </div>
                             <!--end add student modal-->
 
 
                             <!--add student modal-->
-                                <div class="modal  fade " id="archive_course{{$course->id}}">
+                               <div class="modal  fade " id="archive_course{{$course->id}}">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -243,6 +363,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                                     </div>
                                 </div>
                             <!--end add student modal-->
+
 
                              <!--add student modal-->
                              <div class="modal  fade " id="enrol_for_course{{$course->id}}">
@@ -357,7 +478,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
 
 <!--add student modal-->
 <div class="modal  fade " id="addCourse">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <h6 class="modal-title">Add New Course</h6>
@@ -369,7 +490,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
             <div class="card-body">
 
                    <div class="row">
-                      <div class="col-sm-12">
+                      <div class="col-sm-6">
                           <div class="form-group">
                             <label>Department</label>
                               <select class="form-control" required name="department_id">
@@ -383,10 +504,8 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                               </select>
                           </div>
                       </div>
-                   </div>
-                    <div class="row">
 
-                        <div class="col-sm-6">
+                      <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Course Name<sup>*</sup></label>
@@ -394,7 +513,39 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
+                        
+
+                   </div>
+
+                   <div class="row">
+                        <div class="col-sm-12">
+                             <div class="form-group">
+                                 <label>Course Introductory Text</label>
+                                 <input type="text" name="course_intoduction_text" class="form-control" required>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Course Description</label>
+                            <textarea class="form-control" name="course_description" col="6"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>What to learn</label>
+                            <textarea name="what_to_learn" class="addTopic"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                        
+                        </textarea> 
+                        </div>
+                    </div>
+                    
+
+                    <div class="row">
+
+                       <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Level<sup>*</sup></label>
@@ -409,12 +560,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                         </div>
 
 
-                    </div>  
-
-
-                    <div class="row">
-
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Course Duration (In Months)<sup>*</sup></label>
@@ -422,7 +568,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Course Price (Ksh)<sup>*</sup></label>
@@ -432,8 +578,70 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                         </div>
 
 
-                    </div>  
+                    </div> 
 
+                   
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                             <div class="form-group">
+                                 <label>Course Two likes</label>
+                                 <input type="number" name="course_two_like" class="form-control" min="1" required>
+                             </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                             <div class="form-group">
+                                 <label>Course one likes</label>
+                                 <input type="number" name="course_one_like" class="form-control" min="1" required>
+                             </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                             <div class="form-group">
+                                 <label>Course Dislike</label>
+                                 <input type="number" name="course_not_interested" class="form-control" min="1" required>
+                             </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                                <label>How Many Leaners already enrolled for this course</label>
+                                <input type="number" name="course_leaners_already_enrolled" class="form-control" min="1" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                                <label>Course Publisher Name</label>
+                                <input type="text" name="course_publisher_name" class="form-control" >
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                           <div class="form-group">
+                                <label>Course Publisher Description</label>
+                                <textarea name="course_publisher_description" class="form-control" row="6"> </textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="course_image" value="course_image.jpg" class="form-control" hidden="true">
+                        </div>
+                    </div>
+
+                    
                     
                    
             </div>
