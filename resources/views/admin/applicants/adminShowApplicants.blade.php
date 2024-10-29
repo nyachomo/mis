@@ -87,7 +87,12 @@
                                         <td>{{$applicant->user_firstname}} {{$applicant->user_secondname}} {{$applicant->user_surname}}</td>
                                         <td>{{$applicant->user_phonenumber}}</td>
                                         <td>{{$applicant->email}}</td>
-                                        <td>{{$applicant->course->course_name}}</td>
+                                        @if(!empty($applicant->course->course_name))
+                                           <td>{{$applicant->course->course_name}}</td>
+                                        @else
+                                        <td>No Course Selected</td>
+                                        @endif
+                                       
                                         <td>
                                             @if($applicant->has_paid_reg_fee!='Yes')
                                                No
