@@ -90,7 +90,7 @@
                           <p>{{$user->course->course_description}}</p>
                           <h5>In this course, you will learn how to</h5>
                           <div class="alert alert-success alert-dismissible">
-                            
+                             <?php echo$user->course->what_to_learn;?>
                           </div>
                       </div>
                   </div>
