@@ -1,7 +1,10 @@
 @extends('layouts.master')
 @section('content')
 
-   
+  <?php
+   use App\Models\Course;
+   use App\Models\User;
+  ?> 
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
@@ -158,8 +161,22 @@
            <div class="info-box bg-success">
              <div class="info-box-content">
                <span class="info-box-text">Total Fee (Debit)</span>
-               
-               <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">56000</span></a>
+               <?php
+                  
+                   $user=User::with('course')->where('id',Auth::user()->id)->first();
+                   if(!empty($user)){
+                         ?>      
+                              <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">{{$user->course->course_price}}</span></a>
+                         <?php
+                   }else{
+
+                        ?>      
+                            <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">Null</span></a>
+                        <?php 
+
+                   }
+               ?>
+          
              </div>
            </div>
          </div>

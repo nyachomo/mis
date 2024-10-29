@@ -297,11 +297,20 @@
           
 
             <li class="nav-item">
+              <a href="{{route('feePayments')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>Fee Payments <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="{{route('showApplicants')}}" class="nav-link">
                 <i class="nav-icon fas fa-tree text-warning"></i>
                 <p>Applicants <i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
+
+           
 
             <li class="nav-item">
               <a href="{{route('home')}}" class="nav-link">

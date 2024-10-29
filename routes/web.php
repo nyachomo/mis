@@ -219,8 +219,12 @@ Route::get('/download-trainee', function () {
     return Response::download($filePath);
 })->name('downloadTraineeImportFile');
 Route::post('/adminImportTraineesFromExcel',[App\Http\Controllers\UserController::class, 'adminImportTraineesFromExcel'])->name('adminImportTraineesFromExcel');
-Route::post('/enrolTraineeToCourse',[App\Http\Controllers\UserController::class, 'enrolTraineeToCourse'])->name('enrolTraineeToCourse');
 //ENROL TRAINEE TO COURSE
+Route::post('/enrolTraineeToCourse',[App\Http\Controllers\UserController::class, 'enrolTraineeToCourse'])->name('enrolTraineeToCourse');
+
+//STUDENT FEE PAYMENTS
+Route::get('/feePayments',[App\Http\Controllers\FeePaymentController::class, 'feePayments'])->name('feePayments');
+Route::post('/addFeePayments',[App\Http\Controllers\FeePaymentController::class, 'addFeePayments'])->name('addFeePayments');
 
 //MANAGE DEPARTMENTS
 Route::get('/adminShowDepartments',[App\Http\Controllers\DepartmentController::class, 'adminShowDepartments'])->name('adminShowDepartments');
