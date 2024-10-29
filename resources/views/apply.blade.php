@@ -93,7 +93,7 @@ $courses=Course::where('course_status','Active')->get();
 
                                 <div class="col-lg-12 form-group">
                                         <label class="formLabel"><b>Which course are you applying for</b></label>
-                                        <select class="form-control" name="course_id">
+                                        <select class="form-control" name="course_id" required>
                                             <option value="">Select ..</option>
                                             @if(!empty($courses))
                                                @foreach($courses as $course)
