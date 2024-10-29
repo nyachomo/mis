@@ -295,11 +295,10 @@
             <!-- <input type="text" id="search" placeholder="Search...">-->
             <li class="nav-header">HOME</li>
           
-
             <li class="nav-item">
-              <a href="{{route('feePayments')}}" class="nav-link">
+              <a href="{{route('adminViewLeeds')}}" class="nav-link">
                 <i class="nav-icon fas fa-tree text-warning"></i>
-                <p>Fee Payments <i class="right fas fa-angle-right"></i></p>
+                <p>Leeds<i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
 
@@ -309,6 +308,17 @@
                 <p>Applicants <i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="{{route('feePayments')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>Fee Payments <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            
+
+           
 
            
 

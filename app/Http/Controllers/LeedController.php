@@ -148,4 +148,15 @@ class LeedController extends Controller
 
         return view('leeds.downloadStudentScholarshipLetterFormFour',compact(['leed','imageSrc','imageSrc1','imageSrc2']));
     }
+
+    public function adminViewLeeds(){
+        if(Auth::check()){
+            $leeds=Leed::with('school')->get();
+            $schools=School::all();
+            $courses=Course::all();
+            return view('leeds.adminViewLeeds',compact(['leeds','courses','schools']));
+       }else{
+        return redirect()->route('login');
+       }
+    }
 }

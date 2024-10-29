@@ -265,6 +265,7 @@ Route::get('/search-user', [App\Http\Controllers\UserController::class, 'searchu
 
 //LEEDS
 
+Route::get('/adminViewLeeds',[App\Http\Controllers\LeedController::class, 'adminViewLeeds'])->name('adminViewLeeds');
 Route::get('/leeds',[App\Http\Controllers\LeedController::class, 'showLeeds'])->name('showLeeds');
 Route::post('/add/leed',[App\Http\Controllers\LeedController::class, 'addLeed'])->name('addLeed');
 Route::post('/update/leed',[App\Http\Controllers\LeedController::class, 'updateLeed'])->name('updateLeed');
