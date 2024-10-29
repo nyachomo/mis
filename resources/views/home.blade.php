@@ -4,6 +4,7 @@
   <?php
    use App\Models\Course;
    use App\Models\User;
+   use App\Models\FeePayment;
   ?> 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -183,25 +184,57 @@
 
 
          <div class="col-md-3 col-sm-6 col-12">
-           <div class="info-box bg-info">
+           <div class="info-box bg-danger">
              <div class="info-box-content">
-               <span class="info-box-text">Fee Paid (Credit)</span>
-               
-               <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">33000</span></a>
+               <span class="info-box-text">Total Fee Paid (Credit)</span>
+
+               <?php
+                   $user=User::with('course')->where('id',Auth::user()->id)->first();
+                   $credit=FeePayment::where('user_id',$user->id)->sum('amount_paid');
+
+                    ?>
+                        <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">{{$credit}}</span></a> 
+                    <?php
+                   
+               ?>
+
              </div>
            </div>
          </div>
+
 
 
          <div class="col-md-3 col-sm-6 col-12">
-           <div class="info-box bg-danger">
+           <div class="info-box bg-info">
              <div class="info-box-content">
-               <span class="info-box-text">Fee Balance</span>
+               <span class="info-box-text">Total Balance</span>
+               <?php
+                   $user=User::with('course')->where('id',Auth::user()->id)->first();
+                   $debit=$user->course->course_price;
+                   if(!empty($debit)){
+                    $credit=FeePayment::where('user_id',$user->id)->sum('amount_paid');
+                    $balance=$debit-$credit;
+                    ?>
+                        <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">{{$balance}}</span></a> 
+                    <?php
+                   }else{
+
+                    ?>
+                        <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">0</span></a> 
+                    <?php
+
+                   }
+                   
+               ?>
                
-               <a href="{{route('adminShowTrainers')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+              
+
              </div>
            </div>
          </div>
+
+
+        
 
          <div class="col-md-3 col-sm-6 col-12">
            <div class="info-box bg-warning">
@@ -238,16 +271,60 @@
 
             <div class="alert alert-danger alert-dismissible">
               <h6> <i class="icon fas fa-info"></i> <b>Hello {{Auth::user()->user_firstname}} {{Auth::user()->user_secondname}} {{Auth::user()->user_surname}}</b></h6>
-              You have fee balance of Ksh 23,000
+               You have fee balance of Ksh 
+
+               <?php
+                  $user=User::with('course')->where('id',Auth::user()->id)->first();
+                  $debit=$user->course->course_price;
+                  if(!empty($debit)){
+                   $credit=FeePayment::where('user_id',$user->id)->sum('amount_paid');
+                   $balance=$debit-$credit;
+                   ?>
+                       <a href="{{route('adminShowTrainees')}}"><span class="info-box-number">{{$balance}}</span></a> 
+                   <?php
+                  }else{
+
+                   ?>
+                       <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" >0</span></a> 
+                   <?php
+
+                  }
+
+               ?>
+               <p>Make payment through Mpesa or Bank and send payment details to<b> +254768919307</b> or email <b>info@techsphereinstitute.co.ke</b></p>
+               <div class="row">
+                  <div class="col-sm-6">
+                      
+                      <p>MPESA:</p>
+                      <ol>
+                        <li> 1. Bs Name: <b>Techsphere Institute</b></li>
+                        <li> 2. Paybill No: <b>522533</b></li>
+                        <li> 3. Account No: <b>7855887</b></li>
+                      </ol>
+
+
+                  </div>
+                  <div class="col-sm-6">
+
+
+                     <p>BANK</p>
+                     <ol>
+                        <li> 1. Bank: <b>Kenya Comercial Bank</b></li>
+                        <li> 2. Acc Name: <b>Techsphere Institute</b></li>
+                        <li> 3. Account No: <b>1327338564</b></li>
+                      </ol> 
+
+                  </div>
+               </div>
                <br>
-                <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#payfee" style="width:100px;border-radius:50px">Pay</button>
+                <!--<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#payfee" style="width:100px;border-radius:50px">Pay</button>-->
             </div>
 
             <div class="alert alert-success alert-dismissible">
               <i class="icon fas fa-info"></i>
               You have enrolled for 1 Course
               <br>
-              <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#payfee" style="width:100px;border-radius:50px">View</button>
+              <a href="{{route('trainee_View_his_her_course')}}" class="btn btn-sm btn-success"  style="width:100px;border-radius:50px">View</a>
             </div>
 
 
