@@ -68,7 +68,7 @@
                                     <td>{{$leed->student_email}}</td>
                                     <td>{{$leed->student_phone}}</td>
                                     <td>{{$leed->parent_name}}</td>
-                                    <td>{{$leed->student_phone}}</td>
+                                    <td>{{$leed->parent_phone}}</td>
                                     <td>{{$leed->course_register_for}}</td>
                                     <td>{{$leed->student_gender}}</td>
                                     <td>{{$leed->school->school_name}}</td>

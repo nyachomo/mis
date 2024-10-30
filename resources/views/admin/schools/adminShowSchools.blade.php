@@ -9,8 +9,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+           
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
               <li class="breadcrumb-item active">Manage Schools</li>
             </ol>
           </div>
@@ -70,8 +70,6 @@
 
                                    </tr>
 
-
-                                  
                                 @endforeach
                                
                              @else
@@ -122,7 +120,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label>School Contact Person<sup>*</sup></label>
-                                <input type="text" class="form-control" name="school_contact_person" required>
+                                <input type="text" class="form-control" name="school_contact_person">
                             </div>
                         </div>
                     </div>  
@@ -131,7 +129,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Phonenumber<sup>*</sup></label>
-                                <input type="text" class="form-control" name="phonenumber" required>
+                                <input type="text" class="form-control" name="phonenumber" >
                             </div>
                         </div>
                     </div>   

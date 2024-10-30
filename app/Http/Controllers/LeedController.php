@@ -151,7 +151,7 @@ class LeedController extends Controller
 
     public function adminViewLeeds(){
         if(Auth::check()){
-            $leeds=Leed::with('school')->get();
+            $leeds=Leed::with('school')->paginate(100);
             $schools=School::all();
             $courses=Course::all();
             return view('leeds.adminViewLeeds',compact(['leeds','courses','schools']));
