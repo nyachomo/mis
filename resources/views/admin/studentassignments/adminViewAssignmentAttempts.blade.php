@@ -63,7 +63,9 @@ use App\Models\StudentAssignmentQuestion;
                                         
                                       </td>
                                       <td>
-                                        <a href="{{url('/adminViewStudentAnswers/'.$attempt->user_id)}}"class="btn btn-sm btn-success"><i class="fa fa-eye"></i>View Answers</a>
+                                        <!--<a href="{{url('/adminViewStudentAnswers/'.$attempt->user_id)}}"class="btn btn-sm btn-success"><i class="fa fa-eye"></i>View Answers</a>-->
+
+                                        <a href="{{ url('/adminViewStudentAnswers/' . $attempt->user_id . '/' . $attempt->student_assignment_id) }}"class="btn btn-sm btn-success"><i class="fa fa-eye"></i>View Answers</a>
                                       </td>
                                    </tr>
                                 @endforeach

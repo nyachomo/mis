@@ -552,14 +552,14 @@
                   </a>
                 </li>
 
-                <li class="nav-item has-treeview">
+                <!--<li class="nav-item has-treeview">
                   <a href="{{route('traineeViewFinalExam')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>
                       My Project
                     </p>
                   </a>
-                </li>
+                </li>-->
 
               </ul>
             </li>

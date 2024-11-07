@@ -60,6 +60,17 @@ class UserController extends Controller
       return view('admin.users.adminShowHighSchoolTeachers',compact(['users','schools','archivedUsers','suspendedUsers','departments']));
     }
 
+    public function adminDeleteTrainee(Request $request){
+      $delete=User::where('id',$request->id)->delete();
+      if($delete){
+        alert()->success('success','One record has been deleted');
+            return redirect()->back();
+      }else{
+          alert()->error('Failed','Could not delete');
+          return redirect()->back();
+      }
+    }
+
     public function adminShowTrainees(){
       $courses=Course::where('course_status','Active')->get();
       $clases=Clas::where('clas_status','Active')->get();
@@ -82,6 +93,8 @@ class UserController extends Controller
     }
 
     public function adminAddUsers(Request $request){
+      //$save=User::create($request->all());
+
       
         $user=new User();
         $password="12345678";
@@ -98,13 +111,16 @@ class UserController extends Controller
         $user->is_hod=$request->is_hod;
         $user->department_id=$request->department_id;
         $user->clas_id=$request->clas_id;
+        $user->course_id=$request->course_id;
         $user->is_trainee=$request->is_trainee;
         $user->user_status="Active";
         $user->email=$request->email;
         $user->is_high_school_teacher=$request->is_high_school_teacher;
         $user->school_id=$request->school_id;
         $user->password=Hash::make($password);
+        $user->has_paid_reg_fee=$request->has_paid_reg_fee;
         $save=$user->save(); 
+        
 
         if($save){
           alert()->success('success','Data saved succesfully');

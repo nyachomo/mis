@@ -576,7 +576,7 @@ use App\Models\StudentAssignmentQuestion;
                             <!-- text input -->
                             <div class="form-group">
                                
-                                <input type="text" name="is_assignment" class="form-control" value="Yes" hidden="true">
+                                <input type="text" name="is_final_exam" class="form-control" value="Yes" hidden="true">
 
                             </div>
                         </div>

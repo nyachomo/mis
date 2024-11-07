@@ -103,6 +103,8 @@
                                             <div class="dropdown-divider"></div>
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_user{{$user->id}}" href="#"> <i class=" fa fa-trash las3"></i> Archive </a></li>
                                             <div class="dropdown-divider"></div>
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#delete_user{{$user->id}}" href="#"> <i class=" fa fa-trash las3"></i>Delete</a></li>
+                                            <div class="dropdown-divider"></div>
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#suspend_user{{$user->id}}" href="#"><i class=" fa fa-check las1"></i> Suspend </a></li>
                                         </ul>
                                     </div>
@@ -117,7 +119,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title">Edit Trainer</h6>
+                                                <h6 class="modal-title">Edit Trainee</h6>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             </div>
                                             <form role="form" method="POST" action="{{route('adminUpdateUsers')}}">
@@ -128,32 +130,30 @@
                                                        <input type="text" name="id" value="{{$user->id}}" class="form-control" hidden="true">
                                                         <div class="row">
 
-                                                         <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label>Department<sup>*</sup></label>
-                                                                <select name="department_id" class="form-control" required>
-                                                                    @if(!empty($user->department))
-                                                                        <option value="{{$user->department->id}}">{{$user->department->department_name}}</option>
-                                                                    @else
-                                                                        <option value="">Select .. </option>
-                                                                    @endif
-                                                                
-                                                                    @if(!empty($departments))
-                                                                        @foreach($departments as $key=>$department)
-                                                                            <option value="{{$department->id}}">{{$department->department_name}}</option>
-                                                                        @endforeach
-                                                                    @endif
-                                                                </select>
-                                                            </div>
+                                                                <div class="col-sm-12">
+                                                                    
+                                                                    <div class="form-group">
+                                                                        <label>Department<sup>*</sup></label>
+                                                                        <select name="department_id" class="form-control" required>
+                                                                            @if(!empty($user->department))
+                                                                                <option value="{{$user->department->id}}">{{$user->department->department_name}}</option>
+                                                                            @else
+                                                                                <option value="">Select .. </option>
+                                                                            @endif
+                                                                        
+                                                                            @if(!empty($departments))
+                                                                                @foreach($departments as $key=>$department)
+                                                                                    <option value="{{$department->id}}">{{$department->department_name}}</option>
+                                                                                @endforeach
+                                                                            @endif
+                                                                        </select>
+                                                                    </div>
 
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <!-- text input -->
-                                                                <div class="form-group">
-                                                                    <label>Firstname<sup>*</sup></label>
-                                                                    <input type="text" class="form-control" name="user_firstname" required value="{{$user->user_firstname}}">
                                                                 </div>
-                                                            </div>
+
+                                                               
+
+                                                                
 
                                                             
                                                             
@@ -161,15 +161,81 @@
 
                                                         <div class="row">
 
-                                                           <div class="col-sm-6">
-                                                                <!-- text input -->
-                                                                <div class="form-group">
-                                                                    <label>Secondname<sup>*</sup></label>
-                                                                    <input type="text" class="form-control" name="user_secondname" value="{{$user->user_secondname}}">
-                                                                </div>
-                                                            </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label>Class<sup>*</sup></label>
+                                                                        <select name="clas_id" class="form-control" required>
+                                                                            @if(!empty($user->clas_id))
+                                                                                <option value="{{$user->clas_id}}">{{$user->clas->clas_name}}</option>
+                                                                            @endif
+                                                                            @if(!empty($clases))
+                                                                                @foreach($clases as $key=>$clas)
+                                                                                    <option value="{{$clas->id}}">{{$clas->clas_name}}</option>
+                                                                                @endforeach
+                                                                            @endif
 
-                                                            <div class="col-sm-6">
+                                                                        </select>
+                                                                    </div>
+
+                                                                </div>
+
+
+
+                                                           <div class="col-sm-6">
+                                                               
+                                                                    <div class="form-group">
+                                                                        <label>Course<sup>*</sup></label>
+                                                                        <select name="course_id" class="form-control" required>
+                                                                            @if(!empty($user->course_id))
+                                                                              <option value="{{$user->course_id}}">{{$user->course->course_name}}</option>
+                                                                            @else
+                                                                            <option value="">Select .. </option>
+                                                                            @endif
+                                                                           
+                                                                            @if(!empty($courses))
+                                                                                @foreach($courses as $key=>$course)
+                                                                                    <option value="{{$course->id}}">{{$course->course_name}}</option>
+                                                                                @endforeach
+                                                                            @endif
+                                                                        </select>
+                                                                    </div>
+
+
+                                                           </div>
+
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                              <div class="col-sm-6">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label>Firstname<sup>*</sup></label>
+                                                                        <input type="text" class="form-control" name="user_firstname" required value="{{$user->user_firstname}}">
+                                                                    </div>
+
+                                                                </div>
+
+
+
+                                                               <div class="col-sm-6">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label>Secondname<sup>*</sup></label>
+                                                                        <input type="text" class="form-control" name="user_secondname" value="{{$user->user_secondname}}">
+                                                                    </div>
+                                                                </div>
+
+                                                           
+
+                                                            
+                                                            
+                                                        </div>  
+
+
+                                                        <div class="row">
+
+                                                           <div class="col-sm-6">
                                                                 <!-- text input -->
                                                                 <div class="form-group">
                                                                     <label>Surname<sup>*</sup></label>
@@ -177,12 +243,6 @@
                                                                 </div>
                                                             </div>
 
-                                                            
-                                                            
-                                                        </div>  
-
-
-                                                        <div class="row">
 
                                                            <div class="col-sm-6">
                                                                 <!-- text input -->
@@ -192,17 +252,20 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-6">
-                                                                <!-- text input -->
+
+                                                        </div> 
+                                                        
+                                                        <div class="row">
+                                                             <div class="col-sm-12">
+                                                                 
+                                                             <!-- text input -->
                                                                 <div class="form-group">
                                                                     <label>Email Address<sup>*</sup></label>
                                                                     <input type="email" class="form-control" name="email" required value="{{$user->email}}">
                                                                 </div>
 
-                                                            </div>
-
-
-                                                        </div>  
+                                                             </div>
+                                                        </div>
 
                                                         
                                                         
@@ -222,10 +285,7 @@
                                 <!--end add student modal-->
 
 
-
-                           
-
-
+             
                               <!--add student modal-->
                                <div class="modal  fade " id="enrol_to_course{{$user->id}}">
                                     <div class="modal-dialog modal-lg">
@@ -316,6 +376,34 @@
                                 </div>
                             <!--end add student modal-->
 
+                             <!--add student modal-->
+                             <div class="modal  fade " id="delete_user{{$user->id}}">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title">Are you sure you want to delete this user</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <form role="form" method="POST" action="{{route('adminDeleteTrainee')}}">
+                                                @csrf
+                                                <!-- /.card-header -->
+                                                <div class="card-body">
+                                                       <input type="text" name="id" value="{{$user->id}}" hidden="true"> 
+                                                </div>
+                                                <!-- /.card-body -->
+
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>Close</button>
+                                                    <button type="submit" class="btn btn-success"><i class="las la-trash"></i>Delete</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                </div>
+                            <!--end add student modal-->
+
+
                             @endforeach
                         @else
                         @endif
@@ -346,7 +434,7 @@
             <div class="card-body">
                    
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Department<sup>*</sup></label>
@@ -361,8 +449,28 @@
                             </div>
                         </div>
 
+ 
+                    </div>  
+
+                    <div class="row">
                         <div class="col-sm-6">
-                           <div class="form-group">
+                            <div class="form-group">
+                                <label>Course<sup>*</sup></label>
+                                <select name="course_id" class="form-control" required>
+                                    <option value="">Select .. </option>
+                                    @if(!empty($courses))
+                                          @foreach($courses as $key=>$course)
+                                             <option value="{{$course->id}}">{{$course->course_name}}</option>
+                                          @endforeach
+                                    @endif
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
                                 <label>Class<sup>*</sup></label>
                                 <select name="clas_id" class="form-control" required>
                                     <option value="">Select .. </option>
@@ -373,14 +481,13 @@
                                     @endif
                                 </select>
                             </div>
+
+
+
                         </div>
 
 
-                       
-
-                       
-                        
-                    </div>  
+                    </div>
 
                     <div class="row">
 
@@ -438,6 +545,14 @@
                                 <input type="email" class="form-control" name="email" required min="1">
                             </div>
 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="has_paid_reg_fee" value="Yes" hidden="true">
+                            <input type="text" name="password" value="12345678" hidden="true">
+                            <input type="text" name="user_status" value="Active" hidden="true">
                         </div>
                     </div>
 

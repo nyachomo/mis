@@ -2,6 +2,13 @@
 <html>
     <head>
         <title></title>
+        <!--Google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <!--Google fonts-->
         <style>
     
         table {
@@ -10,6 +17,20 @@
             margin: 20px 0;
             /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
         }
+
+        body,p,h1,h2,h3,h4,h5,h6{
+            font-family: "Afacad Flux", sans-serif !important;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+            font-variation-settings:
+            "slnt" 0;
+        }
+
+            body{
+            font-size:18px !important
+        }
+
         th, td {
             padding: 2px;
             text-align: left;
@@ -44,7 +65,7 @@
     <body>
         <div class="container">
             <div class="top-nav" id="">
-                <a href="javascript:void(0);" onclick="printPageArea('wrapper');">Print Full Content</a>
+                <a href="javascript:void(0);" onclick="printPageArea('wrapper');" >Print Scholarship Letter</a>
             </div>
 
             <div id="wrapper">
@@ -61,10 +82,10 @@
                     </p>
                 </center>
             <!-- <h3><b>Dear {{$leed->student_fullname}}</b></h3>-->
-                <table>
+                <table class="table" style="width:100%">
                     <tr style="border:1px solid white">
                         <td style="border:1px solid white"> <h4><b>Dear {{$leed->student_fullname}}</b></h4></td>
-                        <td style="border:1px solid white;text-align:right;"> <h4><b>Serial No TTI/NOV/2024/{{$leed->serial_number}}</b></h4></td>
+                        <td style="border:1px solid white;text-align:right;"> <h4><b>AdmNo :  TTI/NOV/2024/{{$leed->serial_number}}</b></h4></td>
                     </tr>
                 </table>
                 <p style="text-align:justify">
@@ -99,49 +120,56 @@
                     </thead>
                     <body>
                         <tr>
-                            <td>Web App Development</td>
+                            <td>CIT 201 Web App Development</td>
                             <td>18 Weeks</td>
                             <td>1,000</td>
                             <td>45,500</td>
                         </tr>
 
                         <tr>
-                            <td>Android App Development (Kotlin)</td>
+                            <td>CIT 202 Android App Development (Kotlin)</td>
                             <td>18 Weeks</td>
                             <td>1,000</td>
                             <td>45,500</td>
                         </tr>
 
                         <tr>
-                            <td>Cyber Security</td>
+                            <td>CIT 203 Cyber Security</td>
                             <td>18 Weeks</td>
                             <td>1,000</td>
                             <td>45,500</td>
                         </tr>
 
                         <tr>
-                            <td>Data Analysis</td>
+                            <td>CIT 204 Data Data Science</td>
                             <td>18 Weeks</td>
                             <td>1,000</td>
                             <td>45,500</td>
                         </tr>
 
                         <tr>
-                            <td>Graphic Design</td>
+                            <td>CIT 205 Graphic Design</td>
                             <td>18 Weeks</td>
                             <td>1,000</td>
                             <td>45,500</td>
                         </tr>
 
                         <tr>
-                            <td>Digital Marketing</td>
+                            <td>CIT 206 Digital Marketing</td>
                             <td>18 Weeks</td>
                             <td>1,000</td>
                             <td>45,500</td>
                         </tr>
 
                         <tr>
-                            <td>Python Programming</td>
+                            <td>CIT 207 Python Programming</td>
+                            <td>18 Weeks</td>
+                            <td>1,000</td>
+                            <td>45,500</td>
+                        </tr>
+
+                        <tr>
+                            <td>CIT 208 Robotics And IoT</td>
                             <td>18 Weeks</td>
                             <td>1,000</td>
                             <td>45,500</td>
@@ -162,7 +190,7 @@
                     Please note, the program will be run <b>PURELY ONLINE.</b> This will enable students to put focus to both the program and normal school assignments.
                 </p>
                 <p style="text-align:justify">
-                    Kindly call +254768919307 or send an email to <a href="https://techsphereinstitute.co.ke">https://techsphereinstitute.co.ke</a> for any queries or clarifications regarding the program. We look forward to having you join us
+                    Kindly call +254768919307 or send an email to <a href="info@techsphereinstitute.co.ke">info@techsphereinstitute.co.ke</a> for any queries or clarifications regarding the program. We look forward to having you join us
                 </p>
 
                 <table>
@@ -172,7 +200,7 @@
                                 Yours faithfully ,<br>
                                 <b>Ibrahim Gichemba  </b>
                                 <img src="{{ $imageSrc1 }}" width="100%"><br>
-                                Director Techsphere Training Institute.
+                                <b style="font-size:20px">Director Techsphere Training Institute.</b>
                             </p>
                         </td>
 
@@ -186,8 +214,12 @@
                     </tr>
                 </table>
 
-                <table>
+                <table style="width:100%">
+                    <p><center><b>PAYMENT OPTIONS</b></center></p>
+                    <br>
+                    <br>
                     <tr style="border:1px solid white">
+                        <p>BANK</p>
                         <td style="border:1px solid white">
                             <b>BANK NAME:</b> KENYA COMERCIAL BANK <br><br>
                             <b>A/C NAME:</b>  TECHSPHERE INSTITUTE <br><br>
@@ -196,7 +228,8 @@
                         </td>
 
                         <td style="border:1px solid white">
-                            <b>MPESA:</b> <br><br>
+                           <p>MPESA</p>
+                           <b>Business Name:</b> Techsphere Institute<br><br>
                             <b>PAY BILL:</b> 522533 <br><br>
                             <b>A/C NO:</b>	  7855887 </br><br>
 

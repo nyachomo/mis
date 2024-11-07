@@ -154,10 +154,10 @@ class StudentAssignmentController extends Controller
             $totalMarks = StudentAssignmentQuestion::whereIn('id', $questionIds) // Filter by question IDs
             ->sum('question_mark');
 
-            $avgScore=($cumulativeMarks/ $totalMarks)*30;
+            //$avgScore=($cumulativeMarks/ $totalMarks)*30;
 
        
-            return view('admin.studentassignments.traineeViewAssignments',compact(['exams','clas','department','avgScore']));
+            return view('admin.studentassignments.traineeViewAssignments',compact(['exams','clas','department']));
         }
        
        
@@ -180,8 +180,8 @@ class StudentAssignmentController extends Controller
             $totalMarks = StudentAssignmentQuestion::whereIn('id', $questionIds) // Filter by question IDs
             ->sum('question_mark');
 
-            $avgScore=($cumulativeMarks/ $totalMarks)*30;
-            return view('admin.studentassignments.traineeViewCats',compact(['exams','clas','department','avgScore']));
+           // $avgScore=($cumulativeMarks/ $totalMarks)*30;
+            return view('admin.studentassignments.traineeViewCats',compact(['exams','clas','department',]));
         }
 
 
@@ -205,8 +205,8 @@ class StudentAssignmentController extends Controller
             $totalMarks = StudentAssignmentQuestion::whereIn('id', $questionIds) // Filter by question IDs
             ->sum('question_mark');
 
-            $avgScore=($cumulativeMarks/ $totalMarks)*30;
-            return view('admin.studentassignments.traineeViewFinalExam',compact(['exams','clas','department','avgScore']));
+            //$avgScore=($cumulativeMarks/ $totalMarks)*30;
+            return view('admin.studentassignments.traineeViewFinalExam',compact(['exams','clas','department']));
         }
        
     }
@@ -281,13 +281,13 @@ class StudentAssignmentController extends Controller
 
     }
 
-    public function adminViewStudentAnswers($id){
+    public function adminViewStudentAnswers($user_id,$student_assignment_id){
       
-        $user=User::with('department','clas')->where('id',$id)->select('user_firstname','user_secondname','user_surname','department_id','clas_id')->first();
-        $studentAnswers=StudentAnswer::with(['studentassignmentquestion'])->where('user_id',$id)->get();
-        $totalScore=StudentAnswer::where('user_id',$id)->sum('student_score');
-        $assignment=StudentAnswer::where('user_id',$id)->first();
-        $student_assignment_id=$assignment->student_assignment_id;
+        $user=User::with('department','clas')->where('id',$user_id)->select('user_firstname','user_secondname','user_surname','department_id','clas_id')->first();
+        $studentAnswers=StudentAnswer::with(['studentassignmentquestion'])->where('user_id',$user_id)->where('student_assignment_id',$student_assignment_id)->get();
+        $totalScore=StudentAnswer::where('user_id',$user_id)->where('student_assignment_id',$student_assignment_id)->sum('student_score');
+        //$assignment=StudentAnswer::where('user_id',$user_id)->first();
+       // $student_assignment_id=$assignment->student_assignment_id;
         $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$student_assignment_id)->sum('question_mark');
 
        

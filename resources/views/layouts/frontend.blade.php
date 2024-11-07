@@ -116,7 +116,7 @@ body,p,h1,h2,h3,h4,h5,h6{
 									<li><a href="{{url('/')}}" class="navLink">Home</a></li>
 									<li><a href="{{route('about_us')}}" class="navLink">About Us</a></li>
 									<li><a href="{{route('all_courses')}}" class="navLink">Courses</a></li>
-									<li><a href="{{route('apply')}}" class="navLink">Enrol</a></li>
+									<li><a href="{{route('apply')}}" class="navLink">Enroll</a></li>
 									<li><a href="{{route('login')}}" class="navLink">Login</a></li>
 								</ul>
 							</div>

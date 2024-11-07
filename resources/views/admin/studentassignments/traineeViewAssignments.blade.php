@@ -44,31 +44,32 @@ use App\Models\StudentAssignmentQuestion;
 </section>-->
 <!--end of header section-->
 
-@if(!empty($exams))
+<!--
 <section class="content">
     <div class="containerfliud" style="padding-left:13px;padding-right:13px">
         <div class="row">
             <div class="col-sm-6">
                 <div class="alert alert-success">
                     <h5> Total Assesment</h5>
-                     {{$exams->count()}}
+                    
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="alert alert-info">
                     <h5>Avarage Score</h5>
-                     {{$avgScore}}
+                   
                 </div>
             </div>
             
            
         </div>
     </div>
+-->
                 
              
 
 </section>
-@endif
+
 
        
 

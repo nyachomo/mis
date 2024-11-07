@@ -167,12 +167,12 @@
                    $user=User::with('course')->where('id',Auth::user()->id)->first();
                    if(!empty($user)){
                          ?>      
-                              <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">{{$user->course->course_price}}</span></a>
+                              <a href="#"><span class="info-box-number" style="color:white;font-size:30px">Ksh: {{$user->course->course_price}}.00</span></a>
                          <?php
                    }else{
 
                         ?>      
-                            <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">Null</span></a>
+                            <a href="#"><span class="info-box-number" style="color:white;font-size:30px">Null</span></a>
                         <?php 
 
                    }
@@ -193,7 +193,7 @@
                    $credit=FeePayment::where('user_id',$user->id)->sum('amount_paid');
 
                     ?>
-                        <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">{{$credit}}</span></a> 
+                        <a href="#"><span class="info-box-number" style="color:white;font-size:30px">Ksh {{$credit}}.00</span></a> 
                     <?php
                    
                ?>
@@ -215,12 +215,12 @@
                     $credit=FeePayment::where('user_id',$user->id)->sum('amount_paid');
                     $balance=$debit-$credit;
                     ?>
-                        <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">{{$balance}}</span></a> 
+                        <a href="#"><span class="info-box-number" style="color:white;font-size:30px">Ksh {{$balance}}.00</span></a> 
                     <?php
                    }else{
 
                     ?>
-                        <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">0</span></a> 
+                        <a href="#"><span class="info-box-number" style="color:white;font-size:30px">Ksh 0.00</span></a> 
                     <?php
 
                    }
@@ -241,7 +241,7 @@
              <div class="info-box-content">
                <span class="info-box-text" style="color:white">My Course</span>
                
-               <a href="{{route('adminShowDepartments')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+               <a href="{{route('trainee_View_his_her_course')}}"><span class="info-box-number" style="color:white;font-size:25px">1</span></a>
              </div>
            </div>
          </div>
@@ -271,7 +271,7 @@
 
             <div class="alert alert-danger alert-dismissible">
               <h6> <i class="icon fas fa-info"></i> <b>Hello {{Auth::user()->user_firstname}} {{Auth::user()->user_secondname}} {{Auth::user()->user_surname}}</b></h6>
-               You have fee balance of Ksh 
+               You have fee balance of 
 
                <?php
                   $user=User::with('course')->where('id',Auth::user()->id)->first();
@@ -280,12 +280,12 @@
                    $credit=FeePayment::where('user_id',$user->id)->sum('amount_paid');
                    $balance=$debit-$credit;
                    ?>
-                       <a href="{{route('adminShowTrainees')}}"><span class="info-box-number">{{$balance}}</span></a> 
+                       <a href="#"><span class="info-box-number"><b style="font-size:30px;color:blue">Ksh {{$balance}}.00</b></span></a> 
                    <?php
                   }else{
 
                    ?>
-                       <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" >0</span></a> 
+                       <a href="#"><span class="info-box-number" >0</span></a> 
                    <?php
 
                   }
@@ -320,12 +320,12 @@
                 <!--<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#payfee" style="width:100px;border-radius:50px">Pay</button>-->
             </div>
 
-            <div class="alert alert-success alert-dismissible">
+            <!--<div class="alert alert-success alert-dismissible">
               <i class="icon fas fa-info"></i>
               You have enrolled for 1 Course
               <br>
               <a href="{{route('trainee_View_his_her_course')}}" class="btn btn-sm btn-success"  style="width:100px;border-radius:50px">View</a>
-            </div>
+            </div>-->
 
 
           </div>

@@ -8,7 +8,7 @@ $courses=Course::where('course_status','Active')->get();
 <!-- Page Title -->
 <section class="page-title" style="height:30px;background-color:#000033;padding-top:15px">
     <div class="auto-container">
-    <h4 style="color:white">Enrol</h4>
+    <h4 style="color:white">Enroll</h4>
         <ul class="bread-crumb clearfix">
             <li><a href="index.html">Home</a></li>
             <li>Enrol</li>

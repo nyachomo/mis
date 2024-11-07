@@ -109,9 +109,9 @@
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                   <a href="/downloadStudentScholarshipLetter/{{$leed->id}}" class="btn btn-success downloadScholarshipLetterBtn"><i class="fa fa-download"></i> Download</a>
+                                                   <a href="/public/downloadStudentScholarshipLetter/{{$leed->id}}" class="btn btn-success downloadScholarshipLetterBtn"><i class="fa fa-download"></i>Print Letter</a>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <button id="printScholarshipLetter{{$leed->id}}" onclick="printPageArea()" class="btn btn-primary">Print</button>
+                                                    <!--<button id="printScholarshipLetter{{$leed->id}}" onclick="printPageArea()" class="btn btn-primary">Print</button>-->
                                                     
                                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                                     <script>
@@ -182,39 +182,69 @@
                                                                     </thead>
                                                                     <body>
                                                                         <tr>
-                                                                            <td>Web App Development</td>
+                                                                            <td>CIT 101 Web App Development</td>
                                                                             <td>6 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>10,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Android App Development (Kotlin)</td>
+                                                                            <td>CIT 102 Android App Development (Kotlin)</td>
                                                                             <td>6 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>10,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Cyber Security</td>
+                                                                            <td>CIT 103 Cyber Security</td>
                                                                             <td>6 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>10,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Data Analysis</td>
+                                                                            <td>CIT 104 Data Analysis</td>
                                                                             <td>6 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>10,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Graphic Design</td>
+                                                                            <td>CIT 105 Graphic Design</td>
                                                                             <td>6 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>10,500</td>
                                                                         </tr>
+
+                                                                        <tr>
+                                                                            <td>CIT 106 Digital Marketing</td>
+                                                                            <td>6 Weeks</td>
+                                                                            <td>1,000</td>
+                                                                            <td>10,500</td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>CIT 107 Python Programming</td>
+                                                                            <td>6 Weeks</td>
+                                                                            <td>1,000</td>
+                                                                            <td>10,500</td>
+                                                                        </tr>
+
+                                                                        
+                                                                        <tr>
+                                                                            <td>CIT 108 Robotics And IoT</td>
+                                                                            <td>6 Weeks</td>
+                                                                            <td>1,000</td>
+                                                                            <td>10,500</td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>CIT 108 Python Programming</td>
+                                                                            <td>6 Weeks</td>
+                                                                            <td>1,000</td>
+                                                                            <td>10,500</td>
+                                                                        </tr>
+
 
                                                                         
                                                                             
@@ -339,7 +369,7 @@
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                   <a href="/downloadStudentScholarshipLetterFormFour/{{$leed->id}}" class="btn btn-success downloadScholarshipLetterBtn"><i class="fa fa-download"></i> Download</a>
+                                                   <a href="/public/downloadStudentScholarshipLetterFormFour/{{$leed->id}}" class="btn btn-success downloadScholarshipLetterBtn"><i class="fa fa-download"></i> Print Letter</a>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
                                                 <!-- /.card-header -->
@@ -401,49 +431,58 @@
                                                                     </thead>
                                                                     <body>
                                                                         <tr>
-                                                                            <td>Web App Development</td>
+                                                                            <td>CIT 201 Web App Development</td>
                                                                             <td>18 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>45,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Android App Development (Kotlin)</td>
+                                                                            <td>CIT 202 Android App Development (Kotlin)</td>
                                                                             <td>18 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>45,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Cyber Security</td>
+                                                                            <td>CIT 203 Cyber Security And Ethical Hacking</td>
                                                                             <td>18 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>45,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Data Analysis</td>
+                                                                            <td>CIT 204 Data Science</td>
                                                                             <td>18 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>45,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Graphic Design</td>
+                                                                            <td>CIT 205 Graphic Design</td>
+                                                                            <td>18 Weeks</td>
+                                                                            <td>1,000</td>
+                                                                            <td>45,500</td>
+                                                                        </tr>
+
+                                                                       
+
+                                                                        <tr>
+                                                                            <td>CIT 206 Digital Marketing And Search Engine Optimization</td>
                                                                             <td>18 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>45,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>UI/UX Design</td>
+                                                                            <td>CIT 207 Robotics And Iot</td>
                                                                             <td>18 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>45,500</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Digital Marketing</td>
+                                                                            <td>CIT 208 Python Programming</td>
                                                                             <td>18 Weeks</td>
                                                                             <td>1,000</td>
                                                                             <td>45,500</td>

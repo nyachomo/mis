@@ -44,20 +44,20 @@ use App\Models\StudentAssignmentQuestion;
 </section>-->
 <!--end of header section-->
 
-@if(!empty($exams))
+<!--
 <section class="content">
     <div class="containerfliud" style="padding-left:13px;padding-right:13px">
         <div class="row">
             <div class="col-sm-6">
                 <div class="alert alert-success">
                     <h5> Total Assesment</h5>
-                     {{$exams->count()}}
+                    
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="alert alert-info">
                     <h5>Avarage Score</h5>
-                     {{$avgScore}}
+                    
                 </div>
             </div>
             
@@ -68,7 +68,8 @@ use App\Models\StudentAssignmentQuestion;
              
 
 </section>
-@endif
+-->
+
 
        
 
@@ -116,7 +117,7 @@ use App\Models\StudentAssignmentQuestion;
                                             <td>
                                                 <?php
                                                    $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam->id)->sum('question_mark');
-                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->sum('student_score');
+                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->where('user_id',Auth::user()->id)->sum('student_score');
                                                   ?>
                                                      <p><b style="color:red">{{$studentScore}}/{{$totalMarks}}</b></p>
                                                   <?php

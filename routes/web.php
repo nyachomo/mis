@@ -84,7 +84,7 @@ Route::post('/adminArchivedAssignmentQuestions',[App\Http\Controllers\StudentAss
 Route::post('/adminRecoverAssignmentQuestions',[App\Http\Controllers\StudentAssignmentQuestionController::class,'adminRecoverAssignmentQuestions'])->name('adminRecoverAssignmentQuestions');
 Route::post('/adminExportAssignmentQuestionsAsPdf',[App\Http\Controllers\StudentAssignmentQuestionController::class,'adminExportAssignmentQuestionsAsPdf'])->name('adminExportAssignmentQuestionsAsPdf');
 Route::get('/adminViewAssignmentAttemps/{id}',[App\Http\Controllers\StudentAssignmentController::class,'adminViewAssignmentAttempts'])->name('adminViewAssignmentAttempts');
-Route::get('/adminViewStudentAnswers/{id}',[App\Http\Controllers\StudentAssignmentController::class,'adminViewStudentAnswers'])->name('adminViewStudentAnswers');
+Route::get('/adminViewStudentAnswers/{user_id}/{student_assignment_id}',[App\Http\Controllers\StudentAssignmentController::class,'adminViewStudentAnswers'])->name('adminViewStudentAnswers');
 
 //TRAINEE VIEWING THEIR EXAM
 
@@ -214,6 +214,7 @@ Route::get('/download-trainer', function () {
 Route::get('/adminShowHighSchoolTeachers',[App\Http\Controllers\UserController::class, 'adminShowHighSchoolTeachers'])->name('adminShowHighSchoolTeachers');
 //STUDENTS
 Route::get('/adminShowTrainees',[App\Http\Controllers\UserController::class, 'adminShowTrainees'])->name('adminShowTrainees');
+Route::post('/adminDeleteTrainee',[App\Http\Controllers\UserController::class, 'adminDeleteTrainee'])->name('adminDeleteTrainee');
 Route::get('/download-trainee', function () {
     $filePath = public_path('imports/trainee.xlsx'); // Path to the file
     return Response::download($filePath);
