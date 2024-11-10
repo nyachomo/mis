@@ -162,7 +162,7 @@
                         </tr>
 
                         <tr>
-                            <td>CIT 207 Python Programming</td>
+                            <td>CIT 107 Web Application Development</td>
                             <td>6 Weeks</td>
                             <td>1,000</td>
                             <td>10,500</td>
