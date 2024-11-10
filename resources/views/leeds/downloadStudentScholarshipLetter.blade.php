@@ -142,9 +142,9 @@
 
                         <tr>
                             <td>CIT 104 Data Data Science</td>
-                            <td>18 Weeks</td>
+                            <td>6 Weeks</td>
                             <td>1,000</td>
-                            <td>45,500</td>
+                            <td>10,500</td>
                         </tr>
 
                         <tr>
@@ -156,9 +156,9 @@
 
                         <tr>
                             <td>CIT 106 Digital Marketing</td>
-                            <td>18 Weeks</td>
+                            <td>6 Weeks</td>
                             <td>1,000</td>
-                            <td>45,500</td>
+                            <td>10,500</td>
                         </tr>
 
                         <tr>
