@@ -93,9 +93,9 @@
                                             @endif
                                             <div class="dropdown-divider"></div>
                                             @if($leed->student_form=='Form Four')
-                                            <li><a class="dropdown-item"  href="/downloadStudentScholarshipLetterFormFour/{{$leed->id}}"> <i class="fa fa-download las2"></i>Download Scholarship Letter</a></li>
+                                            <li><a class="dropdown-item"  href="/public/downloadStudentScholarshipLetterFormFour/{{$leed->id}}"> <i class="fa fa-download las2"></i>Download Scholarship Letter</a></li>
                                             @else
-                                            <li><a class="dropdown-item"  href="/downloadStudentScholarshipLetter/{{$leed->id}}"> <i class="fa fa-download las2"></i>Download Scholarship Letter</a></li>
+                                            <li><a class="dropdown-item"  href="/public/downloadStudentScholarshipLetter/{{$leed->id}}"> <i class="fa fa-download las2"></i>Download Scholarship Letter</a></li>
                                             
                                             @endif
                                             
