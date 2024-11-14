@@ -96,7 +96,8 @@ use App\Models\StudentAssignmentQuestion;
                                 <th>Start Date</th>
                                 <th>End Date</th>
                                <!-- <th>Duration</th>-->
-                                <th>Score</th>
+                                <th>Total Marks</th>
+                                <th>Student Score</th>
                                <!-- <th>Total Score</th>-->
                                 <!--<th>Exam Status</th>-->
                                 <th>Action</th>
@@ -116,10 +117,21 @@ use App\Models\StudentAssignmentQuestion;
                                             <!--<td>{{$exam->exam_duration}}</td>-->
                                             <td>
                                                 <?php
+                                                    $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam->id)->sum('question_mark');
+                                                    echo $totalMarks;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
                                                    $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam->id)->sum('question_mark');
-                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->sum('student_score');
+                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->where('user_id',$studentId)->sum('student_score');
                                                   ?>
-                                                     <p><b style="color:red">{{$studentScore}}/{{$totalMarks}}</b></p>
+                                                     
+                                                     @if($studentScore==0)
+                                                      <p style="color:blue">(Not Yet Marked)</p>
+                                                       @else
+                                                       <p><b style="color:red">{{$studentScore}}/{{$totalMarks}}</b></p>
+                                                     @endif
                                                   <?php
                                                 ?>
                                             </td> 
@@ -149,7 +161,7 @@ use App\Models\StudentAssignmentQuestion;
                                                         <li><center><a href="#" class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                         <li>
                                                             <a href="{{url('/traineeViewQuestions/'.$exam->id)}}" class="dropdown-item" >
-                                                                <i class="fa fa-edit las2"></i> Attempt Questions
+                                                            <i class="fa fa-eye las2" aria-hidden="true"></i> View Questions
                                                             </a>
                                                         </li>
 

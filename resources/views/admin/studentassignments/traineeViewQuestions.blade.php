@@ -55,18 +55,22 @@
             <div class="card">
                 <div class="card-body">
                   <label>{{$key+1}} .<?php echo$question->question_name?> <b>({{$question->question_mark}}Mks)</b></label>
-                  <textarea name="student_answer" class="question"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                 
                     <?php
                         $question_id=$question->id;
                        
                         $student_answer=StudentAnswer::where('student_assignment_question_id',$question_id)->where('user_id',$user_id)->first();
                         if(!empty($student_answer)){
-                            echo$student_answer->student_answer;
+                            ?>
+                               <textarea name="student_answer" class="question"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                {{$student_answer->student_answer}}
+                               </textarea>
+                            <?php
                         }else{
 
                         } 
                     ?>
-                 </textarea>
+                 
                     <p style="font-size:20px">
                         
                         <?php
@@ -74,13 +78,18 @@
                            
                             $student_answer=StudentAnswer::with('studentassignmentquestion')->where('student_assignment_question_id',$question_id)->where('user_id',$user_id)->first();
                             if(!empty($student_answer)){
-                                ?>
-                                   My Score :<b style="color:red"> {{$student_answer->student_score}}/{{$student_answer->studentassignmentquestion->question_mark}}</b>
-                                <?php
+                                if(!empty($student_answer->student_score)){
+                                    ?>
+                                      My Score :<b style="color:red"> {{$student_answer->student_score}}/{{$student_answer->studentassignmentquestion->question_mark}}</b>
+                                    <?php
+                                }else{
+                                    ?>
+                                    My Score :<b style="color:red">(Not Yet Marked)</b>
+                                  <?php 
+                                }
+                                
                             }else{
-                                ?>
-                                 My Score :<b style="color:red"> 0/{{$question->question_mark}}</b>
-                               <?php
+                               
                             }
                         ?>
                        
@@ -95,20 +104,17 @@
                         if(!empty($student_answer)){
                             ?>
                                    
-                                        <a href="#" class="btn btn-success" style="float:right" href="#" data-toggle="modal" data-target="#update_answer{{$question->id}}">
-                                            <i class="fa fa-edit las3"></i> Update Your Answer
+                                        <a href="#" class="btn btn-sm btn-outline-success"  href="#" data-toggle="modal" data-target="#update_answer{{$question->id}}">
+                                            <i class="fa fa-edit las3"></i> Click Here to Update Your Answer
                                         </a>
 
                                
                             <?php
                         }else{
                             ?>
-                               
-                                    <a href="#" class="btn btn-secondary"  data-toggle="modal" data-target="#answer_question{{$question->id}}">
-                                        <i class="fa fa-edit las1"></i> Answer Questions
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"  data-toggle="modal" data-target="#answer_question{{$question->id}}">
+                                        <i class="fa fa-edit las1"></i> Click here to write your answer
                                     </a>
-                              
-
                             <?php
                         } 
                     ?>
@@ -124,7 +130,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title">Update Questions</h6>
+                           <!-- <h6 class="modal-title">Update Questions</h6>-->
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <form role="form" method="POST" action="{{route('traineeAnswerQuestions')}}">

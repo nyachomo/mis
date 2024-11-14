@@ -145,6 +145,19 @@ class UserController extends Controller
 
     }
 
+    public function resetPassword(Request $request){
+      $id=$request->id;
+      $password=Hash::make($request->password);
+      $update=User::find($id)->update(['password'=>$password]);
+      if($update){
+      alert()->success('success','Password reset successfully');
+            return redirect()->back();
+      }else{
+          alert()->error('Failed','Could not reset');
+          return redirect()->back();
+      }
+    }
+
     public function adminArchiveUsers(Request $request){
         $id=$request->id;
         $archive=User::find($id)->update(['user_status'=>'Archived']);

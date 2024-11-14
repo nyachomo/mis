@@ -157,7 +157,7 @@ class StudentAssignmentController extends Controller
             //$avgScore=($cumulativeMarks/ $totalMarks)*30;
 
        
-            return view('admin.studentassignments.traineeViewAssignments',compact(['exams','clas','department']));
+            return view('admin.studentassignments.traineeViewAssignments',compact(['exams','clas','department','studentId']));
         }
        
        

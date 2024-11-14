@@ -97,9 +97,11 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
-                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#update_user{{$user->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit Info</a></li>
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#update_user{{$user->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit Information</a></li>
                                             <div class="dropdown-divider"></div>
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#enrol_to_course{{$user->id}}" href="#"> <i class="fa fa-edit las2"></i>Enrol to a course</a></li>
+                                            <div class="dropdown-divider"></div>
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#reset_user_password{{$user->id}}" href="#"><i class=" fa fa-check las1"></i>Reset Password</a></li>
                                             <div class="dropdown-divider"></div>
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_user{{$user->id}}" href="#"> <i class=" fa fa-trash las3"></i> Archive </a></li>
                                             <div class="dropdown-divider"></div>
@@ -275,6 +277,37 @@
                                                 <div class="modal-footer justify-content-between">
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>Close</button>
                                                     <button type="submit" class="btn btn-success"><i class="las la-edit"></i>Update</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                <!-- /.modal-dialog -->
+                                </div>
+                                <!--end add student modal-->
+
+                                 <!--add student modal-->
+                                 <div class="modal  fade " id="reset_user_password{{$user->id}}">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title">You are about to reset user password to default</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <form role="form" method="POST" action="{{route('resetPassword')}}">
+                                                @csrf
+                                                 <!-- /.card-header -->
+                                                    <div class="card-body">
+                                                        
+                                                       <input type="text" name="id" value="{{$user->id}}" class="form-control" hidden="true">
+                                                       <input type="text" name="password" value="12345678" hidden="true"> 
+
+                                                    </div>
+                                                    <!-- /.card-body -->
+
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>Close</button>
+                                                    <button type="submit" class="btn btn-success"><i class="las la-edit"></i>Reset</button>
                                                 </div>
                                             </form>
                                         </div>
