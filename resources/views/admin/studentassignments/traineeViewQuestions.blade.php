@@ -13,7 +13,14 @@
         
           <div class="col-sm-8">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('adminShowStudentAssignments')}}">Go Back</a></li>
+                @if(Auth::check()&& Auth::user()->is_admin=='Yes')
+                     <li class="breadcrumb-item"><a href="{{route('adminShowStudentAssignments')}}">Go Back</a></li>
+                     @elseif(Auth::check()&& Auth::user()->is_trainee=='Yes')
+                    <li class="breadcrumb-item"><a href="{{route('traineeViewAssignments')}}">Go Back</a></li>
+                @endif
+            
+            
+             
               <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
               <li class="breadcrumb-item active">Manage Questions</li>
             </ol>
@@ -80,16 +87,25 @@
                             if(!empty($student_answer)){
                                 if(!empty($student_answer->student_score)){
                                     ?>
-                                      My Score :<b style="color:red"> {{$student_answer->student_score}}/{{$student_answer->studentassignmentquestion->question_mark}}</b>
+                                      My Score :<b style="color:red"> {{$student_answer->student_score}}/{{$student_answer->studentassignmentquestion->question_mark}}</b><br><br>
                                     <?php
                                 }else{
                                     ?>
-                                    My Score :<b style="color:red">(Not Yet Marked)</b>
+                                    My Score :<b style="color:red">(Not Yet Marked)</b><br><br>
+
+                                    <a href="#" class="btn btn-sm btn-outline-success"  href="#" data-toggle="modal" data-target="#update_answer{{$question->id}}">
+                                        <i class="fa fa-edit las3"></i> Click Here to Update Your Answer
+                                    </a>
+                                    
                                   <?php 
                                 }
                                 
                             }else{
-                               
+                               ?>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"  data-toggle="modal" data-target="#answer_question{{$question->id}}">
+                                        <i class="fa fa-edit las1"></i> Click here to write your answer
+                                    </a>
+                               <?php
                             }
                         ?>
                        
@@ -98,27 +114,7 @@
                 </div>
                 <div class="card-footer" style="background0color:white;border:1px solid white">
 
-                    <?php
-                        $question_id=$question->id;
-                        $student_answer=StudentAnswer::where('student_assignment_question_id',$question_id)->where('user_id',$user_id)->first();
-                        if(!empty($student_answer)){
-                            ?>
-                                   
-                                        <a href="#" class="btn btn-sm btn-outline-success"  href="#" data-toggle="modal" data-target="#update_answer{{$question->id}}">
-                                            <i class="fa fa-edit las3"></i> Click Here to Update Your Answer
-                                        </a>
-
-                               
-                            <?php
-                        }else{
-                            ?>
-                                    <a href="#" class="btn btn-sm btn-outline-secondary"  data-toggle="modal" data-target="#answer_question{{$question->id}}">
-                                        <i class="fa fa-edit las1"></i> Click here to write your answer
-                                    </a>
-                            <?php
-                        } 
-                    ?>
-
+                  
                 </div>
             </div>
 
