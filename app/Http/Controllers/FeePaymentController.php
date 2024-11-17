@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FeePayment;
 use App\Models\User;
+use App\Models\Course;
+use App\Models\Clas;
+use Illuminate\Support\Facades\Auth;
 
 class FeePaymentController extends Controller
 {
@@ -22,6 +25,19 @@ class FeePaymentController extends Controller
             return redirect()->back()->with('succes','Fee Payment Added succesfully');
         }else{
             return redirect()->back()->with('error','Failed');
+        }
+    }
+
+    public function traineeViewFeePayments(){
+        if(Auth::check()&& Auth::user()->is_trainee=='Yes'){
+            $student=User::with(['course','clas'])->where('id',Auth::user()->id)->first();
+            $payments=FeePayment::where('user_id',Auth::user()->id)->get();
+            $credit=FeePayment::where('user_id',Auth::user()->id)->sum('amount_paid');
+            $debit=$student->course->course_price;
+            $balance=$debit-$credit;
+
+           
+            return view('admin.feepayments.traineeViewFeePayments',compact('payments','student','balance','credit','debit'));
         }
     }
 }

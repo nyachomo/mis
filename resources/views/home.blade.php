@@ -147,7 +147,6 @@
         
       </div>
 
-    
 </section>
 @endif
 <!-- /.container-fluid -->

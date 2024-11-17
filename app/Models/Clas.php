@@ -16,6 +16,7 @@ class Clas extends Model
        'clas_name',
        'clas_status',
        'department_id',
+       'timetable',
     ];
 
     public function department(){

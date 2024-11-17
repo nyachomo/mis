@@ -29,6 +29,7 @@ class Course extends Model
         'course_publisher_description',
         'course_publisher_image',
         'department_id',
+        'course_outline',
 
     ];
 

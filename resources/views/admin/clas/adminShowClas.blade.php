@@ -50,6 +50,7 @@
                             <th>#</th>
                             <th>Class Name</th>
                             <th>Department</th>
+                            <th>Has Time Table</th>
                             <th>ACTION</th>
                         </thead>
                         <tbody>
@@ -60,6 +61,13 @@
                                        <td>{{$key+1}}</td>
                                        <td>{{$activeclas->clas_name}}</td>
                                        <td>{{$activeclas->department->department_name}}</td>
+                                       <td>
+                                         @if($activeclas->timetable=="")
+                                         <p class="text-danger"><b>Has no timetable</b></p>
+                                         @else
+                                         <p class="text-success"><b>Has  timetable</b></p>
+                                         @endif
+                                       </td>
 
                                         <td>
                                             <div class="btn-group">
@@ -68,14 +76,110 @@
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#update_clas{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit</a></li>
+                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#update_clas{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit Clas</a></li>
                                                     <div class="dropdown-divider"></div>
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_clas{{$activeclas->id}}" href="#"> <i class="fa fa-edit las2"></i> Archive</a></li>
+
+                                                    @if($activeclas->timetable=="")
+                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#add_timetable{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> Add Time table</a></li>
+                                                    <div class="dropdown-divider"></div>
+                                                    @else
+
+                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#update_timetable{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> View/Update Timetable</a></li>
+                                                    <div class="dropdown-divider"></div>
+                                                    @endif
+                                                   
+
+                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_clas{{$activeclas->id}}" href="#"> <i class="fa fa-edit las2"></i> Archive Clas</a></li>
                                                 </ul>
                                             </div>
                                         </td>
 
                                    </tr>
+
+
+                                    <!--update department modal-->
+                                    <div class="modal  fade " id="add_timetable{{$activeclas->id}}">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title">Add Timetable</h6>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form role="form" method="POST" action="{{route('adminUpdateClases')}}">
+                                                    @csrf
+                                                    <!-- /.card-header -->
+                                                    <div class="card-body">
+                                                        
+                                                            <input type="text" class="form-control" name="id" value="{{$activeclas->id}}" hidden="true" required>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <label>Timetable<sup>*</sup></label> 
+
+                                                                    <textarea name="timetable" class="addTopic"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                                                       
+                                                                    </textarea> 
+
+                                                                    
+                                                                </div>
+                                                            </div>
+
+                                                          
+
+                                                    </div>
+                                                    <!-- /.card-body -->
+
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>CLOSE</button>
+                                                        <button type="submit" class="btn btn-success"><i class="las la-plus"></i>SAVE</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                    </div>
+                                    <!--end update department modal-->
+
+                                    <!--update department modal-->
+                                    <div class="modal  fade " id="update_timetable{{$activeclas->id}}">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title">Update Timetable</h6>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form role="form" method="POST" action="{{route('adminUpdateClases')}}">
+                                                    @csrf
+                                                    <!-- /.card-header -->
+                                                    <div class="card-body">
+                                                        
+                                                            <input type="text" class="form-control" name="id" value="{{$activeclas->id}}" hidden="true" required>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <label>Timetable<sup>*</sup></label> 
+
+                                                                    <textarea name="timetable" class="addTopic"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                                                       <?php echo$activeclas->timetable?>
+                                                                    </textarea> 
+
+                                                                    
+                                                                </div>
+                                                            </div>
+
+                                                          
+
+                                                    </div>
+                                                    <!-- /.card-body -->
+
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>CLOSE</button>
+                                                        <button type="submit" class="btn btn-success"><i class="las la-plus"></i>SAVE</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                    </div>
+                                    <!--end update department modal-->
 
 
                                     <!--update department modal-->

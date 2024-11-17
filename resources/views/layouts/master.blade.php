@@ -493,9 +493,36 @@
               </a>
             </li>
 
+            <li class="nav-item">
+              <a href="{{route('trainee_View_his_her_course')}}" class="nav-link">
+               <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
+                <p>My Course<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('studentViewCourseOutline')}}" class="nav-link">
+               <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
+                <p>Course Outline<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('studentViewNotes')}}" class="nav-link">
+               <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
+                <p>Notes<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+
+            
+
            
 
-            <li class="nav-item has-treeview">
+
+           
+
+            <!--<li class="nav-item has-treeview">
               <a href="#" class="nav-link">
               <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
                 <p>
@@ -519,7 +546,9 @@
                 </li>
 
               </ul>
-            </li>
+            </li>-->
+
+
 
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -565,14 +594,23 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{route('studentViewTimetable')}}" class="nav-link">
                <i class="fa fa-calendar text-success" aria-hidden="true"></i>
                 <p>Timetable<i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{route('studentViewTimetable')}}" class="nav-link">
+               <i class="fa fa-calendar text-success" aria-hidden="true"></i>
+                <p>Class Link<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+           
+
+            <li class="nav-item">
+              <a href="{{route('traineeViewFeePayments')}}" class="nav-link">
                 <i class="fa fa-money text-info" aria-hidden="true"></i>
                 <p>Payments<i class="right fas fa-angle-right"></i></p>
               </a>
@@ -581,7 +619,7 @@
            
            
 
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a href="#" class="nav-link">
                  <i class="fa fa-envelope-o text-danger" aria-hidden="true"></i>
                 <p>Communication<i class="right fas fa-angle-right"></i></p>
@@ -601,7 +639,7 @@
                 <i class="fa fa-folder-open-o text-info" aria-hidden="true"></i>
                 <p>Documentation<i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
         
 
         </ul>

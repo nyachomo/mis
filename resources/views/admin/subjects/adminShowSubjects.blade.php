@@ -81,7 +81,7 @@
 
                                  <!--update subject modal-->
                                     <div class="modal fade" id="update_subject{{$subject->id}}">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h6 class="modal-title">Update Unit</h6>
@@ -120,7 +120,22 @@
                                                                 </div>
                                                             </div>
                                                         
-                                                        </div>       
+                                                        </div>  
+                                                        
+                                                        <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label class="col-form-label" >TOPIC CONTENT</label>
+                                                                        
+                                                                        <textarea name="subject_content" class="addTopic"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                                                            {{$subject->subject_content}}
+                                                                        </textarea> 
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+
+
+
                                                 </div>
                                                 <!-- /.card-body -->
 
@@ -154,6 +169,9 @@
                                                         </div>
                                                     </div>       
                                             </div>
+
+                                            
+
                                             <!-- /.card-body -->
 
                                                 <div class="modal-footer justify-content-between">
@@ -183,7 +201,7 @@
 
 <!--add student modal-->
 <div class="modal fade" id="addStudentModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <h6 class="modal-title">ADD NEW SUBJECT</h6>
@@ -222,7 +240,21 @@
                         </div>
                     </div>
                    
-                </div>       
+                </div>   
+                
+                <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-form-label" >TOPIC CONTENT</label>
+                                
+                                <textarea name="subject_content" class="addTopic"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                    
+                                </textarea> 
+                            </div>
+                        </div>
+                </div>
+
+
         </div>
         <!-- /.card-body -->
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\User;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use App\Imports\CoursesImport;
@@ -76,11 +77,37 @@ class CourseController extends Controller
     public function trainee_View_his_her_course(){
       if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
         $user=User::with('course')->where('id',Auth::user()->id)->first();
-        return view('admin.courses.trainee_View_his_her_course',compact('user'));
+        $notes=Subject::where('course_id',Auth::user()->course_id)->get();
+        return view('admin.courses.trainee_View_his_her_course',compact('user','notes'));
       }
      
     }
 
+    public function studentViewNotes(){
+      if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+        $user=User::with('course')->where('id',Auth::user()->id)->first();
+        $notes=Subject::where('course_id',Auth::user()->course_id)->get();
+        return view('admin.notes.studentViewNotes',compact('user','notes'));
+      }
+    }
+
+
+    public function studentViewTimetable(){
+      if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+        $user=User::with('clas')->where('id',Auth::user()->id)->first();
+        $notes=Subject::where('course_id',Auth::user()->course_id)->get();
+        return view('admin.users.traineeViewTimetable',compact('user','notes'));
+      }
+    }
+
+
+    public function studentViewCourseOutline(){
+      if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+        $user=User::with('course')->where('id',Auth::user()->id)->first();
+        return view('admin.courses.traineeViewCourseOutline',compact('user'));
+      }
+    }
+    
 
     public function adminArchiveCourses(Request $request){
       $id=$request->id;
