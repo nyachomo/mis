@@ -204,6 +204,9 @@ Route::post('/deleteApplicant',[App\Http\Controllers\UserController::class, 'del
 //STUDENT VIEW NOTES
 Route::get('/student/View/Notes',[App\Http\Controllers\CourseController::class, 'studentViewNotes'])->name('studentViewNotes');
 
+//ADMIN VIEW NOTES
+Route::get('/admin/View/Notes/{id}',[App\Http\Controllers\CourseController::class, 'adminViewNotes'])->name('adminViewNotes');
+
 //STUDENT VIEW TIMETABLE
 Route::get('/student/View/timetable',[App\Http\Controllers\CourseController::class, 'studentViewTimetable'])->name('studentViewTimetable');
 

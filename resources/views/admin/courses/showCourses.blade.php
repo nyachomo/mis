@@ -75,7 +75,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th scope="col">Image</th>
+                            <!--<th scope="col">Image</th>-->
                             <th scope="col">Name</th>
                             <th scope="col">Level</th>
                             <th scope="col">Duration</th>
@@ -90,8 +90,8 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                             @foreach($courses as $key=>$course)
                             <tr>
                                 <td>{{$key+1}}</td>  
-                                <td><img src="uploads/course_images/{{$course->course_image}}" style="width:50%"></td>  
-                                <td>{{$course->course_name}}</td>
+                               <!-- <td><img src="uploads/course_images/{{$course->course_image}}" style="width:50%"></td>-->
+                                <td><a href="{{url('/admin/View/Notes/'.$course->id)}}">{{$course->course_name}}</a></td>
                                 <td>{{$course->course_level}}</td>
                                 <td>{{$course->course_duration}}</td>
                                 <td>{{$course->department->department_name}}</td>
@@ -109,6 +109,11 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
 
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#update_course_image{{$course->id}}" href="#"> <i class="fa fa-edit las1"></i> Update Course Image</a></li>
                                             <div class="dropdown-divider"></div>
+
+                                            <li><a class="dropdown-item"  href="{{url('/admin/View/Notes/'.$course->id)}}"> <i class="fa fa-edit las1"></i>Add/View Notes</a></li>
+                                            <div class="dropdown-divider"></div>
+
+                                            
 
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_course{{$course->id}}" href="#"> <i class="fa fa-edit las2"></i> Archive</a></li>
                                             <div class="dropdown-divider"></div>

@@ -83,6 +83,16 @@ class CourseController extends Controller
      
     }
 
+    public function adminViewNotes($id){
+      if(Auth::check()&&Auth::user()->is_admin=='Yes'){
+        $courses=Course::where('course_status','Active')->get();
+        $course=Course::where('id',$id)->first();
+        $subjects=Subject::where('course_id',$id)->get();
+        $archivesubjects=Subject::with('course.department')->where('subject_status','Archived')->get();
+        return view('admin.notes.adminViewNotes',compact('course','subjects','archivesubjects','courses','id'));
+      }
+    }
+
     public function studentViewNotes(){
       if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
         $user=User::with('course')->where('id',Auth::user()->id)->first();
@@ -90,6 +100,7 @@ class CourseController extends Controller
         return view('admin.notes.studentViewNotes',compact('user','notes'));
       }
     }
+
 
 
     public function studentViewTimetable(){
