@@ -295,24 +295,31 @@
             <!-- <input type="text" id="search" placeholder="Search...">-->
             <li class="nav-header">HOME</li>
           
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a href="{{route('adminViewLeeds')}}" class="nav-link">
                 <i class="nav-icon fas fa-tree text-warning"></i>
                 <p>Leeds<i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
 
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a href="{{route('showApplicants')}}" class="nav-link">
                 <i class="nav-icon fas fa-tree text-warning"></i>
                 <p>Applicants <i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
 
             <li class="nav-item">
               <a href="{{route('feePayments')}}" class="nav-link">
                 <i class="nav-icon fas fa-tree text-warning"></i>
                 <p>Fee Payments <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('adminViewScholarshiLetters')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>Scholarship Letters<i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
 
@@ -340,7 +347,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-users text-info"></i>
                 <p>
-                  Institutional Data
+                  Users
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -350,6 +357,14 @@
                 <li class="nav-item has-treeview">
                   <a href="{{route('adminShowManagement')}}" class="nav-link"> <p> Management</p> </a>
                 </li>
+
+                
+
+                <li class="nav-item has-treeview">
+                  <a href="{{route('showApplicants')}}" class="nav-link"> <p> Applicants</p> </a>
+                </li>
+
+                
 
                 <li class="nav-item" >
                   <a href="{{route('adminShowUsers')}}" class="nav-link">
@@ -369,32 +384,29 @@
               </ul>
             </li>
 
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a href="{{route('adminShowDepartments')}}" class="nav-link">
                 <i class="nav-icon fas fa-tree text-warning"></i>
                 <p>Department <i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
 
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a href="{{route('adminShowCourses')}}" class="nav-link">
                 <i class="nav-icon fas fa-copy text-success"></i>
                 <p>Training Programs <i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
 
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a href="{{route('adminShowClas')}}" class="nav-link">
                 <i class="fas fa-home nav-icon text-danger"></i>
                 <p>Training Clases <i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
 
-          
 
-          
-          
-            <li class="nav-item has-treeview">
+            <!--<li class="nav-item has-treeview">
               <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit text-warning"></i>
                 <p>
@@ -420,7 +432,84 @@
                 
                 </li>
               </ul>
+            </li>-->
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit text-warning"></i>
+                <p>
+                  Institutional Data
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('adminShowDepartments')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Departments</p>
+                  </a>
+                </li>
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowCourses')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Courses
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                </li>
+
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowClas')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Clases
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                </li>
+
+
+               
+              </ul>
             </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit text-warning"></i>
+                <p>
+                  Ict Club
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('adminShowSchools')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Schools</p>
+                  </a>
+                </li>
+                <li class="nav-item has-treeview">
+                  <a href="{{route('adminShowHighSchoolTeachers')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      High School Teachers
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                
+                </li>
+
+
+                <li class="nav-item has-treeview">
+                    <a href="{{route('adminViewLeeds')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                     <p>Leeds</p> 
+                    </a>
+                </li>
+              </ul>
+            </li>
+
 
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -458,19 +547,19 @@
               </ul>
             </li>
 
-            <li class="nav-item">
+           <!-- <li class="nav-item">
               <a href="{{route('adminShowSchools')}}" class="nav-link">
                 <i class="fas fa-home nav-icon text-danger"></i>
                 <p>Schools<i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
 
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a href="{{route('adminShowHighSchoolTeachers')}}" class="nav-link">
                 <i class="fas fa-home nav-icon text-danger"></i>
                 <p>High School Teachers<i class="right fas fa-angle-right"></i></p>
               </a>
-            </li>
+            </li>-->
 
             
 

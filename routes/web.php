@@ -213,6 +213,8 @@ Route::get('/student/View/timetable',[App\Http\Controllers\CourseController::cla
 //STUDENT VIEW COURSE OUTLINE
 Route::get('/student/View/course/outline',[App\Http\Controllers\CourseController::class, 'studentViewCourseOutline'])->name('studentViewCourseOutline');
 
+//SCHOLARSHIP LETTERS
+Route::get('/admin/View/scholarshipletters',[App\Http\Controllers\ScholarshipLetterController::class, 'adminViewScholarshiLetters'])->name('adminViewScholarshiLetters');
 
 //MANAGEMENT
 Route::get('/adminShowManagement',[App\Http\Controllers\UserController::class, 'adminShowManagement'])->name('adminShowManagement');

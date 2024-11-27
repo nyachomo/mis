@@ -28,6 +28,7 @@ class Leed extends Model
         'school_id',
         'serial_number',
         'course_register_for',
+        'scholarship_letter',
 
      ];
 

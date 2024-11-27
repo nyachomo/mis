@@ -39,6 +39,10 @@
                     <div class="btn-group">
                         <button class="btn btn-sm btn-success" style="float:right" data-toggle="modal" data-target="#addLeddModal"><i class="fa fa-plus las2"></i>Register New Student</button>
                     </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-secondary" style="float:right" data-toggle="modal" data-target="#addLeddModal"><i class="fa fa-plus las2"></i>Add Scholarship Letter (Form-four)</button>
+                    </div>
             </div>
             <div class="card-body">
                 <table class="table table-sm table-bordered table-striped" id="example1">
@@ -48,9 +52,9 @@
                         <th>Fullname</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Parent Name</th>
-                        <th>Parent Phone</th>
-                        <th>Course</th>
+                        <!--<th>Parent Name</th>-->
+                        <!--<th>Parent Phone</th>-->
+                        <!--<th>Course</th>-->
                         <th>Gender</th>
                         <th>School</th>
                         <th>Class</th>
@@ -67,9 +71,9 @@
                                     <td>{{$leed->student_fullname}}</td>
                                     <td>{{$leed->student_email}}</td>
                                     <td>{{$leed->student_phone}}</td>
-                                    <td>{{$leed->parent_name}}</td>
-                                    <td>{{$leed->parent_phone}}</td>
-                                    <td>{{$leed->course_register_for}}</td>
+                                    <!--<td>{{$leed->parent_name}}</td>-->
+                                    <!--<td>{{$leed->parent_phone}}</td>-->
+                                    <!--<td>{{$leed->course_register_for}}</td>-->
                                     <td>{{$leed->student_gender}}</td>
                                     <td>{{$leed->school->school_name}}</td>
                                     <td>{{$leed->student_form}}</td>
@@ -642,10 +646,22 @@
                                                             <label>Student Form</label>
                                                             <select class="form-control" name="student_form">
                                                                 <option value="{{$leed->student_form}}">{{$leed->student_form}}</option>
-                                                                <option VALUE="Form One">Form One</option>
-                                                                <option VALUE="Form Two">Form Two</option>
-                                                                <option VALUE="Form Three">Form Three</option>
-                                                                <option VALUE="Form Three">Form Three</option>
+                                                                <option value="Grade One">Grade 1</option>
+                                                                <option value="Grade Two">Grade 2</option>
+                                                                <option value="Grade Three">Grade 3</option>
+                                                                <option value="Grade Four">Grade 4</option>
+                                                                <option value="Grade Five">Grade 5</option>
+                                                                <option value="Grade Six">Grade 6</option>
+                                                                <option value="Grade Seven">Grade 7</option>
+                                                                <option value="Grade Eight">Grade 8</option>
+                                                                <option value="Grade Nine">Grade 9</option>
+                                                                <option value="Grade Ten">Grade 10</option>
+                                                                <option value="Grade Eleven">Grade 11</option>
+                                                                <option value="Grade Twelve">Grade 12</option>
+                                                                <option value="Form One">Form One</option>
+                                                                <option value="Form Two">Form Two</option>
+                                                                <option value="Form Three">Form Three</option>
+                                                                <option value="Form Three">Form Three</option>
                                                             </select>
 
                                                         </div>
@@ -871,10 +887,22 @@
                             <label>Student Class <sup class="supLeed">*</sup></label>
                             <select class="form-control" name="student_form" required>
                                 <option value="">Select ..</option>
+                                <option value="Grade One">Grade 1</option>
+                                <option value="Grade Two">Grade 2</option>
+                                <option value="Grade Three">Grade 3</option>
+                                <option value="Grade Four">Grade 4</option>
+                                <option value="Grade Five">Grade 5</option>
+                                <option value="Grade Six">Grade 6</option>
+                                <option value="Grade Seven">Grade 7</option>
+                                <option value="Grade Eight">Grade 8</option>
+                                <option value="Grade Nine">Grade 9</option>
+                                <option value="Grade Ten">Grade 10</option>
+                                <option value="Grade Eleven">Grade 11</option>
+                                <option value="Grade Twelve">Grade 12</option>
                                 <option value="Form one">Form One</option>
-                                <option VALUE="Form Two">Form Two</option>
-                                <option VALUE="Form Three">Form Three</option>
-                                <option VALUE="Form Four">Form Four</option>
+                                <option value="Form Two">Form Two</option>
+                                <option value="Form Three">Form Three</option>
+                                <option value="Form Four">Form Four</option>
                             </select>
 
                         </div>
