@@ -187,68 +187,62 @@
                                                                     <body>
                                                                         <tr>
                                                                             <td>CIT 101 Web App Development</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,000</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 102 Android App Development (Kotlin)</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,000</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 103 Cyber Security</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,000</td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>CIT 104 Data Analysis</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>CIT 104 Data Science</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,000</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 105 Graphic Design</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,000</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 106 Digital Marketing</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,000</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 107 Python Programming</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         
                                                                         <tr>
                                                                             <td>CIT 108 Robotics And IoT</td>
-                                                                            <td>6 Weeks</td>
+                                                                            <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>10,500</td>
+                                                                            <td>15,000</td>
                                                                         </tr>
 
-                                                                        <tr>
-                                                                            <td>CIT 108 Python Programming</td>
-                                                                            <td>6 Weeks</td>
-                                                                            <td>1,000</td>
-                                                                            <td>10,500</td>
-                                                                        </tr>
-
+                                                                        
 
                                                                         
                                                                             
@@ -320,9 +314,9 @@
                                                                 </table>-->
                                                             
                                                                 <p style="text-align:justify">
-                                                                    For this program, select one course from the list above. The program will run for a period of 6 weeks, 2hrs per day (MON-FRI) and a certificate will be issued upon completion. 
-                                                                    To accept this partial scholarship, you are required to visit  <a href="https://techsphereinstitute.co.ke">https://techsphereinstitute.co.ke</a> and select <b>“Enroll”</b> to register before the deadline <b> 4 <sup>th</sup> November 2024 </b> which will also be the reporting date. 
-                                                                    A non-refundable registration fee of <b>KES. 1000</b> is required to secure a spot on the program but students who have attended the program before will not be required to pay this fee. The starting date for the program is on <b>11 <sup>th</sup> November 2024.</b> 
+                                                                    For this program, select one course from the list above. The program will run for a period of 4 weeks, 2hrs per day (MON-FRI) and a certificate will be issued upon completion. 
+                                                                    To accept this partial scholarship, you are required to visit  <a href="https://techsphereinstitute.co.ke">https://techsphereinstitute.co.ke</a> and select <b>“Enroll”</b> to register before the deadline <b> 6 <sup>th</sup> December 2024 </b> which will also be the reporting date. 
+                                                                    A non-refundable registration fee of <b>KES. 1000</b> is required to secure a spot on the program but students who have attended the program before will not be required to pay this fee. The starting date for the program is on <b>9 <sup>th</sup> December 2024.</b> 
                                                                     Please note, the program will be run <b>PURELY ONLINE.</b> This will enable students to put focus to both the program and normal school assignments.
                                                                 </p>
                                                                 <p style="text-align:justify">
