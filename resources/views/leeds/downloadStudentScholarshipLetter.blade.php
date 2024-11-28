@@ -123,56 +123,56 @@
                             <td>CIT 101 Python Programming</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         <tr>
-                            <td>CIT 102 Android App Development (Kotlin)</td>
+                            <td>CIT 102 Android Application Development (Kotlin)</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         <tr>
                             <td>CIT 103 Cyber Security</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         <tr>
                             <td>CIT 104 Data Data Science</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         <tr>
                             <td>CIT 105 Graphic Design</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         <tr>
                             <td>CIT 106 Digital Marketing</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         <tr>
                             <td>CIT 107 Web Application Development</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         <tr>
                             <td>CIT 108 Robotics And IoT</td>
                             <td>4 Weeks</td>
                             <td>1,000</td>
-                            <td>15,000</td>
+                            <td>15,500</td>
                         </tr>
 
                         

@@ -189,42 +189,42 @@
                                                                             <td>CIT 101 Web App Development</td>
                                                                             <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>15,000</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 102 Android App Development (Kotlin)</td>
                                                                             <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>15,000</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 103 Cyber Security</td>
                                                                             <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>15,000</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 104 Data Science</td>
                                                                             <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>15,000</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 105 Graphic Design</td>
                                                                             <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>15,000</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td>CIT 106 Digital Marketing</td>
                                                                             <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>15,000</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         <tr>
@@ -239,7 +239,7 @@
                                                                             <td>CIT 108 Robotics And IoT</td>
                                                                             <td>4 Weeks</td>
                                                                             <td>1,000</td>
-                                                                            <td>15,000</td>
+                                                                            <td>15,500</td>
                                                                         </tr>
 
                                                                         
