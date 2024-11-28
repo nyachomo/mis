@@ -216,6 +216,8 @@ Route::get('/student/View/course/outline',[App\Http\Controllers\CourseController
 //SCHOLARSHIP LETTERS
 Route::get('/admin/View/scholarshipletters',[App\Http\Controllers\ScholarshipLetterController::class, 'adminViewScholarshiLetters'])->name('adminViewScholarshiLetters');
 Route::post('/admin/Add/scholarshipletter',[App\Http\Controllers\ScholarshipLetterController::class, 'adminAddScholarshiLetter'])->name('adminAddScholarshiLetter');
+Route::post('/admin/Update/scholarshipletter',[App\Http\Controllers\ScholarshipLetterController::class, 'adminUpdateScholarshiLetter'])->name('adminUpdateScholarshiLetter');
+Route::post('/admin/Delete/scholarshipletter',[App\Http\Controllers\ScholarshipLetterController::class, 'adminDeleteScholarshiLetter'])->name('adminDeleteScholarshiLetter');
 
 //MANAGEMENT
 Route::get('/adminShowManagement',[App\Http\Controllers\UserController::class, 'adminShowManagement'])->name('adminShowManagement');
