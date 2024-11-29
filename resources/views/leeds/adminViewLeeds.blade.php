@@ -685,14 +685,17 @@
                                                             <label>Which Course are you interested in ?<sup>*</sup></label>
                                                             <select class="form-control" name="course_register_for" required>
                                                                 <option value="{{$leed->course_register_for}}">{{$leed->course_register_for}}</option>
-                                                                <option value="Fullstack Web Development">Fullstack Web Development</option>
-                                                                <option value="Android App Development">Android App Development</option>
+                                                                <option value="Fullstack Web Development">Fullstack Software  Development</option>
+                                                                <option value="Android App Development">Android Application Development</option>
+                                                                <option value="Android App Development">Web Application Development</option>
                                                                 <option value="Python Programming">Python Programming</option>
                                                                 <option value="Graphic Design">Graphic Design</option>
                                                                 <option value="UI/UX Design">UI/UX Design</option>
                                                                 <option value="Digital Marketing">Digital Marketing</option>
                                                                 <option value="Cyber Security">Cyber Security </option>
-                                                                <option value="Data Analysis">Data Analysi</option>
+                                                                <option value="Cyber Security">Robotics And IoT </option>
+                                                                <option value="Data Science And Machine Learning">Data Science And Machine Learning</option>
+
                                                             </select>
                                                         </div>
                                                     </div>
@@ -925,14 +928,16 @@
                             <label>Which Course are you interested in ? <sup class="supLeed">*</sup> </label>
                             <select class="form-control" name="course_register_for" required>
                                 <option value="">Select ...</option>
-                                <option value="Fullstack Web Development">Fullstack Web Development</option>
-                                <option value="Android App Development">Android App Development</option>
+                                <option value="Fullstack Web Development">Fullstack Software  Development</option>
+                                <option value="Android App Development">Android Application Development</option>
+                                <option value="Android App Development">Web Application Development</option>
                                 <option value="Python Programming">Python Programming</option>
                                 <option value="Graphic Design">Graphic Design</option>
                                 <option value="UI/UX Design">UI/UX Design</option>
                                 <option value="Digital Marketing">Digital Marketing</option>
                                 <option value="Cyber Security">Cyber Security </option>
-                                <option value="Data Analysis">Data Analysi</option>
+                                <option value="Cyber Security">Robotics And IoT </option>
+                                <option value="Data Science And Machine Learning">Data Science And Machine Learning</option>
                             </select>
                         </div>
                     </div>

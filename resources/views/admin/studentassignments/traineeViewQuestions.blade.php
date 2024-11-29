@@ -63,16 +63,31 @@
                 <div class="card-body">
                   <label>{{$key+1}} .<?php echo$question->question_name?> <b>({{$question->question_mark}}Mks)</b></label>
                  
+                 
                     <?php
                         $question_id=$question->id;
                        
                         $student_answer=StudentAnswer::where('student_assignment_question_id',$question_id)->where('user_id',$user_id)->first();
                         if(!empty($student_answer)){
-                            ?>
-                               <textarea name="student_answer" class="question"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                                {{$student_answer->student_answer}}
-                               </textarea>
-                            <?php
+                            if($student_answer->student_answer==$question->question_answer){
+                                ?>
+                                    <p> Your Answer is : <b style="color:green">{{$student_answer->student_answer}} (Correct)</b></p>
+                                    <!--<textarea name="student_answer" class="question" >
+                                    {{$student_answer->student_answer}}
+                                    </textarea>-->
+                                <?php
+
+                            }else{
+                                ?>
+                                    <p> Your Answer is : <b style="color:green">{{$student_answer->student_answer}}</b> <b style="color:red">(Incorrect)</b></p>
+                                    <p>Correct Answer is: <b style="color:green">{{$question->question_answer}}</b></p> </p>
+                                    <!--<textarea name="student_answer" class="question" >
+                                    {{$student_answer->student_answer}}
+                                    </textarea>-->
+                                <?php
+
+                            }
+                            
                         }else{
 
                         } 
@@ -85,17 +100,18 @@
                            
                             $student_answer=StudentAnswer::with('studentassignmentquestion')->where('student_assignment_question_id',$question_id)->where('user_id',$user_id)->first();
                             if(!empty($student_answer)){
-                                if(!empty($student_answer->student_score)){
+                                if($student_answer->student_score>=0){
                                     ?>
+                                      
                                       My Score :<b style="color:red"> {{$student_answer->student_score}}/{{$student_answer->studentassignmentquestion->question_mark}}</b><br><br>
                                     <?php
                                 }else{
                                     ?>
-                                    My Score :<b style="color:red">(Not Yet Marked)</b><br><br>
+                                    <!--My Score :<b style="color:red">(Not Yet Marked)</b><br><br>
 
                                     <a href="#" class="btn btn-sm btn-outline-success"  href="#" data-toggle="modal" data-target="#update_answer{{$question->id}}">
                                         <i class="fa fa-edit las3"></i> Click Here to Update Your Answer
-                                    </a>
+                                    </a>-->
                                     
                                   <?php 
                                 }
@@ -114,7 +130,7 @@
                 </div>
                 <div class="card-footer" style="background0color:white;border:1px solid white">
 
-                  
+            
                 </div>
             </div>
 
@@ -143,9 +159,27 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label><?php echo$question->question_name?> <b>({{$question->question_mark}}Mks) </b></label>
-                                            <textarea name="student_answer" class="question"  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                                                
-                                            </textarea>
+                                             <br>
+
+                                           
+                                             <input type="text" class="form-control" name="question_answer" value="{{$question->question_answer}}" hidden="true">
+                                              
+                                             <br>
+                                            
+                                             <input type="text" class="form-control" name="question_mark" value="{{$question->question_mark}}" hidden="true">
+
+
+                                             <br>
+                                            <label> Select Your Answer</label>
+                                                <select class="form-control" name="student_answer" required>
+                                                <option value="">Select ...</option>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                            </select>
+
+                                          
                                         </div>
                                     </div>
                                 </div> 

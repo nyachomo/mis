@@ -225,7 +225,53 @@ class StudentAssignmentController extends Controller
     }
 
     public function traineeAnserQuestions(Request $request){
-      $create=StudentAnswer::create($request->all());
+        $user_id=$request->user_id;
+        $student_assignment_question_id=$request->student_assignment_question_id;
+        $student_assignment_id=$request->student_assignment_id;
+
+        $question_answer=$request->question_answer;
+        $student_answer=$request->student_answer;
+        $question_mark=$request->question_mark;
+
+        if($student_answer!=$question_answer){
+
+            $create=StudentAnswer::create([
+                'user_id'=>$user_id,
+                'student_assignment_id'=>$student_assignment_id,
+                'student_assignment_question_id'=>$student_assignment_question_id,
+                'student_answer'=>$student_answer,
+                'student_score'=>0,
+            ]);
+
+            if($create){
+                alert()->success('success','Answer submited successfully');
+                return redirect()->back();
+            }else{
+                alert()->success('Failed','Could not submit');
+                return redirect()->back(); 
+            }
+
+        }else{
+            $create=StudentAnswer::create([
+                'user_id'=>$user_id,
+                'student_assignment_id'=>$student_assignment_id,
+                'student_assignment_question_id'=>$student_assignment_question_id,
+                'student_answer'=>$student_answer,
+                'student_score'=> $question_mark,
+            ]);
+
+            if($create){
+                alert()->success('success','Answer submited successfully');
+                return redirect()->back();
+            }else{
+                alert()->success('Failed','Could not submit');
+                return redirect()->back(); 
+            }
+           
+        }
+
+        /*
+       $create=StudentAnswer::create($request->all());
         if($create){
             alert()->success('success','Answer Submited successfully');
             return redirect()->back();
@@ -233,6 +279,10 @@ class StudentAssignmentController extends Controller
             alert()->error('Failed','Could not submit');
             return redirect()->back();
         }
+             
+        */
+
+
     }
 
     public function traineeUpdateAnswer(Request $request){
