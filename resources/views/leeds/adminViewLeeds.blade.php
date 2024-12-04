@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('content')
+<?php
+use App\Models\ScholarshipLetter;
+?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
@@ -41,7 +44,7 @@
                     </div>
 
                     <div class="btn-group">
-                        <button class="btn btn-sm btn-secondary" style="float:right" data-toggle="modal" data-target="#addLeddModal"><i class="fa fa-plus las2"></i>Add Scholarship Letter (Form-four)</button>
+                        <a href="{{route('adminViewScholarshiLetters')}}" class="btn btn-sm btn-secondary"><i class="fa fa-plus las2"></i>Add Scholarship Letter</a>
                     </div>
             </div>
             <div class="card-body">
@@ -87,9 +90,21 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
+                                           
+
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#update_leed{{$leed->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit</a></li>
                                             <div class="dropdown-divider"></div>
+
+
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#test_leed{{$leed->id}}" href="#"> <i class="fa fa-edit las1"></i> Test Scholarship Letter</a></li>
+                                            <div class="dropdown-divider"></div>
+
+
+
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#print_leed{{$leed->id}}" href="#"> <i class="fa fa-edit las1"></i>View/Print Scholarship Letter</a></li>
+                                            <div class="dropdown-divider"></div>
                                             
+                                            <!--
                                             @if($leed->student_form=='Form Four')
                                                  <li><a class="dropdown-item" data-toggle="modal" data-target="#scholarshipLetterFormFour{{$leed->id}}" href="#"> <i class="fa fa-eye las2"></i>View Scholarship Letter</a></li>
                                             @else
@@ -102,10 +117,201 @@
                                             <li><a class="dropdown-item"  href="/public/downloadStudentScholarshipLetter/{{$leed->id}}"> <i class="fa fa-download las2"></i>Download Scholarship Letter</a></li>
                                             
                                             @endif
-                                            
+                                            -->
                                         </ul>
                                     </div>
 
+
+
+
+
+
+
+
+
+                                    <!--update department modal-->
+                                    <div class="modal  fade" id="test_leed{{$leed->id}}">
+                                        <?php
+                                           $class=$leed->student_form;
+                                           $letter=ScholarshipLetter::where('clas',$class)->first();
+                                        ?>
+
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title">Scholarship Letter For : {{$leed->student_fullname}}</h6>
+
+                                                  
+                                                    <script>
+                                                        /*function printPageArea(areaID){
+                                                        var printContent=document.getElementById(areaID).innerHTML;
+                                                        var originalContent=document.body.innerHTML;
+                                                        document.body.innerHTML=printContent;
+                                                        window.print();
+                                                        //document.body.innerHtml=originalContent;
+                                                        // Reload the original content after printing
+                                                        window.location.reload();
+                                                        }*/
+
+                                                        function printPageArea(areaID) {
+                                                            var printContent = document.getElementById(areaID).innerHTML;
+                                                            var originalContent = document.body.innerHTML;
+
+                                                            // Replace body content with the print content
+                                                            document.body.innerHTML = printContent;
+
+                                                            // Trigger print
+                                                            window.print();
+                                                            // Restore the original content
+                                                            document.body.innerHTML = originalContent;
+                                                            window.location.reload();
+                                                            window.alert("The page was printed successfully!");
+
+                                                            // Show a success message
+                                                            showSuccessMessage("The page was printed successfully!");
+                                                        }
+
+                                                        // Function to display a success message
+                                                        function showSuccessMessage(message) {
+                                                            // Create a div for the message
+                                                            var messageDiv = document.createElement("div");
+                                                            messageDiv.innerText = message;
+                                                            messageDiv.style.position = "fixed";
+                                                            messageDiv.style.bottom = "20px";
+                                                            messageDiv.style.right = "20px";
+                                                            messageDiv.style.backgroundColor = "#28a745";
+                                                            messageDiv.style.color = "#fff";
+                                                            messageDiv.style.padding = "10px 20px";
+                                                            messageDiv.style.borderRadius = "5px";
+                                                            messageDiv.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+                                                            messageDiv.style.zIndex = "1000";
+
+                                                            // Append to body
+                                                            document.body.appendChild(messageDiv);
+
+                                                            // Remove the message after 3 seconds
+                                                            setTimeout(function () {
+                                                                document.body.removeChild(messageDiv);
+                                                            }, 200000);
+                                                        }
+
+
+
+
+                                                    </script>
+
+                                                    <button type="button" class="btn btn-outline-success btn-sm" onclick="printPageArea('wrapper{{ $leed->id }}');"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+                                                </div>
+                                                    @csrf
+                                                    <!-- /.card-header -->
+                                                    <div class="card-body" id="wrapper{{$leed->id}}">
+                                                    <table class="table" style="width:100%">
+                                                        <tr style="border:1px solid white">
+                                                            <td style="border:1px solid white"> <h4><b>Dear {{$leed->student_fullname}}</b></h4></td>
+                                                            <td style="border:1px solid white;text-align:right;"> <h4><b>AdmNo :  TTI/NOV/2024/{{$leed->serial_number}}</b></h4></td>
+                                                        </tr>
+                                                    </table>
+
+
+
+                                                    <?php
+                                                   
+                                                   if(!empty($letter->scholarship_letter)){
+                                                            echo$letter->scholarship_letter;
+                                                            
+                                                        }else{
+                                                            ?>
+                                                                
+                                                                <p>No Scholarship Letter</p>
+                                                                
+                                                            <?php
+                                                        }
+                                                        
+                                                        ?>
+ 
+                                                    </div>
+
+                                                   
+
+                                                    
+                                                    <!-- /.card-body -->
+
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="las la-times"></i>Close</button>
+                                                        <button type="submit" class="btn btn-success" onclick="printPageArea('wrapper{{ $leed->id }}');"><i class="las la-plus"></i>Print</button>
+                                                    </div>
+                                             
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                    </div>
+                                    <!--end update department modal-->
+
+
+
+
+
+
+
+
+
+                                    <!--General Scholarship Letters-->
+                                    <div class="modal fade" id="print_leed{{$leed->id}}" tabindex="-1" role="dialog">
+                                        <?php
+                                           $class=$leed->student_form;
+                                           $letter=ScholarshipLetter::where('clas',$class)->first();
+                                        ?>
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <?php
+                                                      if(!empty($letter->scholarship_letter)){
+                                                         ?>
+                                                            <a href="/public/downloadStudentScholarshipLetter/{{$leed->id}}" class="btn btn-success downloadScholarshipLetterBtn"><i class="fa fa-download"></i> Print Letter</a>
+                                                         <?php
+                                                      }else{
+                                                           ?>
+                                                              <a href="{{route('adminViewScholarshiLetters')}}" class="btn btn-success downloadScholarshipLetterBtn"><i class="fa fa-plus"></i> Create New Letter</a> 
+                                                           <?php
+                                                      }
+                                                    ?>
+                                                  
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <!--<button id="printScholarshipLetter{{$leed->id}}" onclick="printPageArea()" class="btn btn-primary">Print</button>-->
+                                                    
+                                                </div>
+                                                <!-- /.card-header -->
+                                                <div class="modal-body" id="Letter{{$leed->id}}">
+                    
+                                                   <?php
+                                                   
+                                                    if(!empty($letter->scholarship_letter)){
+                                                        ?>
+                                                           <textarea class=addTopic>{{$letter->scholarship_letter}}</textarea>
+                                                        <?php
+                                                    }else{
+                                                        ?>
+                                                            
+                                                           <p>No Scholarship Letter</p>
+                                                            
+                                                        <?php
+                                                    }
+                                                    
+                                                   ?>
+                                                  
+
+                                                
+                                                </div>
+                                                <!-- /.card-body -->
+
+                                               <div class="modal-footer justify-content-between">
+                                                    <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-danger"><i class="las la-times"></i>Close</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                    </div>
+                                    <!--General Scholarship Letters-->
 
 
                                     <!--update leed-->

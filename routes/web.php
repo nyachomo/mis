@@ -213,6 +213,11 @@ Route::get('/student/View/timetable',[App\Http\Controllers\CourseController::cla
 //STUDENT VIEW COURSE OUTLINE
 Route::get('/student/View/course/outline',[App\Http\Controllers\CourseController::class, 'studentViewCourseOutline'])->name('studentViewCourseOutline');
 
+//LETTER HEAD
+Route::get('/admin/View/LetterHead',[App\Http\Controllers\LetterHeadController::class, 'adminViewLetterHead'])->name('adminViewLetterHead');
+Route::post('/admin/Add/LetterHead',[App\Http\Controllers\LetterHeadController::class, 'adminAddLetterHead'])->name('adminAddLetterHead');
+Route::post('/admin/Update/LetterHead',[App\Http\Controllers\LetterHeadController::class, 'adminUpdateLetterHead'])->name('adminUpdateLetterHead');
+Route::post('/admin/Delete/LetterHead',[App\Http\Controllers\LetterHeadController::class, 'adminDeleteLetterHead'])->name('adminDeleteLetterHead');
 //SCHOLARSHIP LETTERS
 Route::get('/admin/View/scholarshipletters',[App\Http\Controllers\ScholarshipLetterController::class, 'adminViewScholarshiLetters'])->name('adminViewScholarshiLetters');
 Route::post('/admin/Add/scholarshipletter',[App\Http\Controllers\ScholarshipLetterController::class, 'adminAddScholarshiLetter'])->name('adminAddScholarshiLetter');

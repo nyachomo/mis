@@ -317,6 +317,15 @@
             </li>
 
             <li class="nav-item">
+              <a href="{{route('adminViewLetterHead')}}" class="nav-link">
+                <i class="nav-icon fas fa-tree text-warning"></i>
+                <p>Letter Head <i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+           
+
+            <li class="nav-item">
               <a href="{{route('adminViewScholarshiLetters')}}" class="nav-link">
                 <i class="nav-icon fas fa-tree text-warning"></i>
                 <p>Scholarship Letters<i class="right fas fa-angle-right"></i></p>

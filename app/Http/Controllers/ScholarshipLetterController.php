@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\ScholarshipLetter;
+use App\Models\LetterHead;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -9,8 +10,9 @@ class ScholarshipLetterController extends Controller
 {
     //
     public function adminViewScholarshiLetters(){
+        $letterHead=LetterHead::first();
         $letters=ScholarshipLetter::all();
-        return view('admin.scholarship_letters.adminViewScholarshipLetters',compact('letters'));
+        return view('admin.scholarship_letters.adminViewScholarshipLetters',compact('letters','letterHead'));
     }
 
     public function adminAddScholarshiLetter(Request $request){

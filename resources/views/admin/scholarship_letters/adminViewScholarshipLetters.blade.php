@@ -49,18 +49,16 @@
               <div class="col-7 col-sm-9">
                 <div class="tab-content" id="vert-tabs-tabContent">
                   <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
-                  <center>
-                      <center><img src="{{asset('logo/logo1.jpeg')}}" alt="Logo" width="30%"></center>
-                      <p style="border-bottom:3px solid #000033">
-                          <b>
-                          View Park Towers 17th Floor, University way | P. O. Box 1334-00618, Nairobi<br>
-                          Web: <a href="https://techsphereinstitute.co.ke/stdadm/public/" style="color:blue">https://techsphereinstitute.co.ke/stdadm/public/</a> | Email: <span style="color:blue">Info@techsphereinstitute.co.ke </span>| <br>
-                          Phone: <span style="color:#3ccccc">+254768919307</span>
-                          </b>
-                      </p>
-                  </center>
-
-
+                       <?php 
+                         if(empty($letterHead->letter_head)){
+                           ?>
+                               <p>No Letter Head <a class="btn btn-success" href="{{route('adminViewLetterHead')}}">Add</a></p>
+                           <?php
+                         }else{
+                          echo$letterHead->letter_head;
+                         }
+                            
+                       ?>
                   </div>
                   @if(!empty($letters))
                        @foreach($letters as $key=>$letter)
@@ -70,6 +68,16 @@
                             <button  class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteLetter{{$letter->id}}"><i class="las la-plus"></i>Delete this Scholarship Letter</button>
                             
                             <textarea class="addTopic"name="scholarship_letter">
+                                 <?php 
+                                   if(empty($letterHead->letter_head)){
+                                    ?>
+                                       <p>No Letter Head <a class="btn btn-success" href="{{route('adminViewLetterHead')}}">Add</a></p>
+                                    <?php
+                                   }else{
+                                    echo$letterHead->letter_head;
+                                   }
+                                 
+                                 ?>
                                  <?php echo$letter->scholarship_letter;?>
                             </textarea>
                        
@@ -89,12 +97,24 @@
                                     @csrf
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                           <input type="text" name="id" value="{{$letter->id}}">
+                                           <input type="text" name="id" value="{{$letter->id}}" hidden="true">
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label>Scholarship Letter</label>
                                                         <textarea name="scholarship_letter" class="addTopic">
+                                                        <?php 
+                                                              if(empty($letterHead->letter_head)){
+                                                                ?>
+                                                                  <p>No Letter Head <a class="btn btn-success" href="{{route('adminViewLetterHead')}}">Add</a></p>
+                                                                <?php
+                                                              }else{
+                                                                echo$letterHead->letter_head;
+                                                              }
+                                                            
+                                                            ?>
+                                                             
+
                                                                <?php echo$letter->scholarship_letter;?>
                                                         </textarea> 
                                                     </div>
