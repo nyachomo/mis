@@ -9,13 +9,13 @@ use App\Models\StudentAssignmentQuestion;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h5>My Cats</h5>
+            <h5>My Assigments</h5>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <!--<li class="breadcrumb-item"><a href="#"><span class="right badge badge-secondary">Go Back</span></a></li>-->
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Manage Cats</li>
+              <li class="breadcrumb-item active">Manage Assignments</li>
             </ol>
           </div>
         </div>
@@ -57,18 +57,18 @@ use App\Models\StudentAssignmentQuestion;
             <div class="col-sm-6">
                 <div class="alert alert-info">
                     <h5>Avarage Score</h5>
-                    
+                   
                 </div>
             </div>
             
            
         </div>
     </div>
+-->
                 
              
 
 </section>
--->
 
 
        
@@ -96,7 +96,8 @@ use App\Models\StudentAssignmentQuestion;
                                 <th>Start Date</th>
                                 <th>End Date</th>
                                <!-- <th>Duration</th>-->
-                                <th>Score</th>
+                                <th>Total Marks</th>
+                                <th>Student Score</th>
                                <!-- <th>Total Score</th>-->
                                 <!--<th>Exam Status</th>-->
                                 <th>Action</th>
@@ -116,10 +117,21 @@ use App\Models\StudentAssignmentQuestion;
                                             <!--<td>{{$exam->exam_duration}}</td>-->
                                             <td>
                                                 <?php
+                                                    $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam->id)->sum('question_mark');
+                                                    echo $totalMarks;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
                                                    $totalMarks=StudentAssignmentQuestion::where('student_assignment_id',$exam->id)->sum('question_mark');
-                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->where('user_id',Auth::user()->id)->sum('student_score');
+                                                   $studentScore=StudentAnswer::where('student_assignment_id',$exam->id)->where('user_id',$studentId)->sum('student_score');
                                                   ?>
-                                                     <p><b style="color:red">{{$studentScore}}/{{$totalMarks}}</b></p>
+                                                     
+                                                     @if($studentScore==0)
+                                                       <p style="color:blue">(Not Yet Attempted)</p>
+                                                       @else
+                                                       <p><b style="color:red">{{$studentScore}}/{{$totalMarks}}</b></p>
+                                                     @endif
                                                   <?php
                                                 ?>
                                             </td> 
@@ -149,7 +161,7 @@ use App\Models\StudentAssignmentQuestion;
                                                         <li><center><a href="#" class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                         <li>
                                                             <a href="{{url('/traineeViewQuestions/'.$exam->id)}}" class="dropdown-item" >
-                                                                <i class="fa fa-edit las2"></i> Attempt Questions
+                                                            <i class="fa fa-eye las2" aria-hidden="true"></i> View Questions
                                                             </a>
                                                         </li>
 

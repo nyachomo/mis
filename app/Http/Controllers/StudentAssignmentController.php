@@ -163,7 +163,34 @@ class StudentAssignmentController extends Controller
        
     }
 
+    
     public function traineeViewCats(){
+        if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
+            $studentId=Auth::user()->id;
+            $clas_id=Auth::user()->clas_id;
+            $department_id=Auth::user()->department_id;
+            $clas=Clas::where('id',$clas_id)->first();
+            $department=Department::where('id', $department_id)->first();
+            $exams=StudentAssignment::with(['course','department','clas'])->where('exam_status','!=','Archived')->where('is_cat','Yes')->where('clas_id',$clas_id)->orderBy('id','DESC')->get();
+
+            $cumulativeMarks =StudentAnswer::where('user_id', Auth::user()->id)->sum('student_score');
+            $questionIds = StudentAnswer::where('user_id', Auth::user()->id) // Ensure you filter by student ID
+            ->pluck('student_assignment_question_id'); // Get the question_id column
+
+            $totalMarks = StudentAssignmentQuestion::whereIn('id', $questionIds) // Filter by question IDs
+            ->sum('question_mark');
+
+            //$avgScore=($cumulativeMarks/ $totalMarks)*30;
+
+       
+            return view('admin.studentassignments.traineeViewCats',compact(['exams','clas','department','studentId']));
+        }
+       
+       
+    }
+
+
+    public function traineeViewCats2(){
 
         if(Auth::check()&&Auth::user()->is_trainee=='Yes'){
             $studentId=Auth::user()->id;
@@ -181,7 +208,7 @@ class StudentAssignmentController extends Controller
             ->sum('question_mark');
 
            // $avgScore=($cumulativeMarks/ $totalMarks)*30;
-            return view('admin.studentassignments.traineeViewCats',compact(['exams','clas','department',]));
+            return view('admin.studentassignments.traineeViewCats',compact(['exams','clas','department','studentId']));
         }
 
 

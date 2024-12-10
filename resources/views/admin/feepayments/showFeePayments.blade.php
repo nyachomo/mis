@@ -128,6 +128,8 @@ use App\Models\FeePayment;
                                                     <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                     <li><a class="dropdown-item" data-toggle="modal" data-target="#update{{$user->id}}" href="#"> <i class="fa fa-edit las1"></i>Add Fee Payment</a></li>
                                                    
+                                                    <li><a class="dropdown-item"  href="{{url('/adminViewStudentFeePayment/'.$user->id)}}"> <i class="fa fa-edit las1"></i>View Payment History</a></li>
+                                                   
                                                 </ul>
                                             </div>
 

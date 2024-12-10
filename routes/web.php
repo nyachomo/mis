@@ -252,6 +252,8 @@ Route::post('/enrolTraineeToCourse',[App\Http\Controllers\UserController::class,
 Route::get('/feePayments',[App\Http\Controllers\FeePaymentController::class, 'feePayments'])->name('feePayments');
 Route::post('/addFeePayments',[App\Http\Controllers\FeePaymentController::class, 'addFeePayments'])->name('addFeePayments');
 Route::get('/trainee/View/Fee/Payment',[App\Http\Controllers\FeePaymentController::class, 'traineeViewFeePayments'])->name('traineeViewFeePayments');
+Route::get('/adminViewStudentFeePayment/{user_id}',[App\Http\Controllers\FeePaymentController::class, 'adminViewStudentFeePayment'])->name('adminViewStudentFeePayment');
+Route::post('/adminDeeleteStudentFeePayment',[App\Http\Controllers\FeePaymentController::class, 'adminDeeleteStudentFeePayment'])->name('adminDeeleteStudentFeePayment');
 
 //MANAGE DEPARTMENTS
 Route::get('/adminShowDepartments',[App\Http\Controllers\DepartmentController::class, 'adminShowDepartments'])->name('adminShowDepartments');
