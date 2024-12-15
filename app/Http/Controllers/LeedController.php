@@ -10,6 +10,7 @@ use App\Models\School;
 use Barryvdh\DomPDF\Facade\PDF;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Mail;
+use App\Models\LetterHead;
 
 class LeedController extends Controller
 {
@@ -17,10 +18,11 @@ class LeedController extends Controller
 
     public function showLeeds(){
        if(Auth::check()){
+            $letterHead=LetterHead::first();
             $leeds=Leed::with('school')->where('school_id',Auth::user()->school_id)->get();
             $school=School::where('id',Auth::user()->school_id)->first();
             $courses=Course::all();
-            return view('leeds.showLeed',compact(['leeds','courses','school']));
+            return view('leeds.showLeed',compact(['leeds','courses','school','letterHead']));
        }else{
         return redirect()->route('login');
        }
@@ -154,10 +156,11 @@ class LeedController extends Controller
 
     public function adminViewLeeds(){
         if(Auth::check()){
+            $letterHead=LetterHead::first();
             $leeds=Leed::with('school')->paginate(10);
             $schools=School::all();
             $courses=Course::all();
-            return view('leeds.adminViewLeeds',compact(['leeds','courses','schools']));
+            return view('leeds.adminViewLeeds',compact(['leeds','courses','schools','letterHead']));
        }else{
         return redirect()->route('login');
        }

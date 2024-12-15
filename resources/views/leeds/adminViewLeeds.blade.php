@@ -205,6 +205,9 @@ use App\Models\ScholarshipLetter;
                                                     @csrf
                                                     <!-- /.card-header -->
                                                     <div class="card-body" id="wrapper{{$leed->id}}">
+                                                    <?php
+                                                      echo$letterHead->letter_head;
+                                                    ?>
                                                     <table class="table" style="width:100%">
                                                         <tr style="border:1px solid white">
                                                             <td style="border:1px solid white"> <h4><b>Dear {{$leed->student_fullname}}</b></h4></td>
