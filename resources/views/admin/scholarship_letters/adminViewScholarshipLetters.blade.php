@@ -85,7 +85,7 @@
 
                         <!--add student modal-->
                         <div class="modal  fade " id="updateLetter{{$letter->id}}">
-                          <div class="modal-dialog modal-lg">
+                          <div class="modal-dialog modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h6 class="modal-title">Update Scholarship Letter for {{$letter->clas}}</h6>

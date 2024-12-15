@@ -136,7 +136,7 @@ use App\Models\ScholarshipLetter;
                                            $letter=ScholarshipLetter::where('clas',$class)->first();
                                         ?>
 
-                                        <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h6 class="modal-title">Scholarship Letter For : {{$leed->student_fullname}}</h6>
@@ -208,7 +208,7 @@ use App\Models\ScholarshipLetter;
                                                     <?php
                                                       echo$letterHead->letter_head;
                                                     ?>
-                                                    <table class="table" style="width:100%">
+                                                    <table  style="width:100%">
                                                         <tr style="border:1px solid white">
                                                             <td style="border:1px solid white"> <h4><b>Dear {{$leed->student_fullname}}</b></h4></td>
                                                             <td style="border:1px solid white;text-align:right;"> <h4><b>AdmNo :  TTI/NOV/2024/{{$leed->serial_number}}</b></h4></td>
