@@ -51,9 +51,7 @@
                   <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
                        <?php 
                          if(empty($letterHead->letter_head)){
-                           ?>
-                               <p>No Letter Head <a class="btn btn-success" href="{{route('adminViewLetterHead')}}">Add</a></p>
-                           <?php
+                          
                          }else{
                           echo$letterHead->letter_head;
                          }
@@ -69,14 +67,14 @@
                             
                             <textarea class="addTopic"name="scholarship_letter">
                                  <?php 
+                               
                                    if(empty($letterHead->letter_head)){
-                                    ?>
-                                       <p>No Letter Head <a class="btn btn-success" href="{{route('adminViewLetterHead')}}">Add</a></p>
-                                    <?php
+                                    
                                    }else{
                                     echo$letterHead->letter_head;
                                    }
                                  
+                                
                                  ?>
                                  <?php echo$letter->scholarship_letter;?>
                             </textarea>
