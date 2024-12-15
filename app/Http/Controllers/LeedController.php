@@ -116,7 +116,7 @@ class LeedController extends Controller
 
 
 
-    public function downloadStudentScholarshipLetterFormFour($id){
+    public function downloadStudentScholarshipLetterFormFour(){
         $imagePath = public_path('logo/logo1.jpeg');
         $imageData = base64_encode(file_get_contents($imagePath));
         $imageSrc = 'data:image/jpeg;base64,' . $imageData;
@@ -130,7 +130,9 @@ class LeedController extends Controller
         $imageSrc2 = 'data:image/jpeg;base64,' . $imageData2;
 
 
-        $leed=Leed::find($id);
+      
+
+        // $leed=Leed::find($id);
 
         // Load the view and pass data to it
         //$pdf = PDF::loadView('admin.departments.adminExportDepartmentsPdf', ['imageSrc' => $imageSrc] ,compact('departments'));
@@ -146,12 +148,13 @@ class LeedController extends Controller
         // Download the PDF
         //return $pdf->download('Program_Invitation_offer_letter.pdf');
 
+        //return view('welcome',compact(['leed','imageSrc','imageSrc1','imageSrc2']));
         return view('leeds.downloadStudentScholarshipLetterFormFour',compact(['leed','imageSrc','imageSrc1','imageSrc2']));
     }
 
     public function adminViewLeeds(){
         if(Auth::check()){
-            $leeds=Leed::with('school')->paginate(100);
+            $leeds=Leed::with('school')->paginate(10);
             $schools=School::all();
             $courses=Course::all();
             return view('leeds.adminViewLeeds',compact(['leeds','courses','schools']));

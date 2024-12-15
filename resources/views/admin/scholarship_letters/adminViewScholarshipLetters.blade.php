@@ -103,7 +103,9 @@
                                                     <div class="form-group">
                                                         <label>Scholarship Letter</label>
                                                         <textarea name="scholarship_letter" class="addTopic">
+
                                                         <?php 
+                                                          /*
                                                               if(empty($letterHead->letter_head)){
                                                                 ?>
                                                                   <p>No Letter Head <a class="btn btn-success" href="{{route('adminViewLetterHead')}}">Add</a></p>
@@ -112,6 +114,7 @@
                                                                 echo$letterHead->letter_head;
                                                               }
                                                             
+                                                              */
                                                             ?>
                                                              
 
