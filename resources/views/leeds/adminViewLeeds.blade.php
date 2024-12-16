@@ -96,7 +96,7 @@ use App\Models\ScholarshipLetter;
                                             <div class="dropdown-divider"></div>
 
 
-                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#test_leed{{$leed->id}}" href="#"> <i class="fa fa-edit las1"></i> Test Scholarship Letter</a></li>
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#test_leed{{$leed->id}}" href="#"> <i class="fa fa-edit las1"></i> Print/Download Scholarship Letter</a></li>
                                             <div class="dropdown-divider"></div>
 
 
