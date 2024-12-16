@@ -211,7 +211,7 @@ use App\Models\ScholarshipLetter;
                                                     <table  style="width:100%">
                                                         <tr style="border:1px solid white">
                                                             <td style="border:1px solid white"> <h4><b>Dear {{$leed->student_fullname}}</b></h4></td>
-                                                            <td style="border:1px solid white;text-align:right;"> <h4><b>AdmNo :  TTI/NOV/2024/{{$leed->serial_number}}</b></h4></td>
+                                                            <td style="border:1px solid white;text-align:right;"> <h4><b>AdmNo :  TTI/JAN/2025/{{$leed->serial_number}}</b></h4></td>
                                                         </tr>
                                                     </table>
 
