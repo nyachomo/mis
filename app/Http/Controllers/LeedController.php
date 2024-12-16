@@ -156,8 +156,41 @@ class LeedController extends Controller
 
     public function adminViewLeeds(){
         if(Auth::check()){
+
+
+            /*
+            'student_fullname',
+            'student_email',
+            'student_phone',
+            'student_gender',
+            'student_school',
+            'student_form',
+            'comment',
+            'year_data_captured',
+            'parent_name',
+            'parent_phone',
+            'parent_email',
+            'student_location',
+            'is_form_four',
+            'course_id',
+            'school_id',
+            'serial_number',
+            'course_register_for',
+            'scholarship_letter',
+            */
+
+
             $letterHead=LetterHead::first();
-            $leeds=Leed::with('school')->paginate(10);
+            $leeds=Leed::with('school')->select( 'student_fullname',
+            'student_email',
+            'school_id',
+            'serial_number',
+            'student_phone',
+            'parent_name',
+            'parent_phone',
+            'student_gender',
+            'student_school',
+            'student_form',)->where(['student_form'=>'Form Four'])->get();
             $schools=School::all();
             $courses=Course::all();
             return view('leeds.adminViewLeeds',compact(['leeds','courses','schools','letterHead']));

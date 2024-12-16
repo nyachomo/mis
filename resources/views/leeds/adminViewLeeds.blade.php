@@ -54,9 +54,9 @@ use App\Models\ScholarshipLetter;
                         <th>Serial No</th>
                         <th>Fullname</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <!--<th>Parent Name</th>-->
-                        <!--<th>Parent Phone</th>-->
+                        <th>Student Phone</th>
+                        <th>Parent Name</th>
+                        <th>Parent Phone</th>
                         <!--<th>Course</th>-->
                         <th>Gender</th>
                         <th>School</th>
@@ -74,8 +74,8 @@ use App\Models\ScholarshipLetter;
                                     <td>{{$leed->student_fullname}}</td>
                                     <td>{{$leed->student_email}}</td>
                                     <td>{{$leed->student_phone}}</td>
-                                    <!--<td>{{$leed->parent_name}}</td>-->
-                                    <!--<td>{{$leed->parent_phone}}</td>-->
+                                    <td>{{$leed->parent_name}}</td>
+                                    <td>{{$leed->parent_phone}}</td>
                                     <!--<td>{{$leed->course_register_for}}</td>-->
                                     <td>{{$leed->student_gender}}</td>
                                     <td>{{$leed->school->school_name}}</td>
@@ -100,9 +100,9 @@ use App\Models\ScholarshipLetter;
                                             <div class="dropdown-divider"></div>
 
 
-
+                                            <!--
                                             <li><a class="dropdown-item" data-toggle="modal" data-target="#print_leed{{$leed->id}}" href="#"> <i class="fa fa-edit las1"></i>View/Print Scholarship Letter</a></li>
-                                            <div class="dropdown-divider"></div>
+                                            <div class="dropdown-divider"></div>-->
                                             
                                             <!--
                                             @if($leed->student_form=='Form Four')
