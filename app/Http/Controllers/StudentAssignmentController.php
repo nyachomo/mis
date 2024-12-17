@@ -25,7 +25,8 @@ class StudentAssignmentController extends Controller
         $archivedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Archived')->where('is_assignment','Yes')->get();
         $exams=StudentAssignment::with(['course','department','clas'])->where('exam_status','!=','Archived')->where('is_assignment','Yes')->orderBy('id','DESC')->get();
         $departments=Department::where('department_status','Active')->get();
-        $courses=Course::where('course_status','Active')->get();
+        //$courses=Course::where('course_status','Active')->get();
+        $courses=Course::all();
         $clases=Clas::where('clas_status','Active')->get();
         return view('admin.studentassignments.adminShowStudentAssignments',compact(['exams','archivedexams','notpublishedexams','publishedexams','courses','departments','clases']));
     }

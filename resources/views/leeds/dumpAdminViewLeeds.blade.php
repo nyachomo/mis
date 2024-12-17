@@ -82,8 +82,7 @@ use App\Models\ScholarshipLetter;
                                     <td>{{$leed->student_form}}</td>
 
                                 <td>
-
-                                <!-- Example single danger button -->
+                                    <!-- Example single danger button -->
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm  lightColor  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                             Action
@@ -120,13 +119,9 @@ use App\Models\ScholarshipLetter;
                                             -->
                                         </ul>
                                     </div>
-
-
-
-
-
-
-
+                                </td>
+     
+                            </tr>
 
 
                                     <!--update department modal-->
@@ -208,9 +203,6 @@ use App\Models\ScholarshipLetter;
                                                     <?php
                                                       echo$letterHead->letter_head;
                                                     ?>
-
-                                                  
-
                                                     <table  style="width:100%">
                                                         <tr style="border:1px solid white">
                                                             <td style="border:1px solid white"> <h4><b>Dear {{$leed->student_fullname}}</b></h4></td>
@@ -252,11 +244,6 @@ use App\Models\ScholarshipLetter;
                                         </div>
                                     </div>
                                     <!--end update department modal-->
-
-
-
-
-
 
 
 
@@ -761,11 +748,6 @@ use App\Models\ScholarshipLetter;
 
 
 
-                                </td>
-
-
-                                    
-                            </tr>
 
                             <!--update leed-->
                             <div class="modal fade" id="update_leed{{$leed->id}}">

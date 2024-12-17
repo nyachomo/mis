@@ -184,6 +184,7 @@ class LeedController extends Controller
             $leeds=Leed::with('school')->select( 'student_fullname',
             'student_email',
             'school_id',
+            'id',
             'serial_number',
             'student_phone',
             'parent_name',
