@@ -43,6 +43,21 @@ class StudentAssignmentController extends Controller
         return view('admin.studentassignments.adminShowStudentCats',compact(['exams','archivedexams','notpublishedexams','publishedexams','courses','departments','clases']));
     }
 
+
+    public function adminShowStudentCatPerClass($id){
+        $totalexams=StudentAssignment::with(['course','department','clas'])->get();
+        $publishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Published')->where('is_cat','Yes')->get();
+        $notpublishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Not Published')->where('is_cat','Yes')->get();
+        $archivedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Archived')->where('is_cat','Yes')->get();
+        $exams=StudentAssignment::with(['course','department','clas'])->where('id',$id)->where('exam_status','!=','Archived')->where('is_cat','Yes')->orderBy('id','DESC')->get();
+        $departments=Department::where('department_status','Active')->get();
+        $courses=Course::where('course_status','Active')->get();
+        $clases=Clas::where('clas_status','Active')->get();
+        return view('admin.clas.adminShowStudentCatPerClass',compact(['exams','archivedexams','notpublishedexams','publishedexams','courses','departments','clases']));
+    }
+
+
+
     public function adminShowStudentFinalExam(){
         $totalexams=StudentAssignment::with(['course','department','clas'])->get();
         $publishedexams=StudentAssignment::with(['course','department','clas'])->where('exam_status','Published')->where('is_final_exam','Yes')->get();
@@ -381,6 +396,35 @@ class StudentAssignmentController extends Controller
         return view('admin.studentassignments.adminViewStudentAnswers',compact('studentAnswers','user','totalScore','totalMarks'));
 
 
+    }
+
+
+
+
+
+
+
+    public function deleteStudentAttempt(Request $request){
+          $delete=StudentAnswer::where('user_id',$request->user_id)->where('student_assignment_id',$request->student_assignment_id)->delete();
+          if($delete){
+            alert()->success('success','Data delete successfully');
+            return redirect()->back();
+        }else{
+            alert()->error('Failed','Could not delete');
+            return redirect()->back();
+        }
+    }
+
+
+    public function deleteStudentAttemptQuestions(Request $request){
+        $delete=StudentAnswer::where('id',$request->id)->delete();
+        if($delete){
+          alert()->success('success','Data delete successfully');
+          return redirect()->back();
+      }else{
+          alert()->error('Failed','Could not delete');
+          return redirect()->back();
+      }
     }
 
 }

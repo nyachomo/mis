@@ -280,6 +280,13 @@ Route::post('/adminRecoverClases',[App\Http\Controllers\ClasController::class, '
 Route::get('/adminExportExcelClas',[App\Http\Controllers\ClasController::class, 'adminExportExcelClas'])->name('adminExportExcelClas');
 Route::get('/adminExportClasAsPdf',[App\Http\Controllers\ClasController::class, 'adminExportClasAsPdf'])->name('adminExportClasAsPdf');
 
+Route::get('/adminShowStudentCatsPerClass/{id}',[App\Http\Controllers\StudentAssignmentController::class, 'adminShowStudentCatPerClass'])->name('adminShowStudentCatPerClass');
+
+
+Route::post('/deleteStudentAttempt',[App\Http\Controllers\StudentAssignmentController::class, 'deleteStudentAttempt'])->name('deleteStudentAttempt');
+
+Route::post('/deleteStudentAttemptQuestions',[App\Http\Controllers\StudentAssignmentController::class, 'deleteStudentAttemptQuestions'])->name('deleteStudentAttemptQuestions');
+
 //MANAGING SCHOOLS
 
 Route::get('/adminShowSchools',[App\Http\Controllers\SchoolController::class, 'adminShowSchools'])->name('adminShowSchools');

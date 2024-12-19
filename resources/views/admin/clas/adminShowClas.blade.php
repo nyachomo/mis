@@ -59,7 +59,7 @@
                                    <tr>
                                          
                                        <td>{{$key+1}}</td>
-                                       <td>{{$activeclas->clas_name}}</td>
+                                       <td><a href="/adminShowStudentCatsPerClass/{{$activeclas->id}}">{{$activeclas->clas_name}}</a></td>
                                        <td>{{$activeclas->department->department_name}}</td>
                                        <td>
                                          @if($activeclas->timetable=="")

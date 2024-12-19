@@ -58,51 +58,59 @@
 </section>
 <!--end of student-->
 
-@if(!empty($studentAnswers))
-    @foreach($studentAnswers as $key=>$studentanswer)
-    <section class="content">
-        <div class="container-fliud">
 
-        <form method="post" action="{{route('adminAwardTraineeMark')}}">
-        @csrf
-            <div class="card">
-            
-                <div class="card-body">
-                  <label>{{$key+1}}. <?php echo$studentanswer->studentassignmentquestion->question_name;?> (<?php echo$studentanswer->studentassignmentquestion->question_mark;?>Mks)</label>
-                  <textarea name="student_answer"  class="question" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                    <?php echo$studentanswer->student_answer;?>
-                 </textarea>
-                </div>
-                <div class="card-footer" style="border:1px solid white !important;background-color:white">
-                    <div class="row">
-                        <div class="col-sm-6">
-                           
-                            @if(!empty($studentanswer->student_score))
-                            <label>Score {{$studentanswer->student_score}}/{{$studentanswer->studentassignmentquestion->question_mark}}</label>
-                            <input type="number" class="form-control" min="0" max="{{$studentanswer->studentassignmentquestion->question_mark}}" value="{{$studentanswer->student_score}}" name="student_score">
-                            @else
-                            <label>Score 0/{{$studentanswer->studentassignmentquestion->question_mark}}</label>
-                            <input type="number" class="form-control" value="0" min="0" max="{{$studentanswer->studentassignmentquestion->question_mark}}" name="student_score">
+<section class="content">
+    <div class="container-fliud">
+        <div class="card">
+            <div class="card-body">
+              <div class="row">
+                  <div class="col-sm-12">
+                    <table>
+                         <thead>
+                             <th>ID</th>
+                             <th>Question </th>
+                             <th>Answer</th>
+                             <th>Student Answer</th>
+                             <th>Student Score</th>
+                             <th>Action</th>
+                         </thead>
+                         <tbody>
+
+                            @if(!empty($studentAnswers))
+                                  @foreach($studentAnswers as $key=>$studentanswer)
+                                  <tr>
+                                      <td>{{$studentanswer->id}}</td>
+                                      <td><?php echo$studentanswer->studentassignmentquestion->question_name;?> (<?php echo$studentanswer->studentassignmentquestion->question_mark;?>Mks)</td>
+                                      <td><?php echo$studentanswer->studentassignmentquestion->question_answer;?></td>
+                                      <td>{{$studentanswer->student_answer}}</td>
+                                      <td>{{$studentanswer->student_score}}</td>
+                                      <td>
+                                           <form method="POST" action="{{route('deleteStudentAttemptQuestions')}}">
+                                              @csrf
+                                              <input type="text" name="id" value="{{$studentanswer->id}}">
+                                              <button type="submit" class="btn btn-danger">Delete</button>
+                                           </form>
+                                      </td>
+                                  </tr>
+                                  @endforeach
                             @endif
-                            
-                             <input type="text" name="id" value="{{$studentanswer->id}}" class="form-control" hidden="true">
-                        </div>
-                        <div class="col-sm-6" style="padding-top:35px">
-                           
-                            <button type="submit" class="btn btn-sm btn-success" style="width:100%">Save</button>
-                        </div>
-                    </div>
-                    
-                </div>
-               
-            </div>
-            </form>
 
-           
+
+                         </tbody>
+                    </table>
+                    
+                  </div>
+
+              </div>
+            </div>
         </div>
-    </section>  
-    @endforeach
-@endif
+    </div>
+</section>
+<!--end of student-->
+
+
+
+
 
 
 @endsection

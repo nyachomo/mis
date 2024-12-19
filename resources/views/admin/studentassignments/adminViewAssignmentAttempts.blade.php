@@ -38,6 +38,7 @@ use App\Models\StudentAssignmentQuestion;
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phonenumber</th>
+                            <th>Delete User</th>
                             <th>Score</th>
                             <th>Action</th>
                         </thead>
@@ -50,6 +51,9 @@ use App\Models\StudentAssignmentQuestion;
                                       <td>{{$attempt->user->user_firstname}} {{$attempt->user->user_secondname}} {{$attempt->user->user_surname}}</td>
                                       <td>{{$attempt->user->email}}</td>
                                       <td>{{$attempt->user->user_phonenumber}}</td>
+                                      <td>
+                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteStudent{{$attempt->id}}">Delete User</button>
+                                      </td>
                                       <td>
                                          <?php
                                              $user_id=$attempt->user_id;
@@ -67,7 +71,30 @@ use App\Models\StudentAssignmentQuestion;
 
                                         <a href="{{ url('/adminViewStudentAnswers/' . $attempt->user_id . '/' . $attempt->student_assignment_id) }}"class="btn btn-sm btn-success"><i class="fa fa-eye"></i>View Answers</a>
                                       </td>
+
+                                      <td>
+                                          <form method="POST" action="{{route('deleteStudentAttempt')}}">
+                                            @csrf
+                                              <lavel>User_id</label> 
+                                              <input type="text" name="user_id" value="{{$attempt->user_id}}">
+
+                                              <lavel>Assignment_id</label> 
+                                              <input type="text" name="student_assignment_id" value="{{$attempt->student_assignment_id}}">
+                                              <button type="submit">Delete</button>
+                                          </form>
+                                      </td>
                                    </tr>
+
+
+
+
+
+                                    
+
+
+
+
+
                                 @endforeach
 
                             @endif
