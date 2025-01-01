@@ -29,16 +29,16 @@
 
 
   <!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-  var _smartsupp = _smartsupp || {};
-  _smartsupp.key = 'b7f9e59215dfeb4a10a833748dc3307a58941cfa';
-  window.smartsupp||(function(d) {
-    var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-    s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-    c.type='text/javascript';c.charset='utf-8';c.async=true;
-    c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-  })(document);
-  </script>
+  <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'b7f9e59215dfeb4a10a833748dc3307a58941cfa';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
   <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
   <!--Google fonts-->
   <style>
@@ -165,9 +165,9 @@
 
       <section class="iconsSection">
         <div class="icons-bar">
-          <a href="pages/contact.html"><i class="fa fa-address-book"><br>Enrol</i></a> 
-          <a href="pages/application.html"><i class="fa fa-plus"><br>Apply</i></a>
-          <a href="pages/contact.html"><i class="fa fa-file-signature"><br>Join us</i></a>
+          <a href="#"><i class="fa fa-address-book"><br>Enrol</i></a> 
+          <a href="#"><i class="fa fa-plus"><br>Apply</i></a>
+          <a href="#"><i class="fa fa-file-signature"><br>Join us</i></a>
           
 
         </div>
