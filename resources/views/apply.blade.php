@@ -61,7 +61,7 @@ $courses=Course::where('course_status','Active')->get();
                                         <input type="email" name="email"  placeholder="johndoe@gmail.com" class="form-control" required="">
                                     </div>
 
-                                     <!--Password-->
+                                    <!--Password-->
                                     <input type="password" name="password"  class="form-control" value="12345678" hidden="true">
                                     <!--end of password-->
                                  

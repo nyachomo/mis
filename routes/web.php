@@ -321,3 +321,23 @@ Route::get('/downloadStudentScholarshipLetterFormFour/{id}',[App\Http\Controller
 Route::get('/about_us',[App\Http\Controllers\WebsiteController::class, 'about_us'])->name('about_us');
 Route::get('/all_courses',[App\Http\Controllers\WebsiteController::class, 'all_courses'])->name('all_courses');
 Route::get('/apply',[App\Http\Controllers\WebsiteController::class, 'apply'])->name('apply');
+
+Route::get('/data-science',[App\Http\Controllers\WebsiteController::class, 'dataScience'])->name('dataScience');
+Route::get('/android-application',[App\Http\Controllers\WebsiteController::class, 'androidApplication'])->name('androidApplication');
+Route::get('/web-application',[App\Http\Controllers\WebsiteController::class, 'webApplication'])->name('webApplication');
+Route::get('/digital-marketing',[App\Http\Controllers\WebsiteController::class, 'digitalMarketing'])->name('digitalMarketing');
+Route::get('/cyber-security',[App\Http\Controllers\WebsiteController::class, 'cyberSecurity'])->name('cyberSecurity');
+Route::get('/graphic-design',[App\Http\Controllers\WebsiteController::class, 'graphicDesign'])->name('graphicDesign');
+Route::get('/software-engineering',[App\Http\Controllers\WebsiteController::class, 'softwareEngineering'])->name('softwareEngineering');
+
+Route::get('/data-analysis',[App\Http\Controllers\WebsiteController::class, 'dataAnalysis'])->name('dataAnalysis');
+
+Route::get('/about',[App\Http\Controllers\WebsiteController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/corporate-training',[App\Http\Controllers\WebsiteController::class, 'corporateTraining'])->name('corporateTraining');
+Route::get('/indistrial-attachment',[App\Http\Controllers\WebsiteController::class, 'industrialAttachment'])->name('industrialAttachment');
+Route::get('/ict-hub',[App\Http\Controllers\WebsiteController::class, 'ictHub'])->name('ictHub');
+
+Route::get('/contact-us',[App\Http\Controllers\WebsiteController::class, 'contactUs'])->name('contactUs');
+Route::get('/enrol',[App\Http\Controllers\WebsiteController::class, 'enrol'])->name('enrol');
+
+Route::post('/contact-us/create',[App\Http\Controllers\ContactController::class, 'create'])->name('contact.create');

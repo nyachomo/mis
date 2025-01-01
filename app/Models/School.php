@@ -14,7 +14,7 @@ class School extends Model
        'school_name',
        'school_location',
        'school_contact_person',
-        'phonenumber',
+       'phonenumber',
     ];
 
     public function users(){

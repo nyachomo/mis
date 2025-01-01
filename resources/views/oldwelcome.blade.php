@@ -1,10 +1,5 @@
 @extends('layouts.frontend')
 @section('content')
-<!-- Main Slider 
-<section class="slider-four" style="padding-bottom:40px">
-	<img src="{{asset('frontend/images/main-slider/advert1.jpg')}}">
-</section>
- -->
 
 
 <!-- About One / Style Two -->
