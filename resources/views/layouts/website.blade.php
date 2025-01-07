@@ -78,10 +78,10 @@
    
 
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
           <a class="navbar-brand" href="index.html" >
-            <img src="{{asset('website/logo/logo.jpeg')}}" height="60px">
+            <img src="{{asset('website/logo/logo.jpeg')}}" height="100px">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -169,7 +169,6 @@
           <a href="#"><i class="fa fa-plus"><br>Apply</i></a>
           <a href="#"><i class="fa fa-file-signature"><br>Join us</i></a>
           
-
         </div>
         <div class="icons-social">
           <a href="#" style="background-color:#4267B2" title="facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
