@@ -58,7 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
       <a href="{{route('welcome')}}" class="navbar-brand">
-        <img src="{{asset('logo/logo1.jpeg')}}" style="width:200px"
+        <img src="{{asset('logo/logo.jpeg')}}" style="width:100px"
              style="opacity: .8">
         <span class="brand-text font-weight-light"></span>
       </a>
