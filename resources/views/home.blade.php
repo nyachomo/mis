@@ -4,7 +4,20 @@
   <?php
    use App\Models\Course;
    use App\Models\User;
+   use App\Models\Clas;
    use App\Models\FeePayment;
+   use App\Models\Department;
+   use App\Models\StudentAssignment;
+
+   $trainers=count(User::where('is_trainer','Yes')->get());
+   $trainees=count(User::where('is_trainee','Yes')->get());
+   $applicants=count(User::where('is_applicant','Yes')->get());
+   $departments=count(Department::all());
+   $courses=count(Course::all());
+   $assignments=count(StudentAssignment::where('is_assignment','Yes')->get());
+   $cats=count(StudentAssignment::where('is_cat','Yes')->get());
+   $final_exams=count(StudentAssignment::where('is_final_exam','Yes')->get());
+   $clases=count(Clas::all());
   ?> 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -60,88 +73,176 @@
 @if(Auth::check()&&Auth::user()->is_admin=='Yes')
 <section class="content">
       <div class="container-fluid">
-       
-      <div class="row">
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-success">
-              <div class="info-box-content">
-                <span class="info-box-text">Users</span>
-                
-                <a href="{{route('adminShowUsers')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+
+
+
+
+       <!-- Small boxes (Stat box) -->
+       <div class="row">
+        
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <h3><?php echo$trainers?></h3>
+
+                <p>Trainers</p>
               </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{route('adminShowTrainers')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+              <h3><?php echo$trainees?></h3>
+
+                <p>Trainees</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="{{route('adminShowTrainees')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+              <h3><?php echo$applicants?></h3>
+
+                <p>Applicants</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{{route('showApplicants')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+
+
+        <div class="row">
+           
+             <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h3><?php echo$departments?></h3>
+
+                <p>Departments</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{{route('adminShowDepartments')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+
+           <!-- ./col -->
+           <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+              <h3><?php echo$courses?></h3>
+
+
+                <p>Courses</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="{{route('adminShowCourses')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
 
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-info">
-              <div class="info-box-content">
-                <span class="info-box-text">Trainees</span>
-                
-                <a href="{{route('adminShowTrainees')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+              <h3><?php echo$clases?></h3>
+
+
+                <p>Clases</p>
               </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="{{route('adminShowCourses')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
 
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-danger">
-              <div class="info-box-content">
-                <span class="info-box-text">Trainers</span>
-                
-                <a href="{{route('adminShowTrainers')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
-              </div>
-            </div>
-          </div>
+           <!-- ./col -->
+           <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <h3><?php echo$assignments?></h3>
 
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-warning">
-              <div class="info-box-content">
-                <span class="info-box-text" style="color:white">Department</span>
-                
-                <a href="{{route('adminShowDepartments')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+                <p>Assignments</p>
               </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{route('adminShowStudentAssignments')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
 
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-warning">
-              <div class="info-box-content">
-                <span class="info-box-text" style="color:white">Training Program</span>
-                
-                <a href="{{route('adminShowCourses')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h3><?php echo$cats?></h3>
+
+                <p>Cats</p>
               </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{route('adminShowStudentCats')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-danger">
-              <div class="info-box-content">
-                <span class="info-box-text">Training Clases</span>
-                <a href="{{route('adminShowClas')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
+
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <h3><?php echo$final_exams?></h3>
+
+                <p>Final Exam</p>
               </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{route('adminShowStudentFinalExam')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-info">
-              <div class="info-box-content">
-                <span class="info-box-text" style="color:white">Manage Units</span>
-                <a href="{{route('adminShowSubjects')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
-              </div>
-            </div>
-          </div>
 
-          
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-success">
-              <div class="info-box-content">
-                <span class="info-box-text" style="color:white">Assesments</span>
-                <a href="{{route('adminShowStudentAssignments')}}"><span class="info-box-number" style="color:white;font-size:25px">678</span></a>
-              </div>
-            </div>
-          </div>
+         
+        </div>
+
+
+    
+
 
         </div>
         

@@ -9,8 +9,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+             <!-- <li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>-->
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
               <li class="breadcrumb-item active">Manage Clases</li>
             </ol>
           </div>
@@ -29,16 +29,16 @@
 
                 <div class="btn-group1" style="float:right">
                         
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addClasModal"><i class="las la-plus"></i>Add New Clas</button>
-                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#archivedDepartmentModal"><i class="las la-plus"></i>{{$archivedclases->count()}} Archive</button>
-                        <button type="button" class="btn btn-sm  lightColor  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-success btn-sm borderBtn" data-toggle="modal" data-target="#addClasModal" ><i class="fa fa-plus"></i>Add New Clas</button>
+                        <button class="btn btn-danger btn-sm borderBtn" data-toggle="modal" data-target="#archivedDepartmentModal"><i class="fa fa-trash"></i> {{$archivedclases->count()}} Archive</button>
+                        <button type="button" class="borderBtn btn btn-sm  lightColor  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Export
                         </button>
                         <ul class="dropdown-menu">
                             <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
-                            <li><a class="dropdown-item"  href="{{route('adminExportClasAsPdf')}}"> <i class="fa fa-download las1" aria-hidden="true"></i>Export Pdf</a></li>
+                            <li><a class="dropdown-item text-success"  href="{{route('adminExportClasAsPdf')}}"> <i class="fa fa-download" aria-hidden="true"></i>Export Pdf</a></li>
                             <div class="dropdown-divider"></div>
-                            <li><a class="dropdown-item"  href="{{route('adminExportExcelClas')}}"><i class="fa fa-file-excel-o las3" aria-hidden="true"></i> Export Excel</a></li>
+                            <li><a class="dropdown-item text-info"  href="{{route('adminExportExcelClas')}}"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Excel</a></li>
                            
                         </ul>
                     </div>
@@ -59,7 +59,8 @@
                                    <tr>
                                          
                                        <td>{{$key+1}}</td>
-                                       <td><a href="/adminShowStudentCatsPerClass/{{$activeclas->id}}">{{$activeclas->clas_name}}</a></td>
+                                       <td>{{$activeclas->clas_name}}</td>
+                                       <!--<td><a href="/adminShowStudentCatsPerClass/{{$activeclas->id}}">{{$activeclas->clas_name}}</a></td>-->
                                        <td>{{$activeclas->department->department_name}}</td>
                                        <td>
                                          @if($activeclas->timetable=="")
@@ -76,20 +77,20 @@
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#update_clas{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit Clas</a></li>
+                                                    <li><a class="dropdown-item text-success" data-toggle="modal" data-target="#update_clas{{$activeclas->id}}" href="#"> <i class="fa fa-edit"></i> Update Clas</a></li>
                                                     <div class="dropdown-divider"></div>
 
                                                     @if($activeclas->timetable=="")
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#add_timetable{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> Add Time table</a></li>
+                                                    <li><a class="dropdown-item text-info" data-toggle="modal" data-target="#add_timetable{{$activeclas->id}}" href="#"> <i class="fa fa-plus"></i> Add Time table</a></li>
                                                     <div class="dropdown-divider"></div>
                                                     @else
 
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#update_timetable{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> View/Update Timetable</a></li>
+                                                    <li><a class="dropdown-item text-info" data-toggle="modal" data-target="#update_timetable{{$activeclas->id}}" href="#"> <i class="fa fa-edit las1"></i> View/Update Timetable</a></li>
                                                     <div class="dropdown-divider"></div>
                                                     @endif
                                                    
 
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_clas{{$activeclas->id}}" href="#"> <i class="fa fa-edit las2"></i> Archive Clas</a></li>
+                                                    <li><a class="dropdown-item text-danger" data-toggle="modal" data-target="#archive_clas{{$activeclas->id}}" href="#"> <i class="fa fa-trash"></i> Archive Clas</a></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -99,7 +100,7 @@
 
                                     <!--update department modal-->
                                     <div class="modal  fade " id="add_timetable{{$activeclas->id}}">
-                                        <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h6 class="modal-title">Add Timetable</h6>
@@ -141,10 +142,10 @@
 
                                     <!--update department modal-->
                                     <div class="modal  fade " id="update_timetable{{$activeclas->id}}">
-                                        <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title">Update Timetable</h6>
+                                                    <h6 class="modal-title">View/Update Timetable</h6>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
                                                 <form role="form" method="POST" action="{{route('adminUpdateClases')}}">

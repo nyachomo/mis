@@ -28,8 +28,8 @@
              <div class="card">
                 <div class="card-header">
                     <div class="btn-group1" style="float:right">
-                        <button class="btn btn-success btn-sm darkBlue" data-toggle="modal" data-target="#addStudentModal"><i class="las la-plus"></i>Add New Unit</button>
-                        <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#archiveSubjectModal"><i class="las la-plus"></i>{{$archivesubjects->count()}} Archive</button>
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addStudentModal"><i class="fa fa-plus"></i>Add New Unit</button>
+                        <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#archiveSubjectModal"><i class="fa fa-trash"></i>{{$archivesubjects->count()}} Archive</button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -38,7 +38,7 @@
                          
                             <th>#</th>
                             <th>Department</th>
-                            <th>Training Programe</th>
+                            <th>Training Programe (Course)</th>
                             <th>Unit Name</th>
                             <th>Action</th>
                         </thead>
@@ -61,14 +61,14 @@
                                             <ul class="dropdown-menu">
                                                 <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                 <li>
-                                                    <a href="#" class="dropdown-item"  data-toggle="modal" data-target="#update_subject{{$subject->id}}">
-                                                    <i class="fa fa-edit las1"></i> Edit
+                                                    <a href="#" class="dropdown-item text-success"  data-toggle="modal" data-target="#update_subject{{$subject->id}}">
+                                                    <i class="fa fa-edit"></i> Edit/View Unit
                                                 </a>
                                                 </li>
                                                 <div class="dropdown-divider"></div>
                                                 <li>
-                                                    <a href="#" class="dropdown-item" href="#" data-toggle="modal" data-target="#archive_subject{{$subject->id}}">
-                                                        <i class="fa fa-trash las2"></i>Archive
+                                                    <a href="#" class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#archive_subject{{$subject->id}}">
+                                                        <i class="fa fa-trash "></i>Archive Unit
                                                     </a>
                                                 </li>
                                             </ul>
@@ -82,7 +82,7 @@
 
                                  <!--update subject modal-->
                                     <div class="modal fade" id="update_subject{{$subject->id}}">
-                                        <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h6 class="modal-title">Update Unit</h6>

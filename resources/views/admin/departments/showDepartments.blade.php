@@ -9,9 +9,9 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Manage</li>
+              <!--<li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>-->
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+              <li class="breadcrumb-item active">Manage Departments</li>
             </ol>
           </div>
         </div>
@@ -29,18 +29,18 @@
 
                    <div class="btn-group1" style="float:right">
                         <!--<button class="btn btn-info btn-xs" data-toggle="modal" data-target="#uploadDepartmentModal">UPLOAD</button>-->
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addDepartmentModal">Add New Department</button>
-                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#archivedDepartmentModal">{{$archiveddepartments->count()}}Archive</button>
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addDepartmentModal" style="border-radius:50px"><i class="fa fa-plus"></i>Add New Department</button>
+                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#archivedDepartmentModal" style="border-radius:50px"><i class="fa fa-trash"></i> {{$archiveddepartments->count()}} Archive</button>
                         
                      
-                        <button type="button" class="btn btn-sm  lightColor  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" style="border-radius:50px" class="btn btn-sm  lightColor  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Export
                         </button>
                         <ul class="dropdown-menu">
                             <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
-                            <li><a class="dropdown-item"  href="{{route('adminExportDepartmentsAsPdf')}}">Export Pdf</a></li>
+                            <li><a class="dropdown-item text-info"  href="{{route('adminExportDepartmentsAsPdf')}}"><i class="fa fa-download"></i>Export Pdf</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item"  href="{{route('adminExportExcelDepartments')}}">Export Excel</a></li>
+                            <li><a class="dropdown-item text-success"  href="{{route('adminExportExcelDepartments')}}"><i class="fa fa-download"></i>Export Excel</a></li>
                         </ul>
                     </div>
 
@@ -73,7 +73,7 @@
                                                     <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                     <li><a class="dropdown-item" data-toggle="modal" data-target="#update_department{{$department->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit</a></li>
                                                     <div class="dropdown-divider"></div>
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_department{{$department->id}}" href="#"> <i class="fa fa-edit las2"></i> Archive</a></li>
+                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_department{{$department->id}}" href="#"> <i class="fa fa-trash las2"></i> Archive</a></li>
                                                 </ul>
                                             </div>
 

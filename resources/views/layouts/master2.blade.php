@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>TECHSPHERE</title>
+  <title>AdminLTE 3 | Dashboard 2</title>
 
-  <link rel="icon" type="image/jpeg" href="{{asset('logo/logo.jpeg')}}">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
@@ -16,6 +15,9 @@
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+
 
 
 
@@ -44,64 +46,10 @@
 
 
 
-  <!-- Smartsupp Live Chat script -->
-  <script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = 'b7f9e59215dfeb4a10a833748dc3307a58941cfa';
-    window.smartsupp||(function(d) {
-      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-      c.type='text/javascript';c.charset='utf-8';c.async=true;
-      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-    })(document);
-    </script>
-  <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
-  <!--Google fonts-->
-
-
-
-  <!--Watch-->
-  <style>
-      button {
-          font-size: 20px;
-          padding: 10px 20px;
-          background-color: #4CAF50;
-          color: white;
-          border: none;
-          border-radius: 50px;
-          cursor: pointer;
-      }
-
-      button:hover {
-          background-color: #45a049;
-      }
-  </style>
-
-  <!--End of watch-->
-
-
 
 
   <style>
 
-    .roundBtn{
-      border-radius:50px !important;
-      background-color:#000033;
-      color:white;
-      
-    }
-
-     
-    .btn{
-      border-radius:50px !important;
-    }
-
-    .roundBtn:hover{
-      border-radius:50px !important;
-      background-color:#00ccff;
-      color:white;
-      
-    }
   body{
     font-family: "Afacad Flux", sans-serif !important;
     font-optical-sizing: auto;
@@ -281,62 +229,66 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="height:70px;padding-right:60px;">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link"><span style="color:#000033;font-size:22px"><b>TECHSPHERE TRAINING INSTITUTE</b><span></a>
+        <a href="index3.html" class="nav-link">Home</a>
       </li>
-      
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
     </ul>
 
-   
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
      
-     <li>
-     <button id="timeButton">00:00:00</button>
-     
-     <li>
-       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-    <li class="nav-item dropdown">
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          @auth
-             <span style="font-size:20px"><b>{{ Auth::user()->user_firstname }} {{Auth::user()->user_secondname}}{{Auth::user()->user_lastname}}</b></span>
-          @else
-              Hello, Guest!
-          @endauth
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center" style="padding-left:20px;">
-             <p class="text-sm" ><a href="{{route('showUserProfile')}}" style="color: #75a3a3"><i class="fa fa-user"></i> <b style="font-size:18px">My Account</b></a></p><br>
-
-              <p class="text-sm">
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
-                  <a href="{{ route('logout') }}" style="color: #75a3a3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><b style="font-size:18px">{{ __('Logout') }} </b></a>
-                    
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
-              </p>
-
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
           </a>
-         
-         
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-
-
-
-
-
-      
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+            class="fas fa-th-large"></i></a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -344,9 +296,10 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <center> <a href="https://techsphereinstitute.co.ke/" class="brand-link" style="background-color:white;">
-      <img src="{{asset('logo/logo.jpeg')}}"
-           alt="TechSphere" style="width:50%;height:70px">
+    <center> <a href="#" class="brand-link" style="background-color:white;">
+      <img src="{{asset('logo/logo1.jpeg')}}"
+           alt="TechSphere" style="width:100%;height:45px">
+      <span class="brand-text font-weight-light">TECHSPHERE</span>
     </a>
     </center>
 
@@ -592,27 +545,104 @@
               </a>
             </li>
 
-            <li class="nav-header">ACADEMICS</li>
-
             <li class="nav-item">
               <a href="{{route('trainee_View_his_her_course')}}" class="nav-link">
-               <i class="fa fa-hourglass-o text-info" aria-hidden="true"></i>
+               <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
                 <p>My Course<i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="{{route('studentViewCourseOutline')}}" class="nav-link">
-                <i class="nav-icon fas fa-copy text-warning"></i>
+               <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
                 <p>Course Outline<i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="{{route('studentViewNotes')}}" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie text-info"></i>
-                <p>Notes<i class="right fas fa-angle-right "></i></p>
+               <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
+                <p>Notes<i class="right fas fa-angle-right"></i></p>
               </a>
+            </li>
+
+
+            
+
+           
+
+
+           
+
+            <!--<li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="fa fa-hourglass-o text-danger" aria-hidden="true"></i>
+                <p>
+                  My Courses
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" style="padding-left:25px">
+              <li class="nav-item">
+                  <a href="{{route('traineeViewAllCourses')}}" class="nav-link">
+                  
+                    <p>All Courses</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{route('trainee_View_his_her_course')}}" class="nav-link">
+                   
+                    <p>My Courses</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>-->
+
+
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="fa fa-flag-o text-info" aria-hidden="true"></i>
+                <p>
+                  My Assesments
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" style="padding-left:35px">
+                <li class="nav-item">
+                  <a href="{{route('traineeViewAssignments')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assignment</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{route('traineeViewCats')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Cats</p>
+                  </a>
+                </li>
+                <li class="nav-item has-treeview">
+                  <a href="{{route('traineeViewFinalExam')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Final Exam
+                    </p>
+                  </a>
+                </li>
+
+                <!--<li class="nav-item has-treeview">
+                  <a href="{{route('traineeViewFinalExam')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      My Project
+                    </p>
+                  </a>
+                </li>-->
+
+              </ul>
             </li>
 
             <li class="nav-item">
@@ -624,42 +654,10 @@
 
             <li class="nav-item">
               <a href="{{route('studentViewTimetable')}}" class="nav-link">
-              <i class="nav-icon fas fa-tree text-warning"></i>
+               <i class="fa fa-calendar text-success" aria-hidden="true"></i>
                 <p>Class Link<i class="right fas fa-angle-right"></i></p>
               </a>
             </li>
-
-
-
-            
-
-           
-
-            <li class="nav-header">ASSESMENTS</li>
-
-
-            <li class="nav-item">
-                  <a href="{{route('traineeViewAssignments')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-success"></i>
-                    <p>Assignment <i class="right fas fa-angle-right"></i></p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="{{route('traineeViewCats')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Cats <i class="right fas fa-angle-right"></i></p>
-                  </a>
-                </li>
-                <li class="nav-item has-treeview">
-                  <a href="{{route('traineeViewFinalExam')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>
-                      Final Exam <i class="right fas fa-angle-right"></i>
-                    </p>
-                  </a>
-                </li>
-
 
            
 
@@ -672,6 +670,29 @@
 
            
            
+
+            <!--<li class="nav-item">
+              <a href="#" class="nav-link">
+                 <i class="fa fa-envelope-o text-danger" aria-hidden="true"></i>
+                <p>Communication<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                 <i class="fa fa-file-text-o text-warning" aria-hidden="true"></i>
+                <p>News and Events<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fa fa-folder-open-o text-info" aria-hidden="true"></i>
+                <p>Documentation<i class="right fas fa-angle-right"></i></p>
+              </a>
+            </li>-->
+        
 
         </ul>
         @endif
@@ -763,9 +784,9 @@
 </div>
 <!-- ./wrapper -->
 
-
-
-
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
@@ -778,67 +799,58 @@
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
-<script src="{{asset('admin/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
-<script src="{{asset('admin/plugins/raphael/raphael.min.js')}}"></script>
-<script src="{{asset('admin/plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
-<script src="{{asset('admin/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
-<script src="{{asset('admin/plugins/chart.js/Chart.min.js')}}"></script>
+<script src="plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
+<script src="plugins/raphael/raphael.min.js')}}"></script>
+<script src="plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
+<script src="plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="{{asset('admin/plugins/chart.js/Chart.min.js')}}"></script>
+<script src="plugins/chart.js/Chart.min.js')}}"></script>
 
 <!-- PAGE SCRIPTS -->
-<script src="{{asset('admin/dist/js/pages/dashboard2.js')}}"></script>
+<script src="dist/js/pages/dashboard2.js')}}"></script>
 
 
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
 
+  $(function () {
+    // Summernote
+    $('.addTopic').summernote()
+  })
 
+  $(function () {
+    // Summernote
+    $('.question').summernote()
+  })
 
-
-
-<!-- jQuery -->
-<script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('admin/dist/js/demo.js')}}"></script>
-<!-- Summernote -->
-<script src="{{asset('admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
-<!-- DataTables -->
-
-<!-- ChartJS -->
-<script src="{{asset('admin/plugins/chartjs/Chart.min.js')}}"></script>
-
-<script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
-<script src="{{asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-
-
+  $(function () {
+    // Summernote
+    $('.answer').summernote()
+  })
+</script>
 
 
 
 <script>
-        // Function to update the time on the button
-        function updateTime() {
-            const button = document.getElementById('timeButton');
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            button.textContent = `${hours}:${minutes}:${seconds}`;
-        }
-
-        // Update the time every second
-        setInterval(updateTime, 1000);
-
-        // Initialize the button with the current time
-        updateTime();
-    </script>
-
-
+  $(function () {
+    $("#workExperience").DataTable();
+    $("#educationExperience").DataTable();
+    $("#educationAchievements").DataTable();
+    $("#example1").DataTable();
+    $("#showUsersTable").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
 
 
 <script>
@@ -904,9 +916,9 @@
     }
 
     // This will get the first returned node in the jQuery collection.
-    var areaChart       = new Chart(areaChartCanvas, { 
+    new Chart(areaChartCanvas, {
       type: 'line',
-      data: areaChartData, 
+      data: areaChartData,
       options: areaChartOptions
     })
 
@@ -914,15 +926,15 @@
     //- LINE CHART -
     //--------------
     var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-    var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-    var lineChartData = jQuery.extend(true, {}, areaChartData)
+    var lineChartOptions = $.extend(true, {}, areaChartOptions)
+    var lineChartData = $.extend(true, {}, areaChartData)
     lineChartData.datasets[0].fill = false;
     lineChartData.datasets[1].fill = false;
     lineChartOptions.datasetFill = false
 
-    var lineChart = new Chart(lineChartCanvas, { 
+    var lineChart = new Chart(lineChartCanvas, {
       type: 'line',
-      data: lineChartData, 
+      data: lineChartData,
       options: lineChartOptions
     })
 
@@ -933,12 +945,12 @@
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Chrome', 
+          'Chrome',
           'IE',
-          'FireFox', 
-          'Safari', 
-          'Opera', 
-          'Navigator', 
+          'FireFox',
+          'Safari',
+          'Opera',
+          'Navigator',
       ],
       datasets: [
         {
@@ -953,10 +965,10 @@
     }
     //Create pie or douhnut chart
     // You can switch between pie and douhnut using the method below.
-    var donutChart = new Chart(donutChartCanvas, {
+    new Chart(donutChartCanvas, {
       type: 'doughnut',
       data: donutData,
-      options: donutOptions      
+      options: donutOptions
     })
 
     //-------------
@@ -971,17 +983,17 @@
     }
     //Create pie or douhnut chart
     // You can switch between pie and douhnut using the method below.
-    var pieChart = new Chart(pieChartCanvas, {
+    new Chart(pieChartCanvas, {
       type: 'pie',
       data: pieData,
-      options: pieOptions      
+      options: pieOptions
     })
 
     //-------------
     //- BAR CHART -
     //-------------
     var barChartCanvas = $('#barChart').get(0).getContext('2d')
-    var barChartData = jQuery.extend(true, {}, areaChartData)
+    var barChartData = $.extend(true, {}, areaChartData)
     var temp0 = areaChartData.datasets[0]
     var temp1 = areaChartData.datasets[1]
     barChartData.datasets[0] = temp1
@@ -993,8 +1005,8 @@
       datasetFill             : false
     }
 
-    var barChart = new Chart(barChartCanvas, {
-      type: 'bar', 
+    new Chart(barChartCanvas, {
+      type: 'bar',
       data: barChartData,
       options: barChartOptions
     })
@@ -1003,7 +1015,7 @@
     //- STACKED BAR CHART -
     //---------------------
     var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-    var stackedBarChartData = jQuery.extend(true, {}, barChartData)
+    var stackedBarChartData = $.extend(true, {}, barChartData)
 
     var stackedBarChartOptions = {
       responsive              : true,
@@ -1018,69 +1030,13 @@
       }
     }
 
-    var stackedBarChart = new Chart(stackedBarChartCanvas, {
-      type: 'bar', 
+    new Chart(stackedBarChartCanvas, {
+      type: 'bar',
       data: stackedBarChartData,
       options: stackedBarChartOptions
     })
   })
 </script>
-
-
-
-
-
-
-
-
-
-<script>
-  $(function () {
-    // Summernote
-    $('.textarea').summernote()
-  })
-
-  $(function () {
-    // Summernote
-    $('.addTopic').summernote()
-  })
-
-  $(function () {
-    // Summernote
-    $('.question').summernote()
-  })
-
-  $(function () {
-    // Summernote
-    $('.answer').summernote()
-  })
-</script>
-
-
-
-<script>
-  $(function () {
-    $("#workExperience").DataTable();
-    $("#educationExperience").DataTable();
-    $("#educationAchievements").DataTable();
-    $("#example1").DataTable();
-    $("#showUsersTable").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
-</script>
-
-
-
-
-
-
 
 </body>
 </html>

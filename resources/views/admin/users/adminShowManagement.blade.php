@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active"> Management</li>
+              <li class="breadcrumb-item active"> Manage Administrators</li>
               
             </ol>
           </div>
@@ -25,9 +25,9 @@
                                     
                     <div class="btn-group1" style="float:right">
                         <!--<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadUsersModal"><i class="las la-plus"></i>Upload Users</button>-->
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-user-plus las2" aria-hidden="true"></i> Add New User</button>
-                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#archiveUsers"><i class="las la-plus"></i>{{$archivedUsers->count()}}Archive</button>
-                        <button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#suspendedUsers"><i class="las la-plus"></i>{{$suspendedUsers->count()}}Suspended</button>
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Add New User</button>
+                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#archiveUsers"><i class="fa fa-trash"></i>{{$archivedUsers->count()}}Archive</button>
+                        <button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#suspendedUsers"><i class="fa fa-trash"></i>{{$suspendedUsers->count()}}Suspended</button>
                 
                         <!--
                         <button type="button" class="btn btn-sm  lightColor  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

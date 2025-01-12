@@ -10,8 +10,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <!--<li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>-->
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
               <li class="breadcrumb-item active">Manage Applicants</li>
             </ol>
           </div>
@@ -112,7 +112,7 @@
                                                     <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                                     <li><a class="dropdown-item" data-toggle="modal" data-target="#update_department{{$applicant->id}}" href="#"> <i class="fa fa-edit las1"></i> Mark As Paid Reg Fee</a></li>
                                                     <div class="dropdown-divider"></div>
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_department{{$applicant->id}}" href="#"> <i class="fa fa-edit las2"></i> Delete</a></li>
+                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_department{{$applicant->id}}" href="#"> <i class="fa fa-edit las2"></i> Delete Applicant</a></li>
                                                 </ul>
                                             </div>
 

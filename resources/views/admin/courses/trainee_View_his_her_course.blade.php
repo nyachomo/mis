@@ -21,7 +21,7 @@
         </div>
       </div>
 </section>
-<!-- /.container-fluid -->
+<!-- /.container-fluid 
 
 <section class="content" style="padding-left:22px">
  <div class="container-fliud">
@@ -43,7 +43,7 @@
    
     </div>
  </div>
-</section>
+</section>-->
 
 
 <!--second section-->
@@ -94,7 +94,7 @@
                        </div>
 
                        <div class="modal-footer justify-content-between">
-                       <a  href="{{route('traineeViewAllCourses')}}" class="btn btn-secondary">Back</a>
+                      <!-- <a  href="{{route('traineeViewAllCourses')}}" class="btn btn-secondary">Back</a>-->
                        
                       </div>
 

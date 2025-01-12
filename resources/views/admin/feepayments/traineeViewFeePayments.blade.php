@@ -197,7 +197,7 @@ use App\Models\FeePayment;
                                                     <div class="card-body" id="wrapper{{$payment->id}}">
                                                         <div class="row">
                                                             <div class="col-sm-6">
-                                                                <img src="{{asset('logo/logo1.jpeg')}}" style="width:50%">
+                                                                <img src="{{asset('logo/logo.jpeg')}}" style="width:50%">
                                                             </div>
                                                             <div class="col-sm-6" style="padding-top:20px;padding-right:20px;">
                                                                 <p style="text-align:right;font-size:30px;color:#339966;"><b>PAID</b></p>

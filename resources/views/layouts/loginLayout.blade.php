@@ -9,7 +9,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Techsphere|Login</title>
+  <title>TECHSPHERE</title>
+  <link rel="icon" type="image/jpeg" href="{{asset('logo/logo.jpeg')}}">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
@@ -30,6 +31,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
 
+
+  
+  <!-- Smartsupp Live Chat script -->
+  <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'b7f9e59215dfeb4a10a833748dc3307a58941cfa';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+  <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+  <!--Google fonts-->
+
+
   <!--Google fonts-->
 
   <!-- Google Font: Source Sans Pro -->
@@ -43,8 +61,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="container">
       <a href="" class="navbar-brand">
         <img src="{{asset('website/logo/logo.jpeg')}}" style="width:200px"
-             style="opacity: .8">
-        <span class="brand-text font-weight-light"></span>
+             style="opacity: .8"> 
+        <span class="brand-text font-weight-light"></span> 
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,6 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </button>
 
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+     
         <!-- Left navbar links 
         <ul class="navbar-nav">
           <li class="nav-item" >
@@ -65,6 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <!-- Messages Dropdown Menu -->
+       
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
            Home

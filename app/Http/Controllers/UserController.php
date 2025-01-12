@@ -75,7 +75,7 @@ class UserController extends Controller
       $courses=Course::where('course_status','Active')->get();
       $clases=Clas::where('clas_status','Active')->get();
       $departments=Department::where('department_status','Active')->get();
-      $users = User::with(['department','clas'])->where(function($query) {$query->where('is_trainee', 'Yes');})->where('user_status', 'Active')->get();
+      $users = User::with(['department','clas'])->where(function($query) {$query->where('is_trainee', 'Yes');})->where('has_paid_reg_fee','Yes')->where('user_status', 'Active')->get();
       $archivedUsers = User::with(['department','clas'])->where(function($query) {$query->where('is_trainee', 'Yes');})->where('user_status', 'Archived')->get();
       $suspendedUsers = User::with(['department','clas'])->where(function($query) {$query->where('is_trainee', 'Yes');})->where('user_status', 'Suspended')->get();
       return view('admin.users.adminShowTrainees',compact(['courses','clases','users','archivedUsers','suspendedUsers','departments']));
@@ -363,7 +363,8 @@ class UserController extends Controller
 
 
  public function showApplicants(){
-    $applicants=User::with('course')->where('is_applicant','Yes')->get();
+    //$applicants=User::with('course')->where('is_applicant','Yes')->get();
+    $applicants=User::with('course')->where('has_paid_reg_fee','No')->get();
     return view('admin.applicants.adminShowApplicants',compact('applicants'));
  }
 

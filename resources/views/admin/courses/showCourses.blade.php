@@ -17,8 +17,8 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <!--<li class="breadcrumb-item"><a href="#"><span class="right badge badge-info">Go Back</span> </a></li>-->
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
               <li class="breadcrumb-item active">Manage Courses</li>
             </ol>
           </div>
@@ -26,7 +26,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
       </div><!-- /.container-fluid -->
 </section>
 
-<section class="content">
+<!--<section class="content">
    <div class="container-fliud">
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -36,7 +36,7 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
 
         </div>
    </div>
-</section>
+</section>-->
 
 @if(Auth::check())
 <section class="content">
@@ -51,16 +51,16 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                         @endif
                         @if(Auth::user()->is_admin=='Yes')
                         <!--<button class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#uploadCoursesModal"><i class="las la-plus"></i>Upload Courses</button>-->
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addCourse"><i class="las la-plus"></i>Add New Course</button>
-                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#archiveCourses"><i class="las la-plus"></i>{{$archivedcourses->count()}}Archive</button>
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addCourse"><i class="fa fa-plus"></i>Add New Course</button>
+                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#archiveCourses"><i class="fa fa-trash"></i>{{$archivedcourses->count()}}Archive</button>
                         <button type="button" class="btn btn-sm  lightColor  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Export
                         </button>
                         <ul class="dropdown-menu">
                             <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
-                            <li><a class="dropdown-item"  href="{{route('adminExportCoursesAsPdf')}}"> <i class="fa fa-download las1" aria-hidden="true"></i>Export Pdf</a></li>
+                            <li><a class="dropdown-item text-success"  href="{{route('adminExportCoursesAsPdf')}}"> <i class="fa fa-download" aria-hidden="true"></i>Export Pdf</a></li>
                             <div class="dropdown-divider"></div>
-                            <li><a class="dropdown-item"  href="{{route('adminExportCoursesAsExcel')}}"><i class="fa fa-file-excel-o las3" aria-hidden="true"></i> Export Excel</a></li>
+                            <li><a class="dropdown-item text-info"  href="{{route('adminExportCoursesAsExcel')}}"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Excel</a></li>
                            
                         </ul>
                         @endif
@@ -104,18 +104,18 @@ $mycourses=TraineeCourse::with('course')->where('user_id',$user_id)->get();
                                         <ul class="dropdown-menu">
                                             <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
                                             @if(Auth::user()->is_admin=='Yes')
-                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#update_course{{$course->id}}" href="#"> <i class="fa fa-edit las1"></i> Edit</a></li>
+                                            <li><a class="dropdown-item text-warning" data-toggle="modal" data-target="#update_course{{$course->id}}" href="#"> <i class="fa fa-edit"></i> Update Course Details</a></li>
                                             <div class="dropdown-divider"></div>
 
-                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#update_course_image{{$course->id}}" href="#"> <i class="fa fa-edit las1"></i> Update Course Image</a></li>
+                                            <li><a class="dropdown-item text-success" data-toggle="modal" data-target="#update_course_image{{$course->id}}" href="#"> <i class="fa fa-edit"></i> Update Course Image</a></li>
                                             <div class="dropdown-divider"></div>
 
-                                            <li><a class="dropdown-item"  href="{{url('/admin/View/Notes/'.$course->id)}}"> <i class="fa fa-edit las1"></i>Add/View Notes</a></li>
+                                            <li><a class="dropdown-item text-info"  href="{{url('/admin/View/Notes/'.$course->id)}}"> <i class="fa fa-plus"></i>Add/View Notes</a></li>
                                             <div class="dropdown-divider"></div>
 
                                             
 
-                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#archive_course{{$course->id}}" href="#"> <i class="fa fa-edit las2"></i> Archive</a></li>
+                                            <li><a class="dropdown-item text-danger" data-toggle="modal" data-target="#archive_course{{$course->id}}" href="#"> <i class="fa fa-trash"></i> Archive</a></li>
                                             <div class="dropdown-divider"></div>
                                             @endif
                                             @if(Auth::user()->is_trainee=='Yes')
