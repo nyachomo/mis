@@ -32,6 +32,7 @@ class User extends Authenticatable
         'is_trainee',
         'is_applicant',
         'has_paid_reg_fee',
+        'date_reg_fee_paid',
         'reg_fee_reference_no',
         'department_id',
         'clas_id',

@@ -139,6 +139,12 @@
                                                                     <!-- text input -->
                                                                     <div class="form-group">
                                                                         <input type="text" class="form-control" name="id" value="{{$applicant->id}}" hidden="true">
+                                                                        <label>Registration Fee Reference No</label>
+                                                                        <input type="text" class="form-control" name="reg_fee_reference_no" required>
+
+                                                                        <label>Date Registration was Paid</label>
+                                                                        <input type="date" name="date_reg_fee_paid" class="form-control" required>
+
                                                                         <input type="text" name="has_paid_reg_fee" value="Yes" class="form-control" hidden="true">
                                                                     </div>
                                                                 </div>
