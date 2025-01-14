@@ -129,7 +129,7 @@ use App\Models\FeePayment;
 
                    <div class="btn-group1" style="float:right">
                     @if($student->has_paid_reg_fee!='Yes' or $student->date_reg_fee_paid=="")
-                    <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#addRegFee" href="#"> <i class="fa fa-edit las1"></i> Mark As Paid Reg Fee</button>
+                    <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#addRegFee" href="#"> <i class="fa fa-edit las1"></i> Add Registration Fee</button>
                     @else
                     <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#printRegReceipt"><i class="fa fa-download"></i> Print Registration Payment Receipt</button>
                     @endif
