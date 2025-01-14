@@ -237,7 +237,7 @@ use App\Models\FeePayment;
                                                     <div class="card-body" id="wrapper{{$payment->id}}">
                                                         <div class="row">
                                                             <div class="col-sm-6">
-                                                                <img src="{{asset('logo/logo1.jpeg')}}" style="width:50%">
+                                                                <img src="{{asset('logo/logo.jpeg')}}" style="width:50%">
                                                             </div>
                                                             <div class="col-sm-6" style="padding-top:20px;padding-right:20px;">
                                                                 <p style="text-align:right;font-size:30px;color:#339966;"><b>PAID</b></p>
@@ -259,16 +259,17 @@ use App\Models\FeePayment;
                                                             <div class="col-sm-7">
                                                                 <p style="text-align:right">
                                                                 <b>Paid To</b><br>
-                                                                <b>TECHSPHERE TRAINING INSTITUTE</b>
+                                                                <b><span style="font-size:22px">TECHSPHERE TRAINING INSTITUTE</span></b>
                                                                  <br> P. O. Box 1334-00618, Nairobi View Park Towers 17th Floor<br>
-                                                                Web: <a href="https://techsphereinstitute.co.ke" style="color:blue">https://techsphereinstitute.co.ke</a> <br> Email: <span style="color:blue">Info@techsphereinstitute.co.ke </span> <br>
-                                                                Phone: <span style="color:#3ccccc">+254768919307</span>
+                                                                <b>Web:</b> <a href="https://techsphereinstitute.co.ke" style="color:blue">https://techsphereinstitute.co.ke</a> <br> 
+                                                                <b>Email: </b><span style="color:blue">Info@techsphereinstitute.co.ke </span> <br>
+                                                                <b>Phone:</b> <span style="color:#3ccccc">+254768919307</span>
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-sm-12">
-                                                                 <p><center><b>PAYMENT DETAILS</b></center></p>
+                                                                 <p style="font-size:20px !important"><center><b><span style="font-size:20px">PAYMENT DETAILS</span></b></center></p>
                                                             </div>
                                                         </div>
 
@@ -294,7 +295,7 @@ use App\Models\FeePayment;
 
                                                         <div class="row">
                                                             <div class="col-sm-12" style="padding-left:30px">
-                                                                <p>NOTE</p>
+                                                                <p><b>NOTE</b></p>
                                                                 <p>Make payment through Mpesa or Bank and send payment details to<b> +254768919307</b> or email <b>info@techsphereinstitute.co.ke</b></p>
                                                             </div>
                                                             
@@ -302,7 +303,7 @@ use App\Models\FeePayment;
 
                                                         <div class="row">
                                                             <div class="col-sm-6" style="padding:30px">
-                                                                <p>MPESA:</p>
+                                                                <p><b>MPESA:</b></p>
                                                                 <ol>
                                                                     <li> 1. Bs Name: <b>Techsphere Institute</b></li>
                                                                     <li> 2. Paybill No: <b>522533</b></li>
@@ -312,7 +313,7 @@ use App\Models\FeePayment;
                                                         
                                                             <div class="col-sm-6" style="padding:30px">
 
-                                                                <p>BANK</p>
+                                                                <p><b>BANK</b></p>
                                                                 <ol>
                                                                     <li> 1. Bank: <b>Kenya Comercial Bank</b></li>
                                                                     <li> 2. Acc Name: <b>Techsphere Institute</b></li>
