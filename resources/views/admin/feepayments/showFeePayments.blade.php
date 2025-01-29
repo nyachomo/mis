@@ -57,9 +57,9 @@ use App\Models\FeePayment;
              <div class="card">
                 <div class="card-header">
 
-                   <div class="btn-group1" style="float:right">
+                   <!--<div class="btn-group1" style="float:right">
                         <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addDepartmentModal">Add New Payment</button>
-                    </div>   
+                    </div>-->   
                    
                 </div>
                 <div class="card-body">
@@ -81,7 +81,7 @@ use App\Models\FeePayment;
                                 @foreach($users as $key=>$user)
                                    <tr>
                                         <td>{{$key+1}}</td>
-                                        <td>{{$user->user_firstname}} {{$user->user_secondname}} {{$user->user_surname}}</td>
+                                        <td><a href="{{url('/adminViewStudentFeePayment/'.$user->id)}}">{{$user->user_firstname}} {{$user->user_secondname}} {{$user->user_surname}}</a></td>
                                         <td>{{$user->user_phonenumber}}</td>
                                         <td>{{$user->email}}</td>
                                         @if(!empty($user->course->course_name))
@@ -126,9 +126,9 @@ use App\Models\FeePayment;
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><center><a class="dropdown-item" href="#"><b>More Action</b></a></center></li>
-                                                    <li><a class="dropdown-item" data-toggle="modal" data-target="#update{{$user->id}}" href="#"> <i class="fa fa-edit las1"></i>Add Fee Payment</a></li>
+                                                    <!--<li><a class="dropdown-item" data-toggle="modal" data-target="#update{{$user->id}}" href="#"> <i class="fa fa-edit las1"></i>Add Fee Payment</a></li>-->
                                                    
-                                                    <li><a class="dropdown-item"  href="{{url('/adminViewStudentFeePayment/'.$user->id)}}"> <i class="fa fa-edit las1"></i>View Payment History</a></li>
+                                                    <li><a class="dropdown-item"  href="{{url('/adminViewStudentFeePayment/'.$user->id)}}"> <i class="fa fa-edit las1"></i> Manage Fee</a></li>
                                                    
                                                 </ul>
                                             </div>

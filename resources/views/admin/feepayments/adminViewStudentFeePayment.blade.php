@@ -473,7 +473,7 @@ use App\Models\FeePayment;
                 <!-- /.card-header -->
                 <div class="card-body" id="wrapper{{$student->id}}">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding-top:20px;padding-right:20px;">
                             <img src="{{asset('logo/logo.jpeg')}}" style="width:50%">
                         </div>
                         <div class="col-sm-6" style="padding-top:20px;padding-right:20px;">
